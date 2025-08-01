@@ -45,6 +45,16 @@
 
 using namespace Data;
 
+//namespace Data
+//{
+//typedef boost::bimap<
+//                boost::bimaps::set_of<std::string>,
+//                boost::bimaps::multiset_of<std::string>,
+//                boost::bimaps::with_info<std::vector<App::StringIDRef>>> ElementMapBase;
+//class ElementMap2 : public ElementMapBase{};
+//}
+
+
 TYPESYSTEM_SOURCE_ABSTRACT(Data::Segment , Base::BaseClass)// NOLINT
 TYPESYSTEM_SOURCE_ABSTRACT(Data::ComplexGeoData , Base::Persistence)// NOLINT
 
