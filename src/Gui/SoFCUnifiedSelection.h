@@ -89,6 +89,8 @@ public:
 
     static bool hasHighlight();
 
+    bool checkSelectionStyle(int type, ViewProvider* vp);
+
     friend class View3DInventorViewer;
 
 protected:
@@ -429,6 +431,13 @@ public:
     void setElement(const SoDetail*);
     const SoDetail* getElement() const;
 
+    void setLastDetail(bool b)
+    {
+        _bLastDetail = b;
+    }
+
+    bool isLastDetail() const { return _bLastDetail; }
+
     bool isSecondary() const {return _secondary;}
     void setSecondary(bool enable) {
         _secondary = enable;
@@ -458,6 +467,7 @@ private:
     const SoDetail* _det{nullptr};
     std::map<std::string,App::Color> _colors;
     bool _secondary;
+    bool _bLastDetail;
 };
 
 /**

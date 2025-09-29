@@ -86,6 +86,7 @@
 #include "ViewParams.h"
 #include "ViewProvider.h"
 #include "ViewProviderDocumentObject.h"
+#include "ViewProviderGeometryObject.h"
 
 
 FC_LOG_LEVEL_INIT("SoFCUnifiedSelection",false,true,true)
@@ -168,6 +169,22 @@ void SoFCUnifiedSelection::finish()
 
 bool SoFCUnifiedSelection::hasHighlight() {
     return currenthighlight != nullptr;
+}
+
+bool Gui::SoFCUnifiedSelection::checkSelectionStyle(int type, ViewProvider* vp)
+{
+    if ((type == SoSelectionElementAction::All || type == SoSelectionElementAction::None) &&
+        vp->isDerivedFrom(Gui::ViewProviderGeometryObject::getClassTypeId()) )//&&
+        //static_cast<Gui::ViewProviderGeometryObject*>(vp)->SelectionType.getValue() == 1)
+    {
+        bool selected = type == SoSelectionElementAction::All;
+        static_cast<ViewProviderGeometryObject*>(vp)->showBoundingBox(selected);
+        if (selected)
+        {
+            return false;
+        }
+    }
+    return false;
 }
 
 void SoFCUnifiedSelection::applySettings()

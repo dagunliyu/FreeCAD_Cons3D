@@ -367,15 +367,21 @@ void SoBrepEdgeSet::doAction(SoAction* action)
         touch();
         return;
     }
-    else if (action->getTypeId() == Gui::SoSelectionElementAction::getClassTypeId()) {
+    else if (action->getTypeId() == Gui::SoSelectionElementAction::getClassTypeId()) 
+    {
         Gui::SoSelectionElementAction* selaction = static_cast<Gui::SoSelectionElementAction*>(action);
 
-        switch(selaction->getType()) {
-        case Gui::SoSelectionElementAction::None: {
-            if(selaction->isSecondary()) {
+        switch(selaction->getType()) 
+        {
+        case Gui::SoSelectionElementAction::None: 
+        {
+            if(selaction->isSecondary()) 
+            {
                 if(Gui::SoFCSelectionRoot::removeActionContext(action,this))
                     touch();
-            }else {
+            }
+            else 
+            {
                 SelContextPtr ctx = Gui::SoFCSelectionRoot::getActionContext(action,this,selContext,false);
                 if(ctx) {
                     ctx->selectionIndex.clear();
@@ -384,7 +390,9 @@ void SoBrepEdgeSet::doAction(SoAction* action)
                 }
             }
             return;
-        } case Gui::SoSelectionElementAction::All: {
+        } 
+        case Gui::SoSelectionElementAction::All: 
+        {
             SelContextPtr ctx = Gui::SoFCSelectionRoot::getActionContext(action,this,selContext);
             selCounter.checkAction(selaction,ctx);
             ctx->selectionColor = selaction->getColor();
@@ -394,11 +402,15 @@ void SoBrepEdgeSet::doAction(SoAction* action)
             ctx->sl.push_back(-1);
             touch();
             return;
-        } case Gui::SoSelectionElementAction::Append:
-          case Gui::SoSelectionElementAction::Remove: {
+        } 
+        case Gui::SoSelectionElementAction::Append:
+        case Gui::SoSelectionElementAction::Remove: 
+        {
             const SoDetail* detail = selaction->getElement();
-            if (!detail || !detail->isOfType(SoLineDetail::getClassTypeId())) {
-                if(selaction->isSecondary()) {
+            if (!detail || !detail->isOfType(SoLineDetail::getClassTypeId())) 
+            {
+                if(selaction->isSecondary()) 
+                {
                     // For secondary context, a detail of different type means
                     // the user may want to partial render only other type of
                     // geometry. So we call below to obtain a action context.
@@ -413,7 +425,8 @@ void SoBrepEdgeSet::doAction(SoAction* action)
             }
             int index = static_cast<const SoLineDetail*>(detail)->getLineIndex();
             SelContextPtr ctx;
-            if(selaction->getType() == Gui::SoSelectionElementAction::Append) {
+            if(selaction->getType() == Gui::SoSelectionElementAction::Append) 
+            {
                 ctx = Gui::SoFCSelectionRoot::getActionContext(action,this,selContext);
                 selCounter.checkAction(selaction,ctx);
                 ctx->selectionColor = selaction->getColor();
@@ -421,21 +434,27 @@ void SoBrepEdgeSet::doAction(SoAction* action)
                     ctx->selectionIndex.clear();
                 if(!ctx->selectionIndex.insert(index).second)
                     return;
-            }else{
+            }
+            else
+            {
                 ctx = Gui::SoFCSelectionRoot::getActionContext(action,this,selContext,false);
                 if(!ctx || !ctx->removeIndex(index))
                     return;
             }
             ctx->sl.clear();
-            if(!ctx->selectionIndex.empty()) {
+            if(!ctx->selectionIndex.empty()) 
+            {
                 const int32_t* cindices = this->coordIndex.getValues(0);
                 int numcindices = this->coordIndex.getNum();
                 auto it = ctx->selectionIndex.begin();
-                for(int section=0,i=0;i<numcindices;i++) {
+                for(int section=0,i=0;i<numcindices;i++) 
+                {
                     if(section == *it)
                         ctx->sl.push_back(cindices[i]);
-                    if(cindices[i] < 0) {
-                        if(++section > *it) {
+                    if(cindices[i] < 0) 
+                    {
+                        if(++section > *it)
+                        {
                             if(++it == ctx->selectionIndex.end())
                                 break;
                         }
@@ -447,6 +466,20 @@ void SoBrepEdgeSet::doAction(SoAction* action)
         } default :
             break;
         }
+
+        // 表明最后一个选中操作
+        if (selaction->isLastDetail())
+        {
+            int numsegm = this->selectionIndex.getNum();
+            if (numsegm > 0)
+            {
+                const int32_t* selsegm = this->selectionIndex.getValues(0);
+                const int32_t* cindices = this->coordIndex.getValues(0);
+                int numcindices = this->coordIndex.getNum();
+                createIndexArray(selsegm, numsegm, cindices, numcindices, this->sl);
+            }
+        }
+
         return;
     }
 
@@ -465,3 +498,29 @@ SoDetail * SoBrepEdgeSet::createLineSegmentDetail(SoRayPickAction * action,
     return detail;
 }
 
+// 创建集合，框选几何线，多选高亮操作卡顿
+
+static void createIndexArray(const int32_t* segm, int numsegm
+    , const int32_t* cindices, int numcindices
+    , std::vector<int32_t>& out)
+{
+    std::vector<int> nsi;
+    for (size_t i = 0; i < numcindices; i++)
+    {
+        if (cindices[i] < 0)
+        {
+            nsi.push_back(i);
+        }
+    }
+    std::vector<int32_t> v;
+    for (size_t j = 0; j < numsegm; j++)
+    {
+        int index = segm[j];
+        int start = 0, num = 0;
+        start = (index == 0) ? 0 : (nsi.operator[](index - 1) + 1);
+        num = nsi.operator[](index) - start + 1;
+        v.insert(v.end(), cindices + start, cindices + start + num);
+    }
+    
+    out.swap(v);
+}
