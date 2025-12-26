@@ -33,6 +33,10 @@
 
 using namespace Base;
 
+namespace {
+    constexpr const char* LOGGER_NAME = "FreeCAD";
+}
+
 ConsoleObserverSpdlog::ConsoleObserverSpdlog()
 {
     try {
@@ -47,7 +51,7 @@ ConsoleObserverSpdlog::ConsoleObserverSpdlog()
         
         // Combine sinks
         std::vector<spdlog::sink_ptr> sinks {console_sink, file_sink};
-        logger = std::make_shared<spdlog::logger>("FreeCAD", sinks.begin(), sinks.end());
+        logger = std::make_shared<spdlog::logger>(LOGGER_NAME, sinks.begin(), sinks.end());
         
         // Set pattern: [timestamp] [level] [notifier] message
         logger->set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] [%n] %v");
@@ -58,7 +62,7 @@ ConsoleObserverSpdlog::ConsoleObserverSpdlog()
     }
     catch (const std::exception& ex) {
         // Fallback to basic logger if setup fails
-        logger = spdlog::stdout_color_mt("FreeCAD_basic");
+        logger = spdlog::stdout_color_mt(LOGGER_NAME);
         logger->error("Failed to initialize spdlog properly: {}", ex.what());
     }
 }
@@ -67,7 +71,7 @@ ConsoleObserverSpdlog::~ConsoleObserverSpdlog()
 {
     if (logger) {
         logger->flush();
-        spdlog::drop("FreeCAD");
+        spdlog::drop(LOGGER_NAME);
     }
 }
 
@@ -107,14 +111,14 @@ void ConsoleObserverSpdlog::SendLog(const std::string& notifiername,
             break;
     }
 
-    // Format the message with notifier if present
-    std::string formatted_msg = msg;
-    if (!notifiername.empty()) {
-        formatted_msg = "[" + notifiername + "] " + msg;
-    }
-
     // Log the message at the appropriate level
-    logger->log(spdlog_level, formatted_msg);
+    // Use spdlog formatting for better performance
+    if (!notifiername.empty()) {
+        logger->log(spdlog_level, "[{}] {}", notifiername, msg);
+    }
+    else {
+        logger->log(spdlog_level, msg);
+    }
 }
 
 std::shared_ptr<spdlog::logger> ConsoleObserverSpdlog::GetLogger()
