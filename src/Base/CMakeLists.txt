@@ -15,6 +15,7 @@ include_directories(
     ${XercesC_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
     ${PYCXX_INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}/src/3rdParty/spdlog/include
 )
 
 if(MSVC)
@@ -62,6 +63,7 @@ include_directories(
 list(APPEND FreeCADBase_LIBS ${QtCore_LIBRARIES})
 
 list(APPEND FreeCADBase_LIBS fmt::fmt)
+list(APPEND FreeCADBase_LIBS spdlog)
 
 if (BUILD_DYNAMIC_LINK_PYTHON)
     list(APPEND FreeCADBase_LIBS ${PYTHON_LIBRARIES})
@@ -213,6 +215,7 @@ SET(FreeCADBase_CPP_SRCS
     Builder3D.cpp
     Console.cpp
     ConsoleObserver.cpp
+    ConsoleObserverSpdlog.cpp
     CoordinateSystem.cpp
     CoordinateSystemPyImp.cpp
     Debugger.cpp
@@ -283,6 +286,7 @@ SET(FreeCADBase_HPP_SRCS
     Builder3D.h
     Console.h
     ConsoleObserver.h
+    ConsoleObserverSpdlog.h
     Converter.h
     CoordinateSystem.h
     Debugger.h

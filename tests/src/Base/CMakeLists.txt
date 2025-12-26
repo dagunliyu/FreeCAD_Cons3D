@@ -9,4 +9,5 @@ target_sources(
             ${CMAKE_CURRENT_SOURCE_DIR}/Unit.cpp
             ${CMAKE_CURRENT_SOURCE_DIR}/Writer.cpp
             ${CMAKE_CURRENT_SOURCE_DIR}/tst_Tools.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/Console_spdlog.cpp
 )
