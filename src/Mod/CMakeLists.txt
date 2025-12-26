@@ -143,3 +143,7 @@ endif(BUILD_TUX)
 if(BUILD_WEB)
     add_subdirectory(Web)
 endif(BUILD_WEB)
+
+if(BUILD_MESHEDITOR)
+#    add_subdirectory(MeshEditor)
+endif(BUILD_MESHEDITOR)
