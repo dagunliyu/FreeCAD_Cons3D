@@ -24,6 +24,7 @@
 
 """This is the tutorial of the BIM workbench"""
 
+import ast
 import os
 
 import FreeCAD
@@ -39,7 +40,7 @@ html = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR
 <html><head><meta name="qrichtext" content="1" /><style type="text/css">
 p, li { white-space: pre-wrap; }</style></head><body>inserthere</body></html>"""
 
-URL = "https://www.freecadweb.org/wiki/BIM_ingame_tutorial"
+URL = "https://www.freecad.org/wiki/BIM_ingame_tutorial"
 TESTINTERVAL = 1000  # interval between tests
 
 
@@ -146,8 +147,10 @@ class BIM_Tutorial:
         )
         self.goal1 = re.findall(r'goal1">(.*?)</div', html)
         self.goal2 = re.findall(r'goal2">(.*?)</div', html)
-        self.test1 = re.findall(r'test1".*?>(.*?)</div', html)
-        self.test2 = re.findall(r'test2".*?>(.*?)</div', html)
+        # self.test1 = re.findall(r'test1".*?>(.*?)</div', html)
+        # self.test2 = re.findall(r'test2".*?>(.*?)</div', html)
+        self.test1 = ["False"] * len(self.goal1)
+        self.test2 = ["False"] * len(self.goal2)
 
         # fix mediawiki encodes
         self.test1 = [t.replace("&lt;", "<").replace("&gt;", ">") for t in self.test1]
@@ -176,7 +179,7 @@ class BIM_Tutorial:
                         if not os.path.exists(storename):
                             if path.startswith("/images"):
                                 # relative path
-                                fullpath = "https://www.freecadweb.org/wiki" + path
+                                fullpath = "https://www.freecad.org/wiki" + path
                             else:
                                 fullpath = path
                             u = urlopen(fullpath)
@@ -271,9 +274,9 @@ class BIM_Tutorial:
             if self.test1[self.step]:
                 if not self.done1:
                     try:
-                        result = eval(self.test1[self.step])
+                        result = ast.literal_eval(self.test1[self.step])
                     except:
-                        print("BIM Tutorial: unable to eval: " + self.test1[self.step])
+                        print("BIM Tutorial: unable to ast.literal_eval: " + self.test1[self.step])
                         result = False
                         self.done1 = True
                     if result:
@@ -284,9 +287,9 @@ class BIM_Tutorial:
             if self.test2[self.step]:
                 if not self.done2:
                     try:
-                        result = eval(self.test2[self.step])
+                        result = ast.literal_eval(self.test2[self.step])
                     except:
-                        print("BIM Tutorial: unable to eval: " + self.test2[self.step])
+                        print("BIM Tutorial: unable to ast.literal_eval: " + self.test2[self.step])
                         result = False
                         self.done2 = True
                     if result:

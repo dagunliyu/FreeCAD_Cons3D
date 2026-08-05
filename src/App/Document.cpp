@@ -994,7 +994,14 @@ void Document::Save(Base::Writer& writer) const
 
     writer.incInd();
 
+    // NOTE: This differs from LS3 Code. Persisting this table
+    //       forces the assertion in Writer.addFile(...): assert(!isForceXML()); to be removed
+    //       see: https://github.com/FreeCAD/FreeCAD/issues/27489
+    //
+    // Original code in LS3:
+    //       d->Hasher->setPersistenceFileName(0);
     d->Hasher->setPersistenceFileName("StringHasher.Table");
+
     for (const auto o : d->objectArray) {
         o->beforeSave();
     }
@@ -1741,7 +1748,13 @@ bool Document::save()
             LastModifiedBy.setValue(Author.c_str());
         }
 
-        return saveToFile(FileName.getValue());
+        bool result = saveToFile(FileName.getValue());
+        if (result) {
+            d->programVersion = Application::Config()["BuildVersionMajor"] + "."
+                + Application::Config()["BuildVersionMinor"] + "R"
+                + Application::Config()["BuildRevision"];
+        }
+        return result;
     }
 
     return false;
@@ -1791,6 +1804,12 @@ bool Document::saveToFile(const char* filename) const
 
     // realpath is canonical filename i.e. without symlink
     std::string nativePath = canonical_path(filename);
+
+    // check if file is writeable, then block the save if it is not.
+    Base::FileInfo originalFileInfo(nativePath);
+    if (originalFileInfo.exists() && !originalFileInfo.isWritable()) {
+        throw Base::FileException("Unable to save document because file is marked as read-only or write permission is not available.", originalFileInfo);
+    }
 
     // make a tmp. file where to save the project data first and then rename to
     // the actual file name. This may be useful if overwriting an existing file
@@ -2086,6 +2105,16 @@ bool Document::afterRestore(const std::vector<DocumentObject*>& objArray, bool c
             FC_ERR("Failed to restore " << obj->getFullName() << ": " << e.what());
         }
         catch (...) {
+
+            // If a Python exception occurred, it must be cleared immediately.
+            // Otherwise, the interpreter remains in a dirty state, causing
+            // Segfaults later when FreeCAD interacts with Python.
+            if (PyErr_Occurred()) {
+                Base::Console().error("Python error during object restore:\n");
+                PyErr_Print(); // Print the traceback to stderr/Console
+                PyErr_Clear(); // Reset the interpreter state
+            }
+
             d->addRecomputeLog("Unknown exception on restore", obj);
             FC_ERR("Failed to restore " << obj->getFullName() << ": " << "unknown exception");
         }
@@ -3080,7 +3109,7 @@ DocumentObject* Document::addObject(const char* sType,
                AddObjectOption::SetNewStatus
                    | (isPartial ? AddObjectOption::SetPartialStatus : AddObjectOption::UnsetPartialStatus)
                    | (isNew ? AddObjectOption::DoSetup : AddObjectOption::None)
-                   | AddObjectOption::ActivateObject, 
+                   | AddObjectOption::ActivateObject,
                viewType);
 
     // return the Object
@@ -3147,7 +3176,7 @@ void Document::_addObject(DocumentObject* pcObject, const char* pObjectName, Add
     else {
         ObjectName = getUniqueObjectName(pcObject->getTypeId().getName());
     }
- 
+
     // insert in the name map
     d->objectMap[ObjectName] = pcObject;
     d->objectNameManager.addExactName(ObjectName);
@@ -3163,7 +3192,7 @@ void Document::_addObject(DocumentObject* pcObject, const char* pObjectName, Add
     }
     d->objectIdMap[pcObject->_Id] = pcObject;
     d->objectArray.push_back(pcObject);
-     
+
      // do no transactions if we do a rollback!
     if (!d->rollback) {
         // Undo stuff
@@ -3182,9 +3211,9 @@ void Document::_addObject(DocumentObject* pcObject, const char* pObjectName, Add
     if (!isPerformingTransaction() && options.testFlag(AddObjectOption::DoSetup)) {
         pcObject->setupObject();
     }
- 
+
     if (options.testFlag(AddObjectOption::SetNewStatus)) {
-        pcObject->setStatus(ObjectStatus::New, true);    
+        pcObject->setStatus(ObjectStatus::New, true);
     }
     if (options.testFlag(AddObjectOption::SetPartialStatus) || options.testFlag(AddObjectOption::UnsetPartialStatus)) {
         pcObject->setStatus(ObjectStatus::PartialObject, options.testFlag(AddObjectOption::SetPartialStatus));
@@ -3196,15 +3225,15 @@ void Document::_addObject(DocumentObject* pcObject, const char* pObjectName, Add
     pcObject->_pcViewProviderName = viewType ? viewType : "";
 
     signalNewObject(*pcObject);
- 
+
     // do no transactions if we do a rollback!
     if (!d->rollback && d->activeUndoTransaction) {
         signalTransactionAppend(*pcObject, d->activeUndoTransaction);
     }
- 
+
     if (options.testFlag(AddObjectOption::ActivateObject)) {
         d->activeObject = pcObject;
-        signalActivatedObject(*pcObject);    
+        signalActivatedObject(*pcObject);
     }
 }
 
@@ -3241,7 +3270,7 @@ void Document::_removeObject(DocumentObject* pcObject, RemoveObjectOptions optio
         FC_ERR("Cannot delete " << pcObject->getFullName() << " while recomputing");
         return;
     }
-    
+
     TransactionLocker tlock;
 
     _checkTransaction(pcObject, nullptr, __LINE__);
@@ -3251,7 +3280,7 @@ void Document::_removeObject(DocumentObject* pcObject, RemoveObjectOptions optio
         FC_ERR("Internal error, could not find " << pcObject->getFullName() << " to remove");
     }
 
-    if (options.testFlag(RemoveObjectOption::PreserveChildrenVisibility) 
+    if (options.testFlag(RemoveObjectOption::PreserveChildrenVisibility)
         && !d->rollback && d->activeUndoTransaction && pcObject->hasChildElement()) {
         // Preserve link group sub object global visibilities. Normally those
         // claimed object should be hidden in global coordinate space. However,
@@ -3259,7 +3288,7 @@ void Document::_removeObject(DocumentObject* pcObject, RemoveObjectOptions optio
         // children, which may now in the global space. When the parent is
         // undeleted, having its children shown in both the local and global
         // coordinate space is very confusing. Hence, we preserve the visibility
-        // here        
+        // here
         for (auto& sub : pcObject->getSubObjects()) {
             if (sub.empty()) {
                 continue;
@@ -3306,7 +3335,7 @@ void Document::_removeObject(DocumentObject* pcObject, RemoveObjectOptions optio
     }
 
     std::unique_ptr<DocumentObject> tobedestroyed;
-    if ((options.testFlag(RemoveObjectOption::MayDestroyOutOfTransaction) && !d->rollback && !d->activeUndoTransaction) 
+    if ((options.testFlag(RemoveObjectOption::MayDestroyOutOfTransaction) && !d->rollback && !d->activeUndoTransaction)
         || (options.testFlag(RemoveObjectOption::DestroyOnRollback) && d->rollback)) {
         // if not saved in undo -> delete object later
         std::unique_ptr<DocumentObject> delobj(pos->second);
@@ -3322,13 +3351,13 @@ void Document::_removeObject(DocumentObject* pcObject, RemoveObjectOptions optio
             break;
         }
     }
-    
+
     // In case the object gets deleted the pointer must be nullified
     if (tobedestroyed) {
         tobedestroyed->pcNameInDocument = nullptr;
     }
 
-    // Erase last to avoid invalidating pcObject->pcNameInDocument 
+    // Erase last to avoid invalidating pcObject->pcNameInDocument
     // when it is still needed in Transaction::addObjectNew
     d->objectMap.erase(pos);
 }

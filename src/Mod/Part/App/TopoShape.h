@@ -387,7 +387,7 @@ public:
         const TopoShape& shapeToLookIn
     );
     /// Unlike \ref getTypeAndIndex() this function only handles the supported
-    /// element types.
+    /// element types. It works only if Name is just an element name (with or without TNP hash).
     static std::pair<std::string, unsigned long> getElementTypeAndIndex(const char* Name);
     /** Sub type list
      *  List of different subelement types
@@ -668,6 +668,7 @@ public:
     /** @name Manipulation*/
     //@{
     void transformGeometry(const Base::Matrix4D& rclMat) override;
+    void bakeInTransform();
     TopoDS_Shape transformGShape(const Base::Matrix4D&, bool copy = false) const;
     bool transformShape(const Base::Matrix4D&, bool copy, bool checkScale = false);
     TopoDS_Shape mirror(const gp_Ax2&) const;
@@ -2838,7 +2839,7 @@ public:
         const char* op
     );
 
-    /* Toponaming migration, February 2014:
+    /* Toponaming migration, February 2024:
      * Note that the specialized versions of makeElementShape for operations that do not
      * inherit from BRepBuilderAPI_MakeShape  ( like BRepBuilderAPI_Sewing ) have been removed.
      * Rather than restore them, code that calls them should be changed to call

@@ -123,6 +123,9 @@ public:
     mutable boost::signals2::signal<void(const Gui::ViewProviderDocumentObject&)> signalRelabelObject;
     /// signal on activated Object
     mutable boost::signals2::signal<void(const Gui::ViewProviderDocumentObject&)> signalActivatedObject;
+    /// signal on activated Object in the tree (bold item)
+    mutable boost::signals2::signal<void(const Gui::ViewProviderDocumentObject*, const char*)>
+        signalActivatedViewProvider;
     /// signal on entering in edit mode
     mutable boost::signals2::signal<void(const Gui::ViewProviderDocumentObject&)> signalInEdit;
     /// signal on leaving edit mode
@@ -350,6 +353,8 @@ private:
     bool checkTransactionID(bool undo, int iSteps);
     /// Ask for user interaction if saving has failed
     bool askIfSavingFailed(const QString&);
+    /// Warn if saving a document from an older FreeCAD version (returns false if user cancels)
+    bool warnIfOlderVersion();
 
     struct DocumentP* d;
     static int _iDocCount;

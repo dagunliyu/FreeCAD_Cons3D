@@ -31,6 +31,7 @@
 #include <cctype>
 #include <mutex>
 #include <QApplication>
+#include <QCheckBox>
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QOpenGLWidget>
@@ -648,8 +649,6 @@ bool Document::trySetEdit(Gui::ViewProvider* p, int ModNum, const char* subname)
 {
     auto vp = DocumentP::throwIfCastFails(p);
 
-    resetIfEditing();
-
     auto obj = DocumentP::tryGetObject(vp);
 
     std::string _subname = subname ? subname : "";
@@ -660,10 +659,19 @@ bool Document::trySetEdit(Gui::ViewProvider* p, int ModNum, const char* subname)
             obj = finder.getObject();
             vp = finder.getViewProvider();
             if (vp->getDocument() != this) {
+                resetIfEditing();
+
                 return vp->getDocument()->setEdit(vp, ModNum, _subname.c_str());
             }
         }
     }
+
+    // Fix for #13852: When switching edit directly between sketches, resetIfEditing()
+    // triggers unsetEdit() on the previous sketch which restores its selection.
+    // This clobbers the selection of the new sketch that ParentFinder relies on.
+    // Moving resetIfEditing() after ParentFinder ensures we resolve the parent context correctly
+    // using the current selection before closing the previous edit.
+    resetIfEditing();
 
     d->throwIfNotInMap(obj, getDocument());
 
@@ -1414,11 +1422,11 @@ static bool checkCanonicalPath(const std::map<App::Document*, bool>& docs)
 
     auto docName = [](App::Document* doc) -> QString {
         if (doc->Label.getStrValue() == doc->getName()) {
-            return QString::fromLatin1(doc->getName());
+            return QString::fromUtf8(doc->getName());
         }
         return QStringLiteral("%1 (%2)").arg(
             QString::fromUtf8(doc->Label.getValue()),
-            QString::fromLatin1(doc->getName())
+            QString::fromUtf8(doc->getName())
         );
     };
     int count = 0;
@@ -1497,10 +1505,103 @@ bool Document::askIfSavingFailed(const QString& error)
     return false;
 }
 
+bool Document::warnIfOlderVersion()
+{
+    // Skip warning if no GUI (headless/scripted mode)
+    if (!getMainWindow()) {
+        return true;
+    }
+
+    // Check if version checking is disabled in preferences
+    if (App::GetApplication()
+            .GetParameterGroupByPath("User parameter:BaseApp/Preferences/Document")
+            ->GetBool("DisableVersionCheckOnSave", false)) {
+        return true;
+    }
+
+    // Get document version info
+    const char* docVersion = d->_pcDocument->getProgramVersion();
+    const bool hasVersionString = !Base::Tools::isNullOrEmpty(docVersion);
+
+    // Parse document version string like "1.0R39319 (Git)" or "0.21R33694 (Git)"
+    // hasVersion is true only if the string is present AND parses as major.minor.
+    // Unrecognised strings like "pre-0.14" still display in the dialog but cannot
+    // be compared numerically, so they are treated as older versions.
+    int docMajor = 0, docMinor = 0;
+    const bool hasVersion = hasVersionString
+        && std::sscanf(docVersion, "%d.%d", &docMajor, &docMinor) == 2;
+
+    // Get current FreeCAD version
+    auto config = App::Application::Config();
+    int currentMajor = 0, currentMinor = 0;
+    if (config.count("BuildVersionMajor") && config.count("BuildVersionMinor")) {
+        currentMajor = std::stoi(config["BuildVersionMajor"]);
+        currentMinor = std::stoi(config["BuildVersionMinor"]);
+    }
+    else {
+        return true;
+    }
+
+    // Warn if the document was created with an older version or has no version info
+    if (!hasVersion || (docMajor < currentMajor)
+        || (docMajor == currentMajor && docMinor < currentMinor)) {
+        QMessageBox msgBox(getMainWindow());
+        msgBox.setWindowTitle(QObject::tr("File Created with Older FreeCAD Version"));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setText(
+            QObject::tr(
+                "This file was created with %1, but you are using v%2.%3.\n\n"
+                "Saving will upgrade the file format. The file may not be readable "
+                "by older versions of FreeCAD after saving.\n\n"
+                "Use 'Save As…' to preserve the original file."
+                "\n"
+            )
+                .arg(
+                    !hasVersionString
+                        ? QObject::tr("an unknown older version of FreeCAD")
+                        : QObject::tr("FreeCAD version %1").arg(QString::fromUtf8(docVersion))
+                )
+                .arg(currentMajor)
+                .arg(currentMinor)
+        );
+        QPushButton* saveButton = msgBox.addButton(QObject::tr("Save"), QMessageBox::AcceptRole);
+        QPushButton* saveAsButton = msgBox.addButton(QObject::tr("Save As…"), QMessageBox::ActionRole);
+        msgBox.addButton(QMessageBox::Cancel);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+
+        QCheckBox dontShowCheckBox(QObject::tr("Do not show this warning again"), &msgBox);
+        msgBox.setCheckBox(&dontShowCheckBox);
+
+        int ret = msgBox.exec();
+
+        if (msgBox.clickedButton() == saveButton) {
+            if (dontShowCheckBox.isChecked()) {
+                App::GetApplication()
+                    .GetParameterGroupByPath("User parameter:BaseApp/Preferences/Document")
+                    ->SetBool("DisableVersionCheckOnSave", true);
+            }
+        }
+        else if (msgBox.clickedButton() == saveAsButton) {
+            saveAs();
+            return false;
+        }
+
+        if (ret == QMessageBox::Cancel) {
+            return false;
+        }
+    }
+    return true;
+}
+
 /// Save the document
 bool Document::save()
 {
     if (d->_pcDocument->isSaved()) {
+        // Warn if this document was created with an older FreeCAD version
+        if (!warnIfOlderVersion()) {
+            return false;
+        }
+
         try {
             std::vector<App::Document*> docs;
             std::map<App::Document*, bool> dmap;
@@ -1780,16 +1881,19 @@ void Document::Save(Base::Writer& writer) const
             int size = hGrp->GetInt("ThumbnailSize", 256);
             size = Base::clamp<int>(size, 64, 512);
             std::list<MDIView*> mdi = getMDIViews();
+
+            View3DInventorViewer* view = nullptr;
             for (const auto& it : mdi) {
                 if (it->isDerivedFrom<View3DInventor>()) {
-                    View3DInventorViewer* view = static_cast<View3DInventor*>(it)->getViewer();
-                    d->thumb.setFileName(d->_pcDocument->FileName.getValue());
-                    d->thumb.setSize(size);
-                    d->thumb.setViewer(view);
-                    d->thumb.Save(writer);
+                    view = static_cast<View3DInventor*>(it)->getViewer();
                     break;
                 }
             }
+
+            d->thumb.setFileName(d->_pcDocument->FileName.getValue());
+            d->thumb.setSize(size);
+            d->thumb.setViewer(view);
+            d->thumb.Save(writer);
         }
     }
 }

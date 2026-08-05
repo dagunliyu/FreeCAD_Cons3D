@@ -217,11 +217,13 @@ SET(bimtests_SRCS
     bimtests/TestArchComponent.py
     bimtests/TestArchBuildingPart.py
     bimtests/TestArchRoof.py
+    bimtests/test_roof_subtraction.brep
     bimtests/TestArchSpace.py
     bimtests/TestArchWall.py
     bimtests/TestArchMaterial.py
     bimtests/TestArchPanel.py
     bimtests/TestArchWindow.py
+    bimtests/TestArchWindowGui.py
     bimtests/TestArchStairs.py
     bimtests/TestArchStructure.py
     bimtests/TestArchPipe.py

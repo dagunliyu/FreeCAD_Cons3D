@@ -74,6 +74,7 @@ public:
     void toggleCosmeticLines(bool state);
     void setViewPartFeature(TechDraw::DrawViewPart *obj);
     void updateView(bool update = false) override;
+    void updateFrameVisibility() override;
     void tidy();
     QRectF boundingRect() const override;
 
@@ -126,6 +127,12 @@ public:
     virtual double getLineWidth();
     virtual double getVertexSize();
 
+    bool isExporting() const;
+    bool hideCenterMarks() const;
+
+    void setMovableFlag() override;
+    void setMovableFlagProjGroupItem();
+
 protected:
     bool sceneEventFilter(QGraphicsItem *watched, QEvent *event) override;
     QPainterPath drawPainterPath(TechDraw::BaseGeomPtr baseGeom) const;
@@ -142,14 +149,13 @@ protected:
     void removePrimitives();
     void removeDecorations();
     bool prefFaceEdges();
-    bool prefPrintCenters();
     Base::Color prefBreaklineColor();
 
     bool formatGeomFromCosmetic(std::string cTag, QGIEdge* item);
     bool formatGeomFromCenterLine(std::string cTag, QGIEdge* item);
 
-    bool showCenterMarks();
-    bool showVertices();
+    bool showCenterMarks() const;
+    bool showVertices() const;
 
 private:
     QList<QGraphicsItem*> deleteItems;
@@ -162,3 +168,4 @@ private:
 } // namespace
 
 #endif // DRAWINGGUI_QGRAPHICSITEMVIEWPART_H
+

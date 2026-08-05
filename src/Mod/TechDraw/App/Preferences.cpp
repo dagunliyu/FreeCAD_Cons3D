@@ -709,3 +709,18 @@ double Preferences::detailSnapRadius()
     return getPreferenceGroup("General")->GetFloat("DetailSnapRadius", 0.6);
 }
 
+//! true if old style transparency values should be converted to new style alpha values for color properties.
+bool Preferences::fixColorAlphaOnLoad()
+{
+    return getPreferenceGroup("General")->GetBool("FixColorAlphaOnLoad", true);
+}
+
+bool Preferences::showCenterMarks()
+{
+    return getPreferenceGroup("Decorations")->GetBool("ShowCenterMarks", false);
+}
+
+bool Preferences::printCenterMarks()
+{
+    return getPreferenceGroup("Decorations")->GetBool("PrintCenterMarks", false);
+}

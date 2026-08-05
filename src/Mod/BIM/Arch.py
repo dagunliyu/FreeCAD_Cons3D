@@ -393,7 +393,7 @@ def makeEquipment(baseobj=None, placement=None, name=None):
     # Initialize all relevant properties
     if baseobj:
         if baseobj.isDerivedFrom("Mesh::Feature"):
-            equipment.Mesh = baseobj
+            equipment.HiRes = baseobj
         else:
             equipment.Base = baseobj
     if placement:
@@ -1738,6 +1738,7 @@ def makeWall(
     wall.Align = (
         align if align else ["Center", "Left", "Right"][params.get_param_arch("WallAlignment")]
     )
+    wall.Offset = offset if offset else params.get_param_arch("WallOffset")
 
     if wall.Base and FreeCAD.GuiUp:
         if Draft.getType(wall.Base) != "Space":

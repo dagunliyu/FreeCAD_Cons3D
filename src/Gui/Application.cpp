@@ -20,6 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <FCConfig.h>
+
 #include <boost/interprocess/sync/file_lock.hpp>
 #include <Inventor/errors/SoDebugError.h>
 #include <Inventor/errors/SoError.h>
@@ -39,13 +41,12 @@
 #include <QTextStream>
 #include <QTimer>
 #include <QWindow>
+#include <QStyleFactory>
 
 #include <QLoggingCategory>
 #include <fmt/format.h>
 #include <list>
 #include <ranges>
-
-#include <FCConfig.h>
 
 #include <App/Document.h>
 #include <App/DocumentObjectPy.h>
@@ -141,6 +142,7 @@
 #include "Inventor/SoFCPlacementIndicatorKit.h"
 #include "QtWidgets.h"
 
+#include <FreeCADStyle.h>
 #include <OverlayManager.h>
 #include <ParamHandler.h>
 #include <Base/ServiceProvider.h>
@@ -791,7 +793,7 @@ void Application::open(const char* FileName, const char* Module)
             getMainWindow()->appendRecentFile(filename);
             FileDialog::setWorkingDirectory(filename);
         }
-        catch (const Base::PyException& e) {
+        catch (const Base::Exception& e) {
             // Usually thrown if the file is invalid somehow
             e.reportException();
         }
@@ -900,7 +902,7 @@ void Application::importFrom(const char* FileName, const char* DocName, const ch
             }
             FileDialog::setWorkingDirectory(filename);
         }
-        catch (const Base::PyException& e) {
+        catch (const Base::Exception& e) {
             // Usually thrown if the file is invalid somehow
             e.reportException();
         }
@@ -1048,6 +1050,33 @@ void Application::slotNewDocument(const App::Document& Doc, bool isMainDoc)
 
 void Application::slotDeleteDocument(const App::Document& Doc)
 {
+    // Capture dependencies and their CURRENT view state before the document is destroyed.
+    struct Candidate
+    {
+        std::string name;
+        bool hadViews;
+    };
+    std::vector<Candidate> candidates;
+
+    try {
+        std::vector<App::Document*> deps = const_cast<App::Document&>(Doc).getDependentDocuments();
+
+        for (auto d : deps) {
+            if (d == &Doc) {  // Skip self
+                continue;
+            }
+
+            // Check if this dependency currently has a visible tab/view
+            Gui::Document* gDoc = getDocument(d);
+            bool hasViews = (gDoc && !gDoc->getMDIViews().empty());
+
+            candidates.push_back({d->getName(), hasViews});
+        }
+    }
+    catch (Base::Exception& e) {
+        e.reportException();
+    }
+
     std::map<const App::Document*, Gui::Document*>::iterator doc = d->documents.find(&Doc);
     if (doc == d->documents.end()) {
         Base::Console().log("GUI document '%s' already deleted\n", Doc.getName());
@@ -1077,6 +1106,43 @@ void Application::slotDeleteDocument(const App::Document& Doc)
     // For exception-safety use a smart pointer
     unique_ptr<Document> delDoc(doc->second);
     d->documents.erase(doc);
+
+    if (!candidates.empty()) {
+        QTimer::singleShot(0, [candidates]() {
+            for (const auto& cand : candidates) {
+                App::Document* child = App::GetApplication().getDocument(cand.name.c_str());
+                if (!child || child->isTouched() || cand.hadViews) {
+                    continue;
+                }
+
+                // Reference Check: Is it used by any OTHER open document?
+                bool isStillReferenced = false;
+                std::vector<App::Document*> openDocs = App::GetApplication().getDocuments();
+                for (App::Document* openDoc : openDocs) {
+                    if (openDoc == child) {
+                        continue;  // Don't check self-reference
+                    }
+
+                    try {
+                        std::vector<App::Document*> otherDeps = openDoc->getDependentDocuments();
+                        if (std::find(otherDeps.begin(), otherDeps.end(), child) != otherDeps.end()) {
+                            isStillReferenced = true;
+                            break;
+                        }
+                    }
+                    catch (Base::Exception& e) {
+                        e.reportException();
+                        continue;
+                    }
+                }
+
+                // 5. Close if truly orphan
+                if (!isStillReferenced) {
+                    App::GetApplication().closeDocument(cand.name.c_str());
+                }
+            }
+        });
+    }
 }
 
 void Application::slotRelabelDocument(const App::Document& Doc)
@@ -2384,7 +2450,6 @@ void tryRunEventLoop(GUISingleApplication& mainApp)
     Base::FileInfo fi(out.str());
     Base::ofstream lock(fi);
 
-    // In case the file_lock cannot be created start FreeCAD without IPC support.
 #if !defined(FC_OS_WIN32) || (BOOST_VERSION < 107600)
     std::string filename = out.str();
 #else
@@ -2409,17 +2474,21 @@ void tryRunEventLoop(GUISingleApplication& mainApp)
             fi.deleteFile();
         }
         else {
-            Base::Console().warning(
+            Base::Console().error(
                 "Failed to create a file lock for the IPC.\n"
-                "The application will be terminated\n"
+                "The application will be terminated.\n"
+                "Attempted lock file: %s",
+                fi.filePath().c_str()
             );
         }
     }
     catch (const boost::interprocess::interprocess_exception& e) {
         QString msg = QString::fromLocal8Bit(e.what());
-        Base::Console().warning(
-            "Failed to create a file lock for the IPC: %s\n",
-            msg.toUtf8().constData()
+        Base::Console().error(
+            "Failed to create a file lock for the IPC: %s\n"
+            "Attempted lock file: %s\n",
+            msg.toUtf8().constData(),
+            fi.filePath().c_str()
         );
     }
 }
@@ -2603,6 +2672,18 @@ void Application::setStyleSheet(const QString& qssFile, bool tiledBackground)
     mw->setProperty("fc_currentStyleSheet", qssFile);
     mw->setProperty("fc_tiledBackground", tiledBackground);
 
+    QString defaultStyleSheet = [this]() {
+        QFile f(QLatin1String("qss:defaults.qss"));
+
+        if (!f.open(QFile::ReadOnly)) {
+            return QString();
+        }
+
+        QTextStream in(&f);
+
+        return replaceVariablesInQss(in.readAll());
+    }();
+
     if (!qssFile.isEmpty()) {
         // Search for stylesheet in user-defined search paths.
         // For qss they are set-up in runApplication() with the prefix "qss"
@@ -2622,7 +2703,7 @@ void Application::setStyleSheet(const QString& qssFile, bool tiledBackground)
 
             QString styleSheetContent = replaceVariablesInQss(str.readAll());
 
-            qApp->setStyleSheet(styleSheetContent);
+            qApp->setStyleSheet(defaultStyleSheet + QStringLiteral("\n") + styleSheetContent);
 
             ActionStyleEvent e(ActionStyleEvent::Clear);
             qApp->sendEvent(mw, &e);
@@ -2650,13 +2731,13 @@ void Application::setStyleSheet(const QString& qssFile, bool tiledBackground)
     }
     else {
         if (tiledBackground) {
-            qApp->setStyleSheet(QString());
+            qApp->setStyleSheet(defaultStyleSheet);
             ActionStyleEvent e(ActionStyleEvent::Restore);
             qApp->sendEvent(getMainWindow(), &e);
             mdi->setBackground(QPixmap(QLatin1String("images:background.png")));
         }
         else {
-            qApp->setStyleSheet(QString());
+            qApp->setStyleSheet(defaultStyleSheet);
             ActionStyleEvent e(ActionStyleEvent::Restore);
             qApp->sendEvent(getMainWindow(), &e);
             mdi->setBackground(QBrush(QColor(160, 160, 160)));
@@ -2690,6 +2771,38 @@ void Application::reloadStyleSheet()
 QString Application::replaceVariablesInQss(const QString& qssText)
 {
     return QString::fromStdString(d->styleParameterManager->replacePlaceholders(qssText.toStdString()));
+}
+
+void Application::setStyle(const QString& name)
+{
+    const auto createStyleFromName = [](const QString& name) -> QStyle* {
+        if (name == QStringLiteral("FreeCAD")) {
+            return new FreeCADStyle();
+        }
+
+        if (name.compare(QStringLiteral("System"), Qt::CaseInsensitive) == 0) {
+            return nullptr;
+        }
+
+        return QStyleFactory::create(name);
+    };
+
+    const auto requiresEventFilter = [](QStyle* style) {
+        // for now only FreeCAD style requires additional event processing
+        return qobject_cast<FreeCADStyle*>(style) != nullptr;
+    };
+
+    if (auto* current = qApp->style(); current != nullptr && requiresEventFilter(current)) {
+        qApp->removeEventFilter(current);
+    }
+
+    if (auto* style = createStyleFromName(name)) {
+        qApp->setStyle(style);
+
+        if (requiresEventFilter(style)) {
+            qApp->installEventFilter(style);
+        }
+    }
 }
 
 void Application::checkForDeprecatedSettings()

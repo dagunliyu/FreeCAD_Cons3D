@@ -122,6 +122,10 @@ public:
 
     Gui::MDIView* getMDIView() const override;
 
+    bool getFrameState() const;
+    void setFrameState(bool state);
+    void toggleFrameState();
+
     void setTemplateMarkers(bool state) const;
 
     bool canDelete(App::DocumentObject* obj) const override;
@@ -139,6 +143,10 @@ public:
 
     void redrawPage() const;
 
+    // Called by MDIViewPage::closeEvent() instead of hide() to avoid re-entrantly
+    // calling removeWindow() on a QMdiSubWindow that is mid-closeEvent.
+    void onMDIViewClosed();
+
 protected:
     bool setEdit(int ModNum) override;
     void createMDIViewPage();
@@ -148,6 +156,8 @@ private:
     std::string m_pageName;
     QPointer<QGVPage> m_graphicsView;
     QGSPage* m_graphicsScene;
+
+    bool m_frameToggle{false};      // replacement for ShowFrame property to avoid marking document changed
 };
 
 }// namespace TechDrawGui

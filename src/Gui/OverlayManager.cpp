@@ -998,8 +998,10 @@ public:
 
     void setupTitleBar(QDockWidget* dock)
     {
-        if (!dock->titleBarWidget()) {
-            dock->setTitleBarWidget(createTitleBar(dock));
+        auto* oldWidget = dock->titleBarWidget();
+        dock->setTitleBarWidget(createTitleBar(dock));
+        if (oldWidget) {
+            oldWidget->deleteLater();
         }
     }
 
@@ -1673,11 +1675,6 @@ void OverlayManager::onDockFeaturesChange(QDockWidget::DockWidgetFeatures featur
     }
 
     // Rebuild the title widget as it may have a different set of buttons shown.
-    if (auto* titleBarWidget = qobject_cast<OverlayTitleBar*>(dw->titleBarWidget())) {
-        dw->setTitleBarWidget(nullptr);
-        delete titleBarWidget;
-    }
-
     setupTitleBar(dw);
 }
 
@@ -2013,7 +2010,10 @@ bool OverlayManager::eventFilter(QObject* o, QEvent* ev)
                 hitWidget->setFocus();
                 d->_trackingWidget = hitWidget;
                 d->_trackingOverlay = activeTabWidget;
-                d->_trackingOverlay->grabMouse();
+                // Wayland doesn't allow mouse grab
+                if (QGuiApplication::platformName() != QLatin1String("wayland")) {
+                    d->_trackingOverlay->grabMouse();
+                }
             }
             return true;
         }
@@ -2038,7 +2038,10 @@ public:
     ~MouseGrabberGuard()
     {
         if (_grabber) {
-            _grabber->grabMouse();
+            // Wayland doesn't allow mouse grab
+            if (QGuiApplication::platformName() != QLatin1String("wayland")) {
+                _grabber->grabMouse();
+            }
         }
     }
 

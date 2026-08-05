@@ -582,6 +582,8 @@ static std::vector<std::pair<long, Data::MappedName>> getElementSource(
             }
             break;
         }
+        // "Compact" makes an owned copy to ensure we don't have a dangling point later on
+        original.compact();
         ret.emplace_back(tag, original);
     }
     return ret;
@@ -1578,9 +1580,11 @@ const std::vector<std::string>& Feature::searchElementCache(
                 break;
             }
         }
-        it->second.searched = true;
         propShape->getShape()
             .findSubShapesWithSharedVertex(it->second.shape, &it->second.names, options, tol, atol);
+        if (!it->second.names.empty()) {
+            it->second.searched = true;
+        }
         if (prefix) {
             for (auto& name : it->second.names) {
                 if (auto dot = strrchr(name.c_str(), '.')) {

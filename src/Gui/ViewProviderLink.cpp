@@ -1624,7 +1624,7 @@ void LinkView::updateLink()
 bool LinkView::linkGetElementPicked(const SoPickedPoint* pp, std::string& subname) const
 {
     std::ostringstream ss;
-    CoinPtr<SoPath> path = pp->getPath();
+    CoinPtr<SoPath> path {pp->getPath()};
     if (!nodeArray.empty()) {
         auto idx = path->findNode(pcLinkRoot);
         if (idx < 0 || idx + 2 >= path->getLength()) {
@@ -2162,13 +2162,15 @@ void ViewProviderLink::updateData(const App::Property* prop)
     if (childVp) {
         childVp->updateData(prop);
     }
+
+    inherited::updateData(prop);
+
     if (!isRestoring() && !pcObject->isRestoring()) {
         auto ext = getLinkExtension();
         if (ext) {
             updateDataPrivate(getLinkExtension(), prop);
         }
     }
-    return inherited::updateData(prop);
 }
 
 static inline bool canScale(const Base::Vector3d& v)
@@ -2208,7 +2210,7 @@ void ViewProviderLink::updateDataPrivate(App::LinkBaseExtension* ext, const App:
     }
     else if (prop == ext->getPlacementProperty() || prop == ext->getLinkPlacementProperty()) {
         auto propLinkPlacement = ext->getLinkPlacementProperty();
-        if (!propLinkPlacement || propLinkPlacement == prop) {
+        if (!propLinkPlacement || propLinkPlacement == prop || prop == ext->getPlacementProperty()) {
             const auto& v = ext->getScaleVector();
             if (canScale(v)) {
                 pcTransform->scaleFactor.setValue(v.x, v.y, v.z);
@@ -3269,7 +3271,7 @@ bool ViewProviderLink::initDraggingPlacement()
     dragCtx = std::make_unique<DraggerContext>();
 
     dragCtx->preTransform = doc->getEditingTransform();
-    const auto& pla = getPlacementProperty()->getValue();
+    const auto& pla = getObject()->getPlacementProperty()->getValue();
 
     // Cancel out our own transformation from the editing transform, because
     // the dragger is meant to change our transformation.

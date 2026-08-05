@@ -72,7 +72,9 @@ SET(FemExamples_SRCS
     femexamples/ccx_cantilever_faceload.py
     femexamples/ccx_cantilever_nodeload.py
     femexamples/ccx_cantilever_prescribeddisplacement.py
+    femexamples/ccx_disc_cyclic_symm_centrif.py
     femexamples/ccx_rigid_body.py
+    femexamples/ccx_pipe_pressure_2D.py
     femexamples/constraint_centrif.py
     femexamples/constraint_contact_shell_shell.py
     femexamples/constraint_contact_solid_solid.py
@@ -113,6 +115,7 @@ SET(FemExamples_SRCS
 
 SET(FemExampleMeshes_SRCS
     femexamples/meshes/__init__.py
+    femexamples/meshes/generate_mesh.py
     femexamples/meshes/mesh_beamsimple_tetra10.py
     femexamples/meshes/mesh_boxanalysis_tetra10.py
     femexamples/meshes/mesh_boxes_2_vertikal_tetra10.py
@@ -514,6 +517,7 @@ SET(FemTools_SRCS
     femtools/geomtools.py
     femtools/membertools.py
     femtools/migrate_app.py
+    femtools/objecttools.py
     femtools/tokrules.py
 )
 

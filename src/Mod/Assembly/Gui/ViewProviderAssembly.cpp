@@ -42,6 +42,8 @@
 #include <set>
 #include <algorithm>
 #include <iterator>
+#include <Inventor/SoPath.h>
+#include <Inventor/details/SoDetail.h>
 
 #include <App/Link.h>
 #include <App/Document.h>
@@ -63,6 +65,7 @@
 #include <Gui/ViewProviderLink.h>
 #include <Gui/ViewProviderGeometryObject.h>
 #include <Gui/ViewParams.h>
+#include <Gui/Selection/SoFCSelectionAction.h>
 
 #include <Mod/Assembly/App/AssemblyLink.h>
 #include <Mod/Assembly/App/AssemblyObject.h>
@@ -139,7 +142,7 @@ void ViewProviderAssembly::setupContextMenu(QMenu* menu, QObject* receiver, cons
 
     QAction* act = menu->addAction(QObject::tr("Active object"));
     act->setCheckable(true);
-    act->setChecked(isActivePart());
+    act->setChecked(isActivePart(ASSEMBLYKEY));
     func->trigger(act, [this]() { this->doubleClicked(); });
 
     ViewProviderDragger::setupContextMenu(menu, receiver, member);  // NOLINT
@@ -148,6 +151,8 @@ void ViewProviderAssembly::setupContextMenu(QMenu* menu, QObject* receiver, cons
 bool ViewProviderAssembly::doubleClicked()
 {
     if (isInEditMode()) {
+        autoCollapseOnDeactivation = true;
+        getDocument()->setEditRestore(false);
         getDocument()->resetEdit();
     }
     else {
@@ -194,10 +199,10 @@ bool ViewProviderAssembly::canDragObjectToTarget(App::DocumentObject* obj, App::
 
     for (auto joint : allJoints) {
         // getLinkObjFromProp returns nullptr if the property doesn't exist.
-        App::DocumentObject* part1 = getMovingPartFromRef(assemblyPart, joint, "Reference1");
-        App::DocumentObject* part2 = getMovingPartFromRef(assemblyPart, joint, "Reference2");
-        App::DocumentObject* obj1 = getObjFromRef(joint, "Reference1");
-        App::DocumentObject* obj2 = getObjFromRef(joint, "Reference2");
+        App::DocumentObject* part1 = getMovingPartFromRef(joint, "Reference1");
+        App::DocumentObject* part2 = getMovingPartFromRef(joint, "Reference2");
+        App::DocumentObject* obj1 = getObjFromJointRef(joint, "Reference1");
+        App::DocumentObject* obj2 = getObjFromJointRef(joint, "Reference2");
         App::DocumentObject* obj3 = getObjFromProp(joint, "ObjectToGround");
         if (obj == obj1 || obj == obj2 || obj == part1 || obj == part2 || obj == obj3) {
             if (!prompted) {
@@ -276,6 +281,7 @@ bool ViewProviderAssembly::setEdit(int mode)
     if (mode == ViewProvider::Default) {
         // Ask that this edit mode be restored. For example if it is quit to edit a sketch.
         getDocument()->setEditRestore(true);
+        autoCollapseOnDeactivation = false;
 
         // Set the part as 'Activated' ie bold in the tree.
         Gui::Command::doCommand(
@@ -284,7 +290,7 @@ bool ViewProviderAssembly::setEdit(int mode)
             "Gui.getDocument(appDoc).ActiveView.setActiveObject('%s', "
             "appDoc.getObject('%s'))",
             this->getObject()->getDocument()->getName(),
-            PARTKEY,
+            ASSEMBLYKEY,
             this->getObject()->getNameInDocument()
         );
 
@@ -303,6 +309,17 @@ bool ViewProviderAssembly::setEdit(int mode)
         connectSolverUpdate = assembly->signalSolverUpdate.connect(
             boost::bind(&ViewProviderAssembly::UpdateSolverInformation, this)
         );
+
+        connectActivatedVP = getDocument()->signalActivatedViewProvider.connect(
+            std::bind(
+                &ViewProviderAssembly::slotActivatedVP,
+                this,
+                std::placeholders::_1,
+                std::placeholders::_2
+            )
+        );
+
+        assembly->solve();
 
         return true;
     }
@@ -326,13 +343,15 @@ void ViewProviderAssembly::unsetEdit(int mode)
         }
 
         // Set the part as not 'Activated' ie not bold in the tree.
-        Gui::Command::doCommand(
-            Gui::Command::Gui,
-            "appDoc = App.getDocument('%s')\n"
-            "Gui.getDocument(appDoc).ActiveView.setActiveObject('%s', None)",
-            this->getObject()->getDocument()->getName(),
-            PARTKEY
-        );
+        if (isActivePart(ASSEMBLYKEY)) {
+            Gui::Command::doCommand(
+                Gui::Command::Gui,
+                "appDoc = App.getDocument('%s')\n"
+                "Gui.getDocument(appDoc).ActiveView.setActiveObject('%s', None)",
+                this->getObject()->getDocument()->getName(),
+                ASSEMBLYKEY
+            );
+        }
 
         Gui::TaskView::TaskView* taskView = Gui::Control().taskPanel();
         if (taskView) {
@@ -341,10 +360,24 @@ void ViewProviderAssembly::unsetEdit(int mode)
         }
 
         connectSolverUpdate.disconnect();
+        connectActivatedVP.disconnect();
 
         return;
     }
     ViewProviderPart::unsetEdit(mode);
+}
+
+void ViewProviderAssembly::slotActivatedVP(const Gui::ViewProviderDocumentObject* vp, const char* name)
+{
+    if (name && strcmp(name, ASSEMBLYKEY) == 0) {
+
+        // If the new active VP is NOT this assembly (meaning we lost activation or it was cleared)
+        if (vp != this && isInEditMode()) {
+            autoCollapseOnDeactivation = true;
+            getDocument()->setEditRestore(false);
+            getDocument()->resetEdit();
+        }
+    }
 }
 
 void ViewProviderAssembly::setDragger()
@@ -396,7 +429,7 @@ App::DocumentObject* ViewProviderAssembly::getActivePart() const
     if (!activeView) {
         return nullptr;
     }
-    return activeView->getActiveObject<App::DocumentObject*>(PARTKEY);
+    return activeView->getActiveObject<App::DocumentObject*>(ASSEMBLYKEY);
 }
 
 bool ViewProviderAssembly::keyPressed(bool pressed, int key)
@@ -502,6 +535,28 @@ bool ViewProviderAssembly::tryMouseMove(const SbVec2s& cursorPos, Gui::View3DInv
                         * Base::Placement(Base::Vector3d(), zRotation);
                     Base::Placement jcsPlcRelativeToPart = plc.inverse() * jcsGlobalPlc;
                     plc = rotatedGlovalJcsPlc * jcsPlcRelativeToPart.inverse();
+                }
+                else if (dragMode == DragMode::Ball) {
+                    Base::Vector3d center = jcsGlobalPlc.getPosition();
+                    // Vectors from joint center to initial click and current drag position
+                    Base::Vector3d u = initialPosition - center;
+                    Base::Vector3d v = newPos - center;
+
+                    // Ensure vectors are valid to prevent singularities
+                    if (u.Length() > Precision::Confusion() && v.Length() > Precision::Confusion()) {
+                        // Calculate rotation that moves vector u to v
+                        Base::Rotation rot;
+                        rot.setValue(u, v);
+
+                        // Apply this rotation to the global joint placement (around the joint center)
+                        Base::Placement rotatedGlobalJcsPlc = jcsGlobalPlc;
+                        rotatedGlobalJcsPlc.setRotation(rot * jcsGlobalPlc.getRotation());
+
+                        // Calculate the initial offset of the part relative to the joint
+                        // and apply the new global joint placement to find the new part placement.
+                        Base::Placement jcsPlcRelativeToPart = plc.inverse() * jcsGlobalPlc;
+                        plc = rotatedGlobalJcsPlc * jcsPlcRelativeToPart.inverse();
+                    }
                 }
                 else if (dragMode == DragMode::TranslationOnAxis) {
                     Base::Vector3d pos = plc.getPosition() + (newPos - initialPosition);
@@ -752,7 +807,7 @@ bool ViewProviderAssembly::getSelectedObjectsWithinAssembly(bool addPreselection
         App::DocumentObject* selRoot = Gui::Selection().getPreselection().Object.getObject();
         std::string sub = Gui::Selection().getPreselection().pSubName;
 
-        App::DocumentObject* obj = getMovingPartFromRef(assemblyPart, selRoot, sub);
+        App::DocumentObject* obj = getMovingPartFromSel(assemblyPart, selRoot, sub);
         if (canDragObjectIn3d(obj)) {
 
             bool alreadyIn = false;
@@ -767,7 +822,6 @@ bool ViewProviderAssembly::getSelectedObjectsWithinAssembly(bool addPreselection
             if (!alreadyIn) {
                 auto* pPlc = dynamic_cast<App::PropertyPlacement*>(obj->getPropertyByName("Placement"));
                 if (!ctrlPressed && !moveOnlyPreselected) {
-                    Gui::Selection().clearSelection();
                     docsToMove.clear();
                 }
 
@@ -821,7 +875,7 @@ void ViewProviderAssembly::collectMovableObjects(
         return;
     }
 
-    App::DocumentObject* part = getMovingPartFromRef(assemblyPart, selRoot, subNamePrefix);
+    App::DocumentObject* part = getMovingPartFromSel(assemblyPart, selRoot, subNamePrefix);
 
     if (onlySolids && assemblyPart->isPartConnected(part)) {
         return;  // No dragger for connected parts.
@@ -923,7 +977,7 @@ ViewProviderAssembly::DragMode ViewProviderAssembly::findDragMode()
         if (!ref) {
             return DragMode::Translation;
         }
-        auto* obj = getObjFromRef(movingJoint, pName.c_str());
+        auto* obj = getObjFromJointRef(movingJoint, pName.c_str());
         Base::Placement global_plc = App::GeoFeature::getGlobalPlacement(obj, ref);
         jcsGlobalPlc = global_plc * jcsPlc;
 
@@ -942,7 +996,7 @@ ViewProviderAssembly::DragMode ViewProviderAssembly::findDragMode()
             return DragMode::TranslationOnAxisAndRotationOnePlane;
         }
         else if (jointType == JointType::Ball) {
-            // return DragMode::Ball;
+            return DragMode::Ball;
         }
         else if (jointType == JointType::Distance) {
             //  depends on the type of distance. For example plane-plane:
@@ -990,6 +1044,7 @@ void ViewProviderAssembly::tryInitMove(const SbVec2s& cursorPos, Gui::View3DInve
         else if (visible) {
             joint->Visibility.setValue(false);
         }
+        joint->purgeTouched();
     }
 
     SbVec3f vec;
@@ -1068,6 +1123,7 @@ void ViewProviderAssembly::endMove()
         bool visible = pair.first->Visibility.getValue();
         if (visible != pair.second) {
             pair.first->Visibility.setValue(pair.second);
+            pair.first->purgeTouched();
         }
     }
 
@@ -1149,6 +1205,14 @@ void ViewProviderAssembly::draggerMotionCallback(void* data, SoDragger* d)
 
 void ViewProviderAssembly::onSelectionChanged(const Gui::SelectionChanges& msg)
 {
+    // onSelectionChanged is called from both Selection.cpp and SelectionObserver.
+    // In the case where you have nested assemblies, that would cause issues. See #27532
+    bool singleAssembly
+        = getDocument()->getDocument()->getObjectsOfType<Assembly::AssemblyObject>().size() == 1;
+    if (!isInEditMode() && !singleAssembly) {
+        return;
+    }
+
     // Joint components isolation
     if (msg.Type == Gui::SelectionChanges::AddSelection) {
         auto selection = Gui::Selection().getSelection();
@@ -1270,20 +1334,24 @@ bool ViewProviderAssembly::canDelete(App::DocumentObject* objBeingDeleted) const
                     continue;
                 }
 
-                if (dynamic_cast<App::PropertyLink*>(parent->getPropertyByName("ObjectToGround"))) {
-                    objToDel.push_back(parent);
+                if (parent->getPropertyByName("ObjectToGround")) {
+                    if (std::ranges::find(objToDel, parent) == objToDel.end()) {
+                        objToDel.push_back(parent);
+                    }
                 }
             }
         }
 
         // Deletes them.
         for (auto* joint : objToDel) {
-            Gui::Command::doCommand(
-                Gui::Command::Doc,
-                "App.getDocument(\"%s\").removeObject(\"%s\")",
-                joint->getDocument()->getName(),
-                joint->getNameInDocument()
-            );
+            if (joint && joint->getNameInDocument() != nullptr) {
+                Gui::Command::doCommand(
+                    Gui::Command::Doc,
+                    "App.getDocument(\"%s\").removeObject(\"%s\")",
+                    joint->getDocument()->getName(),
+                    joint->getNameInDocument()
+                );
+            }
         }
     }
     return res;
@@ -1347,6 +1415,7 @@ void ViewProviderAssembly::applyIsolationRecursively(
         for (auto* child : group->Group.getValues()) {
             applyIsolationRecursively(child, isolateSet, mode, visited);
         }
+        return;
     }
     else if (auto* part = dynamic_cast<App::Part*>(current)) {
         // As App::Part currently don't have material override
@@ -1362,6 +1431,7 @@ void ViewProviderAssembly::applyIsolationRecursively(
         for (auto* child : part->Group.getValues()) {
             applyIsolationRecursively(child, isolateSet, mode, visited);
         }
+        return;
     }
 
     auto* vp = Gui::Application::Instance->getViewProvider(current);
@@ -1376,17 +1446,13 @@ void ViewProviderAssembly::applyIsolationRecursively(
     state.visibility = current->Visibility.getValue();
     if (vpl) {
         state.selectable = vpl->Selectable.getValue();
-        state.overrideMaterial = vpl->OverrideMaterial.getValue();
-        state.shapeMaterial = vpl->ShapeMaterial.getValue();
     }
-    else {  // vpg
+    else {
         state.selectable = vpg->Selectable.getValue();
-        state.shapeMaterial = vpg->ShapeAppearance.getValue()[0];
     }
     stateBackup[current] = state;
 
     if (mode == IsolateMode::Hidden) {
-        stateBackup[current] = state;
         current->Visibility.setValue(isolate);
         return;
     }
@@ -1395,39 +1461,23 @@ void ViewProviderAssembly::applyIsolationRecursively(
         current->Visibility.setValue(true);
     }
 
-    App::Material mat = App::Material::getDefaultAppearance();
-    float trans = mode == IsolateMode::Transparent ? 0.8 : 1.0;
-    mat.transparency = trans;
-
     if (vpl) {
         vpl->Selectable.setValue(isolate);
-        if (!isolate) {
-            vpl->OverrideMaterial.setValue(true);
-            vpl->ShapeMaterial.setValue(mat);
-        }
     }
     else if (vpg) {
         vpg->Selectable.setValue(isolate);
-        if (!isolate) {
-            vpg->ShapeAppearance.setValue(mat);
+    }
 
-            // Note, this geometric object could have a link linking to it in the assembly
-            // and this link may be in isolate set! If so it will inherit the isolation
-            // from 'current'! So we need to manually handle it to visible.
-            const std::vector<App::DocumentObject*> inList = current->getInList();
-            for (auto* child : inList) {
-                if (child->isDerivedFrom<App::Link>() && child->getLinkedObject() == current) {
-                    // In this case we need to reverse isolate this!
-                    auto* childVp = freecad_cast<Gui::ViewProviderLink*>(
-                        Gui::Application::Instance->getViewProvider(child)
-                    );
+    if (!isolate) {
+        float trans = mode == IsolateMode::Transparent ? 0.8 : 1.0;
+        Base::Color transparentColor(App::Material::getDefaultAppearance().diffuseColor);
+        transparentColor.setTransparency(trans);
+        std::map<std::string, Base::Color> colorMap;
+        colorMap["Face"] = transparentColor;  // The "Face" wildcard targets all faces
 
-                    // we give the child the color the current had before we changed it
-                    childVp->OverrideMaterial.setValue(true);
-                    childVp->ShapeMaterial.setValue(state.shapeMaterial);
-                }
-            }
-        }
+        Gui::SoSelectionElementAction action(Gui::SoSelectionElementAction::Color, true);
+        action.swapColors(colorMap);
+        action.apply(vp->getRoot());
     }
 }
 
@@ -1456,10 +1506,10 @@ void ViewProviderAssembly::isolateJointReferences(App::DocumentObject* joint, Is
         return;
     }
 
-    AssemblyObject* assembly = getObject<AssemblyObject>();
+    clearIsolate();
 
-    App::DocumentObject* part1 = getMovingPartFromRef(assembly, joint, "Reference1");
-    App::DocumentObject* part2 = getMovingPartFromRef(assembly, joint, "Reference2");
+    App::DocumentObject* part1 = getMovingPartFromRef(joint, "Reference1");
+    App::DocumentObject* part2 = getMovingPartFromRef(joint, "Reference2");
     if (!part1 || !part2) {
         return;
     }
@@ -1470,6 +1520,8 @@ void ViewProviderAssembly::isolateJointReferences(App::DocumentObject* joint, Is
 
     std::set<App::DocumentObject*> isolateSet = {part1, part2};
     isolateComponents(isolateSet, mode);
+
+    highlightJointElements(joint);
 }
 
 void ViewProviderAssembly::clearIsolate()
@@ -1477,6 +1529,8 @@ void ViewProviderAssembly::clearIsolate()
     if (isolatedJoint) {
         isolatedJoint->Visibility.setValue(isolatedJointVisibilityBackup);
         isolatedJoint = nullptr;
+
+        clearJointElementHighlight();
     }
 
     for (const auto& pair : stateBackup) {
@@ -1487,23 +1541,73 @@ void ViewProviderAssembly::clearIsolate()
         }
 
         component->Visibility.setValue(state.visibility);
-
-        if (auto* vpl = dynamic_cast<Gui::ViewProviderLink*>(
-                Gui::Application::Instance->getViewProvider(component)
-            )) {
+        auto* vp = Gui::Application::Instance->getViewProvider(component);
+        if (auto* vpl = dynamic_cast<Gui::ViewProviderLink*>(vp)) {
             vpl->Selectable.setValue(state.selectable);
-            vpl->ShapeMaterial.setValue(state.shapeMaterial);
-            vpl->OverrideMaterial.setValue(state.overrideMaterial);
         }
-        else if (auto* vpg = dynamic_cast<Gui::ViewProviderGeometryObject*>(
-                     Gui::Application::Instance->getViewProvider(component)
-                 )) {
+        else if (auto* vpg = dynamic_cast<Gui::ViewProviderGeometryObject*>(vp)) {
             vpg->Selectable.setValue(state.selectable);
-            vpg->ShapeAppearance.setValue(state.shapeMaterial);
         }
+        Gui::SoSelectionElementAction action(Gui::SoSelectionElementAction::Color, true);
+        action.apply(vp->getRoot());
     }
 
     stateBackup.clear();
+}
+
+void ViewProviderAssembly::highlightJointElements(App::DocumentObject* joint)
+{
+    clearJointElementHighlight();
+
+    SbColor defaultHighlightColor(0.8f, 0.1f, 0.1f);
+    uint32_t defaultPacked = defaultHighlightColor.getPackedValue();
+    ParameterGrp::handle hGrp = Gui::WindowParameter::getDefaultParameter()->GetGroup("View");
+    uint32_t packedColor = hGrp->GetUnsigned("HighlightColor", defaultPacked);
+    Base::Color highlightColor(packedColor);
+
+    std::set<std::string> processedElements;
+
+    const char* refNames[] = {"Reference1", "Reference2"};
+    for (const char* refName : refNames) {
+        auto* propRef = dynamic_cast<App::PropertyXLinkSub*>(joint->getPropertyByName(refName));
+        if (!propRef || propRef->getSubValues().empty()) {
+            continue;
+        }
+        const auto& el = propRef->getSubValues()[0];
+
+        if (el.empty() || processedElements.count(el)) {
+            continue;
+        }
+        processedElements.insert(el);  // Mark as processed.
+
+        auto* path = static_cast<SoFullPath*>(new SoPath(20));
+        SoDetail* detail = nullptr;
+
+        if (this->getDetailPath(el.c_str(), path, true, detail)) {
+            const char* elementNameCStr = Data::findElementName(el.c_str());
+            if (!elementNameCStr || !elementNameCStr[0]) {
+                continue;
+            }
+            std::string elementName(elementNameCStr);
+
+            Gui::SoSelectionElementAction action(Gui::SoSelectionElementAction::Color, true);
+
+            std::map<std::string, Base::Color> colorMap;
+            colorMap[elementName] = highlightColor;
+            action.swapColors(colorMap);
+
+            path->ref();
+            action.apply(path);
+        }
+        delete detail;
+    }
+}
+
+void ViewProviderAssembly::clearJointElementHighlight()
+{
+    Gui::SoSelectionElementAction action(Gui::SoSelectionElementAction::Color, true);
+    // An empty color map tells nodes to clear their secondary color.
+    action.apply(this->getRoot());
 }
 
 void ViewProviderAssembly::slotAboutToOpenTransaction(const std::string& cmdName)

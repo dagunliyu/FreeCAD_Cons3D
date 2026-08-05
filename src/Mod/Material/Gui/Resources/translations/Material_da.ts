@@ -108,12 +108,12 @@
   <context>
     <name>MatGui::BaseDelegate</name>
     <message>
-      <location filename="../../BaseDelegate.cpp" line="439"/>
+      <location filename="../../BaseDelegate.cpp" line="430"/>
       <source>False</source>
       <translation>Falsk</translation>
     </message>
     <message>
-      <location filename="../../BaseDelegate.cpp" line="440"/>
+      <location filename="../../BaseDelegate.cpp" line="431"/>
       <source>True</source>
       <translation>Sand</translation>
     </message>
@@ -188,7 +188,7 @@
     <message>
       <location filename="../../DlgDisplayProperties.ui" line="338"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
   </context>
   <context>
@@ -221,12 +221,12 @@
     <message>
       <location filename="../../DlgInspectAppearance.ui" line="74"/>
       <source>Sub.Shape / Type</source>
-      <translation type="unfinished">Sub.Shape / Type</translation>
+      <translation>Underliggende geometri / Type</translation>
     </message>
     <message>
       <location filename="../../DlgInspectAppearance.ui" line="81"/>
       <source>Shape.TypeID / TypeID</source>
-      <translation type="unfinished">Shape.TypeID / TypeID</translation>
+      <translation>Geometri-typeID / TypeID</translation>
     </message>
     <message>
       <location filename="../../DlgInspectAppearance.ui" line="100"/>
@@ -256,17 +256,17 @@
     <message>
       <location filename="../../DlgInspectAppearance.cpp" line="220"/>
       <source>Emissive color</source>
-      <translation type="unfinished">Emissive color</translation>
+      <translation>Fluorescerende farve</translation>
     </message>
     <message>
       <location filename="../../DlgInspectAppearance.cpp" line="229"/>
       <source>Specular color</source>
-      <translation type="unfinished">Specular color</translation>
+      <translation>Blank farve</translation>
     </message>
     <message>
       <location filename="../../DlgInspectAppearance.cpp" line="238"/>
       <source>Shininess</source>
-      <translation type="unfinished">Shininess</translation>
+      <translation>Glans</translation>
     </message>
     <message>
       <location filename="../../DlgInspectAppearance.cpp" line="248"/>
@@ -304,17 +304,17 @@
     <message>
       <location filename="../../DlgInspectMaterial.ui" line="74"/>
       <source>Sub.Shape / Type</source>
-      <translation type="unfinished">Sub.Shape / Type</translation>
+      <translation>Geometri-typeID / TypeID</translation>
     </message>
     <message>
       <location filename="../../DlgInspectMaterial.ui" line="81"/>
       <source>Shape.TypeID / TypeID</source>
-      <translation type="unfinished">Shape.TypeID / TypeID</translation>
+      <translation>Geometri-typeID / TypeID</translation>
     </message>
     <message>
       <location filename="../../DlgInspectMaterial.ui" line="94"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
     <message>
       <location filename="../../DlgInspectMaterial.ui" line="128"/>
@@ -368,7 +368,7 @@
       <location filename="../../DlgInspectMaterial.cpp" line="266"/>
       <location filename="../../DlgInspectMaterial.cpp" line="341"/>
       <source>UUID: </source>
-      <translation type="unfinished">UUID: </translation>
+      <translation>UUID: </translation>
     </message>
     <message>
       <location filename="../../DlgInspectMaterial.cpp" line="269"/>
@@ -421,7 +421,7 @@
     <message>
       <location filename="../../DlgInspectMaterial.cpp" line="329"/>
       <source>Model UUID: </source>
-      <translation type="unfinished">Model UUID: </translation>
+      <translation>Model UUID: </translation>
     </message>
     <message>
       <location filename="../../DlgInspectMaterial.cpp" line="333"/>
@@ -444,7 +444,7 @@
     <message>
       <location filename="../../DlgMaterial.ui" line="14"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
   </context>
   <context>
@@ -453,12 +453,12 @@
       <location filename="../../DlgSettingsDefaultMaterial.ui" line="14"/>
       <location filename="../../DlgSettingsDefaultMaterial.ui" line="20"/>
       <source>Default Material</source>
-      <translation>Standard materiale</translation>
+      <translation>Standardmaterialer</translation>
     </message>
     <message>
       <location filename="../../DlgSettingsDefaultMaterial.cpp" line="52"/>
       <source>Physical</source>
-      <translation>Fysisk</translation>
+      <translation>Egenskaber</translation>
     </message>
   </context>
   <context>
@@ -645,12 +645,12 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
   <context>
     <name>MatGui::MaterialDelegate</name>
     <message>
-      <location filename="../../MaterialDelegate.cpp" line="475"/>
+      <location filename="../../MaterialDelegate.cpp" line="474"/>
       <source>False</source>
       <translation>Falsk</translation>
     </message>
     <message>
-      <location filename="../../MaterialDelegate.cpp" line="476"/>
+      <location filename="../../MaterialDelegate.cpp" line="475"/>
       <source>True</source>
       <translation>Sand</translation>
     </message>
@@ -685,66 +685,66 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../MaterialSave.cpp" line="96"/>
       <source>Delete</source>
-      <translation>Slette</translation>
+      <translation>Slet</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="196"/>
+      <location filename="../../MaterialSave.cpp" line="198"/>
       <source>Saving over the original file may cause other documents to break. This is not recommended.</source>
       <translation>Overskrivning af den oprindelige fil kan få andre dokumenter til at gå itu. Det anbefales ikke.</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="220"/>
+      <location filename="../../MaterialSave.cpp" line="222"/>
       <source>Save as new material</source>
       <translation>Gem som nyt materiale</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="193"/>
+      <location filename="../../MaterialSave.cpp" line="195"/>
       <source>Save over &apos;%1&apos;?</source>
       <translation>Overskriv &apos;%1&apos;?</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="218"/>
+      <location filename="../../MaterialSave.cpp" line="220"/>
       <source>Confirm Save as New Material</source>
       <translation>Bekræft Gem som nyt materiale</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="223"/>
+      <location filename="../../MaterialSave.cpp" line="225"/>
       <source>This material already exists in this library. Save as a new material?</source>
       <translation>Dette materiale findes allerede i dette bibliotek. Gem som nyt materiale?</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="245"/>
+      <location filename="../../MaterialSave.cpp" line="247"/>
       <source>Confirm Save as Copy</source>
       <translation>Bekræft Gem som kopi</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="247"/>
+      <location filename="../../MaterialSave.cpp" line="249"/>
       <source>Save as copy</source>
       <translation>Gem som kopi</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="250"/>
+      <location filename="../../MaterialSave.cpp" line="252"/>
       <source>Saving a copy is not recommended as it can break other documents. It is recommended to save as a new material.</source>
       <translation>At gemme en kopi anbefales ikke, da det kan ødelægge andre dokumenter. Det anbefales at gemme som et nyt materiale.</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="253"/>
+      <location filename="../../MaterialSave.cpp" line="255"/>
       <source>Save Copy</source>
       <translation>Gem en kopi</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="254"/>
+      <location filename="../../MaterialSave.cpp" line="256"/>
       <source>Save As New</source>
       <translation>Gem som nyt</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="486"/>
-      <location filename="../../MaterialSave.cpp" line="496"/>
+      <location filename="../../MaterialSave.cpp" line="488"/>
+      <location filename="../../MaterialSave.cpp" line="498"/>
       <source>New folder</source>
       <translation>Ny mappe</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="536"/>
+      <location filename="../../MaterialSave.cpp" line="538"/>
       <source>Context Menu</source>
       <translation>Kontekstmenu</translation>
     </message>
@@ -752,19 +752,19 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
   <context>
     <name>MatGui::MaterialTreeWidget</name>
     <message>
-      <location filename="../../MaterialTreeWidget.cpp" line="140"/>
+      <location filename="../../MaterialTreeWidget.cpp" line="139"/>
       <source>Launch Editor</source>
-      <translation type="unfinished">Launch Editor</translation>
+      <translation>Rediger</translation>
     </message>
     <message>
-      <location filename="../../MaterialTreeWidget.cpp" line="313"/>
-      <location filename="../../MaterialTreeWidget.cpp" line="534"/>
+      <location filename="../../MaterialTreeWidget.cpp" line="312"/>
+      <location filename="../../MaterialTreeWidget.cpp" line="533"/>
       <source>Favorites</source>
       <translation>Favoritter</translation>
     </message>
     <message>
-      <location filename="../../MaterialTreeWidget.cpp" line="313"/>
-      <location filename="../../MaterialTreeWidget.cpp" line="541"/>
+      <location filename="../../MaterialTreeWidget.cpp" line="312"/>
+      <location filename="../../MaterialTreeWidget.cpp" line="540"/>
       <source>Recent</source>
       <translation>Seneste</translation>
     </message>
@@ -784,7 +784,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../MaterialsEditor.ui" line="74"/>
       <source>Parent</source>
-      <translation type="unfinished">Parent</translation>
+      <translation>Overordnet</translation>
     </message>
     <message>
       <location filename="../../MaterialsEditor.ui" line="84"/>
@@ -844,7 +844,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../MaterialsEditor.ui" line="215"/>
       <source>Physical</source>
-      <translation>Fysisk</translation>
+      <translation>Egenskaber</translation>
     </message>
     <message>
       <location filename="../../MaterialsEditor.ui" line="236"/>
@@ -894,24 +894,24 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../MaterialsEditor.cpp" line="754"/>
       <location filename="../../MaterialsEditor.cpp" line="786"/>
-      <location filename="../../MaterialsEditor.cpp" line="1088"/>
-      <location filename="../../MaterialsEditor.cpp" line="1150"/>
+      <location filename="../../MaterialsEditor.cpp" line="1086"/>
+      <location filename="../../MaterialsEditor.cpp" line="1148"/>
       <source>Property</source>
       <translation>Egenskab</translation>
     </message>
     <message>
       <location filename="../../MaterialsEditor.cpp" line="755"/>
       <location filename="../../MaterialsEditor.cpp" line="787"/>
-      <location filename="../../MaterialsEditor.cpp" line="1089"/>
-      <location filename="../../MaterialsEditor.cpp" line="1151"/>
+      <location filename="../../MaterialsEditor.cpp" line="1087"/>
+      <location filename="../../MaterialsEditor.cpp" line="1149"/>
       <source>Value</source>
       <translation>Værdi</translation>
     </message>
     <message>
       <location filename="../../MaterialsEditor.cpp" line="756"/>
       <location filename="../../MaterialsEditor.cpp" line="788"/>
-      <location filename="../../MaterialsEditor.cpp" line="1090"/>
-      <location filename="../../MaterialsEditor.cpp" line="1152"/>
+      <location filename="../../MaterialsEditor.cpp" line="1088"/>
+      <location filename="../../MaterialsEditor.cpp" line="1150"/>
       <source>Type</source>
       <translation>Type</translation>
     </message>
@@ -926,22 +926,22 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
       <translation>Seneste</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1153"/>
+      <location filename="../../MaterialsEditor.cpp" line="1151"/>
       <source>Units</source>
       <translation>Enheder</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1320"/>
+      <location filename="../../MaterialsEditor.cpp" line="1318"/>
       <source>Context Menu</source>
       <translation>Kontekstmenu</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1322"/>
+      <location filename="../../MaterialsEditor.cpp" line="1320"/>
       <source>Inherit From</source>
       <translation>Nedarv fra</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1326"/>
+      <location filename="../../MaterialsEditor.cpp" line="1324"/>
       <source>Inherit New Material</source>
       <translation>Nedarv nyt materiale</translation>
     </message>
@@ -973,7 +973,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../ModelSelect.ui" line="63"/>
       <source>DOI</source>
-      <translation type="unfinished">DOI</translation>
+      <translation>DOI</translation>
     </message>
     <message>
       <location filename="../../ModelSelect.ui" line="87"/>
@@ -1104,7 +1104,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../DlgMaterialImp.cpp" line="56"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
   </context>
   <context>
@@ -1119,26 +1119,26 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
       <location filename="../../AppMatGui.cpp" line="112"/>
       <location filename="../../AppMatGui.cpp" line="115"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="190"/>
+      <location filename="../../MaterialSave.cpp" line="192"/>
       <source>Confirm Overwrite</source>
       <translation>Bekræft overskrivning</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="380"/>
-      <location filename="../../MaterialSave.cpp" line="381"/>
+      <location filename="../../MaterialSave.cpp" line="382"/>
+      <location filename="../../MaterialSave.cpp" line="383"/>
       <source>No writeable library</source>
       <translation>Intet skrivbart bibliotek</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="568"/>
+      <location filename="../../MaterialSave.cpp" line="570"/>
       <source>Delete &apos;%1&apos;?</source>
       <translation>Slet &apos;%1&apos;?</translation>
     </message>
     <message>
-      <location filename="../../MaterialSave.cpp" line="572"/>
+      <location filename="../../MaterialSave.cpp" line="574"/>
       <source>Removing this will also remove all contents.</source>
       <translation>Fjernelse af dette vil også fjerne alt indhold.</translation>
     </message>
@@ -1148,24 +1148,24 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
       <translation>Gem materialet før du bruger det.</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1347"/>
+      <location filename="../../MaterialsEditor.cpp" line="1345"/>
       <source>Unsaved Material</source>
       <translation>Ikke-gemt materiale</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1348"/>
+      <location filename="../../MaterialsEditor.cpp" line="1346"/>
       <source>Save changes to the material before closing?</source>
       <translation>Gem ændringer af materialet før lukning?</translation>
     </message>
     <message>
-      <location filename="../../MaterialsEditor.cpp" line="1349"/>
+      <location filename="../../MaterialsEditor.cpp" line="1347"/>
       <source>Otherwise, all changes will be lost.</source>
       <translation>Ellers vil alle ændringer gå tabt.</translation>
     </message>
     <message>
       <location filename="../../Array2D.cpp" line="170"/>
       <location filename="../../ListEdit.cpp" line="142"/>
-      <location filename="../../MaterialSave.cpp" line="565"/>
+      <location filename="../../MaterialSave.cpp" line="567"/>
       <source>Confirm Delete</source>
       <translation>Bekræft sletning</translation>
     </message>
@@ -1286,7 +1286,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
       <location filename="../../DlgSettingsExternal.ui" line="98"/>
       <location filename="../../DlgSettingsExternal.ui" line="124"/>
       <source>Hit rate</source>
-      <translation type="unfinished">Hit rate</translation>
+      <translation>Hitrate</translation>
     </message>
     <message>
       <location filename="../../DlgSettingsExternal.ui" line="134"/>
@@ -1358,7 +1358,7 @@ Hvis ikke markeret, vil de blive sorteret efter deres navn.</translation>
     <message>
       <location filename="../../Command.cpp" line="53"/>
       <source>Material</source>
-      <translation>Materiel</translation>
+      <translation>Materiale</translation>
     </message>
     <message>
       <location filename="../../Command.cpp" line="54"/>

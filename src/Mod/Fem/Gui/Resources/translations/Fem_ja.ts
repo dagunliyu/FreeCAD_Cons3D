@@ -4,17 +4,17 @@
   <context>
     <name>CmdFemConstraintBearing</name>
     <message>
-      <location filename="../../Command.cpp" line="240"/>
+      <location filename="../../Command.cpp" line="243"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="241"/>
+      <location filename="../../Command.cpp" line="244"/>
       <source>Bearing Constraint</source>
       <translation>ベアリング拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="242"/>
+      <location filename="../../Command.cpp" line="245"/>
       <source>Creates a bearing constraint</source>
       <translation>ベアリング拘束を作成</translation>
     </message>
@@ -22,17 +22,17 @@
   <context>
     <name>CmdFemConstraintContact</name>
     <message>
-      <location filename="../../Command.cpp" line="288"/>
+      <location filename="../../Command.cpp" line="291"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="289"/>
+      <location filename="../../Command.cpp" line="292"/>
       <source>Contact Constraint</source>
       <translation>接触拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="290"/>
+      <location filename="../../Command.cpp" line="293"/>
       <source>Creates a contact constraint between faces</source>
       <translation>2面間の接触拘束を作成</translation>
     </message>
@@ -40,17 +40,17 @@
   <context>
     <name>CmdFemConstraintDisplacement</name>
     <message>
-      <location filename="../../Command.cpp" line="354"/>
+      <location filename="../../Command.cpp" line="369"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="355"/>
+      <location filename="../../Command.cpp" line="370"/>
       <source>Displacement Boundary Condition</source>
       <translation>変位境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="356"/>
+      <location filename="../../Command.cpp" line="371"/>
       <source>Creates a displacement boundary condition for a geometric entity</source>
       <translation>幾何エンティティの変位境界条件を作成</translation>
     </message>
@@ -58,17 +58,17 @@
   <context>
     <name>CmdFemConstraintFixed</name>
     <message>
-      <location filename="../../Command.cpp" line="404"/>
+      <location filename="../../Command.cpp" line="423"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="405"/>
+      <location filename="../../Command.cpp" line="424"/>
       <source>Fixed Boundary Condition</source>
       <translation>固定境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="406"/>
+      <location filename="../../Command.cpp" line="425"/>
       <source>Creates a fixed boundary condition for a geometric entity</source>
       <translation>幾何エンティティの固定境界条件を作成</translation>
     </message>
@@ -76,17 +76,17 @@
   <context>
     <name>CmdFemConstraintFluidBoundary</name>
     <message>
-      <location filename="../../Command.cpp" line="506"/>
+      <location filename="../../Command.cpp" line="533"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="507"/>
+      <location filename="../../Command.cpp" line="534"/>
       <source>Fluid Boundary Condition</source>
       <translation>流体境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="509"/>
+      <location filename="../../Command.cpp" line="535"/>
       <source>Create fluid boundary condition on face entity for Computional Fluid Dynamics</source>
       <translation>数値流体力学のための面エンティティに対する流体境界条件を作成</translation>
     </message>
@@ -94,17 +94,17 @@
   <context>
     <name>CmdFemConstraintForce</name>
     <message>
-      <location filename="../../Command.cpp" line="558"/>
+      <location filename="../../Command.cpp" line="592"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="559"/>
+      <location filename="../../Command.cpp" line="593"/>
       <source>Force Load</source>
       <translation>荷重負荷</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="560"/>
+      <location filename="../../Command.cpp" line="594"/>
       <source>Creates a force load applied to a geometric entity</source>
       <translation>幾何エンティティに適用される荷重を作成</translation>
     </message>
@@ -112,17 +112,17 @@
   <context>
     <name>CmdFemConstraintGear</name>
     <message>
-      <location filename="../../Command.cpp" line="615"/>
+      <location filename="../../Command.cpp" line="655"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="616"/>
+      <location filename="../../Command.cpp" line="656"/>
       <source>Gear Constraint</source>
       <translation>ギア拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="617"/>
+      <location filename="../../Command.cpp" line="657"/>
       <source>Creates a gear constraint</source>
       <translation>ギア拘束を作成</translation>
     </message>
@@ -130,17 +130,17 @@
   <context>
     <name>CmdFemConstraintHeatflux</name>
     <message>
-      <location filename="../../Command.cpp" line="663"/>
+      <location filename="../../Command.cpp" line="703"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="664"/>
+      <location filename="../../Command.cpp" line="704"/>
       <source>Heat Flux Load</source>
       <translation>熱流束負荷</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="665"/>
+      <location filename="../../Command.cpp" line="705"/>
       <source>Creates a heat flux load acting on a face</source>
       <translation>面に作用する熱流束負荷を作成</translation>
     </message>
@@ -148,17 +148,17 @@
   <context>
     <name>CmdFemConstraintInitialTemperature</name>
     <message>
-      <location filename="../../Command.cpp" line="724"/>
+      <location filename="../../Command.cpp" line="776"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="725"/>
+      <location filename="../../Command.cpp" line="777"/>
       <source>Initial Temperature</source>
       <translation>初期温度</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="726"/>
+      <location filename="../../Command.cpp" line="778"/>
       <source>Creates an initial temperature acting on a body</source>
       <translation>ボディーに作用する初期温度を作成</translation>
     </message>
@@ -166,17 +166,17 @@
   <context>
     <name>CmdFemConstraintPlaneRotation</name>
     <message>
-      <location filename="../../Command.cpp" line="775"/>
+      <location filename="../../Command.cpp" line="833"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="776"/>
+      <location filename="../../Command.cpp" line="834"/>
       <source>Plane Multi-Point Constraint</source>
       <translation>平面多点拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="777"/>
+      <location filename="../../Command.cpp" line="835"/>
       <source>Creates a plane multi-point constraint for a face</source>
       <translation>面に対する平面多点拘束を作成</translation>
     </message>
@@ -184,17 +184,17 @@
   <context>
     <name>CmdFemConstraintPressure</name>
     <message>
-      <location filename="../../Command.cpp" line="826"/>
+      <location filename="../../Command.cpp" line="890"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="827"/>
+      <location filename="../../Command.cpp" line="891"/>
       <source>Pressure Load</source>
       <translation>圧力負荷</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="828"/>
+      <location filename="../../Command.cpp" line="892"/>
       <source>Creates a pressure load acting on a face</source>
       <translation>面に作用する圧力負荷を作成</translation>
     </message>
@@ -202,17 +202,17 @@
   <context>
     <name>CmdFemConstraintPulley</name>
     <message>
-      <location filename="../../Command.cpp" line="937"/>
+      <location filename="../../Command.cpp" line="1013"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="938"/>
+      <location filename="../../Command.cpp" line="1014"/>
       <source>Pulley Constraint</source>
       <translation>プーリー拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="939"/>
+      <location filename="../../Command.cpp" line="1015"/>
       <source>Creates a pulley constraint</source>
       <translation>プーリー拘束を作成</translation>
     </message>
@@ -220,17 +220,17 @@
   <context>
     <name>CmdFemConstraintSpring</name>
     <message>
-      <location filename="../../Command.cpp" line="882"/>
+      <location filename="../../Command.cpp" line="954"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="883"/>
+      <location filename="../../Command.cpp" line="955"/>
       <source>Spring Boundary Condition</source>
       <translation>バネ境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="884"/>
+      <location filename="../../Command.cpp" line="956"/>
       <source>Creates a spring boundary condition on a face</source>
       <translation>面上にバネ境界条件を作成</translation>
     </message>
@@ -238,17 +238,17 @@
   <context>
     <name>CmdFemConstraintTemperature</name>
     <message>
-      <location filename="../../Command.cpp" line="990"/>
+      <location filename="../../Command.cpp" line="1066"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="991"/>
+      <location filename="../../Command.cpp" line="1067"/>
       <source>Temperature Boundary Condition</source>
       <translation>温度境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="992"/>
+      <location filename="../../Command.cpp" line="1068"/>
       <source>Creates a temperature/concentrated heat flux load acting on a face</source>
       <translation>面に作用する温度/集中熱流束荷重を作成</translation>
     </message>
@@ -256,17 +256,17 @@
   <context>
     <name>CmdFemConstraintTransform</name>
     <message>
-      <location filename="../../Command.cpp" line="1041"/>
+      <location filename="../../Command.cpp" line="1123"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1042"/>
+      <location filename="../../Command.cpp" line="1124"/>
       <source>Local Coordinate System</source>
       <translation>ローカル座標系</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1043"/>
+      <location filename="../../Command.cpp" line="1125"/>
       <source>Creates a local coordinate system on a face</source>
       <translation>面上にローカル座標系を作成</translation>
     </message>
@@ -274,32 +274,32 @@
   <context>
     <name>CmdFemCreateNodesSet</name>
     <message>
-      <location filename="../../Command.cpp" line="1187"/>
+      <location filename="../../Command.cpp" line="1279"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1188"/>
+      <location filename="../../Command.cpp" line="1280"/>
       <source>Nodes Set</source>
       <translation>節点セット</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1189"/>
+      <location filename="../../Command.cpp" line="1281"/>
       <source>Creates a FEM mesh nodes set</source>
       <translation>FEMメッシュ節点セットを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1225"/>
+      <location filename="../../Command.cpp" line="1319"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1226"/>
+      <location filename="../../Command.cpp" line="1320"/>
       <source>Select a single FEM mesh or nodes set.</source>
       <translation>単一のFEMメッシュまたは節点セットを選択してください。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1375"/>
+      <location filename="../../Command.cpp" line="1480"/>
       <source>Select a single FEM Mesh.</source>
       <translation>単一のFEMメッシュを選択してください。</translation>
     </message>
@@ -307,17 +307,17 @@
   <context>
     <name>CmdFemDefineNodesSet</name>
     <message>
-      <location filename="../../Command.cpp" line="1128"/>
+      <location filename="../../Command.cpp" line="1220"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1129"/>
+      <location filename="../../Command.cpp" line="1221"/>
       <source>Node Set by Polygon</source>
       <translation>ポリゴンによる節点セット</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1130"/>
+      <location filename="../../Command.cpp" line="1222"/>
       <source>Creates a node set by polygon selection</source>
       <translation>ポリゴン選択で節点セットを作成</translation>
     </message>
@@ -325,17 +325,17 @@
   <context>
     <name>CmdFemPostApllyChanges</name>
     <message>
-      <location filename="../../Command.cpp" line="2622"/>
+      <location filename="../../Command.cpp" line="2871"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2623"/>
+      <location filename="../../Command.cpp" line="2872"/>
       <source>Apply Changes to Pipeline</source>
       <translation>パイプラインに変更を適用</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2624"/>
+      <location filename="../../Command.cpp" line="2873"/>
       <source>Applies changes to parameters directly and not on recompute only</source>
       <translation>再計算時以外も、パラメーターに変更を直接適用</translation>
     </message>
@@ -343,27 +343,27 @@
   <context>
     <name>CmdFemPostClipFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2027"/>
+      <location filename="../../Command.cpp" line="2235"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2028"/>
+      <location filename="../../Command.cpp" line="2236"/>
       <source>Region Clip Filter</source>
       <translation>領域クリップフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2030"/>
+      <location filename="../../Command.cpp" line="2237"/>
       <source>Defines a clip filter which uses functions to define the clipped region</source>
       <translation>クリップ領域を定義する関数を使用するクリップフィルターを定義</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2525"/>
+      <location filename="../../Command.cpp" line="2761"/>
       <source>Select a pipeline.</source>
       <translation>パイプラインを選択してください。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2524"/>
+      <location filename="../../Command.cpp" line="2760"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
@@ -371,17 +371,17 @@
   <context>
     <name>CmdFemPostCutFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2065"/>
+      <location filename="../../Command.cpp" line="2274"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2066"/>
+      <location filename="../../Command.cpp" line="2275"/>
       <source>Function Cut Filter</source>
       <translation>関数カットフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2067"/>
+      <location filename="../../Command.cpp" line="2276"/>
       <source>Cuts the data along an implicit function</source>
       <translation>陰関数に従ってデータを切り出し</translation>
     </message>
@@ -389,17 +389,17 @@
   <context>
     <name>CmdFemPostDataAlongLineFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2102"/>
+      <location filename="../../Command.cpp" line="2311"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2103"/>
+      <location filename="../../Command.cpp" line="2312"/>
       <source>Line Clip Filter</source>
       <translation>直線クリップフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2104"/>
+      <location filename="../../Command.cpp" line="2313"/>
       <source>Defines a clip filter which clips a field along a line</source>
       <translation>直線に沿って場の値をクリップするクリップフィルターを定義</translation>
     </message>
@@ -407,17 +407,17 @@
   <context>
     <name>CmdFemPostDataAtPointFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2139"/>
+      <location filename="../../Command.cpp" line="2348"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2140"/>
+      <location filename="../../Command.cpp" line="2349"/>
       <source>Data at Point Clip Filter</source>
       <translation>点データクリップフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2141"/>
+      <location filename="../../Command.cpp" line="2350"/>
       <source>Defines a clip filter which clips a field data at point</source>
       <translation>点位置での場の値をクリップするクリップフィルターを定義</translation>
     </message>
@@ -425,37 +425,37 @@
   <context>
     <name>CmdFemPostFunctions</name>
     <message>
-      <location filename="../../Command.cpp" line="2397"/>
+      <location filename="../../Command.cpp" line="2613"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2398"/>
+      <location filename="../../Command.cpp" line="2614"/>
       <source>Filter Functions</source>
       <translation>フィルター関数</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2399"/>
+      <location filename="../../Command.cpp" line="2615"/>
       <source>Functions for use in postprocessing filter</source>
       <translation>ポスト処理フィルターで使用する関数</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2576"/>
+      <location filename="../../Command.cpp" line="2813"/>
       <source>Plane</source>
       <translation>平面</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2583"/>
+      <location filename="../../Command.cpp" line="2823"/>
       <source>Sphere</source>
       <translation>球体</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2590"/>
+      <location filename="../../Command.cpp" line="2833"/>
       <source>Cylinder</source>
       <translation>円柱</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2597"/>
+      <location filename="../../Command.cpp" line="2843"/>
       <source>Box</source>
       <translation>直方体</translation>
     </message>
@@ -463,65 +463,65 @@
   <context>
     <name>CmdFemPostLinearizedStressesFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="1926"/>
+      <location filename="../../Command.cpp" line="2122"/>
       <source>Thickness [mm]</source>
       <comment>Plot X-Axis Label</comment>
       <translation>厚み [mm]</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1930"/>
+      <location filename="../../Command.cpp" line="2128"/>
       <source>Stress [MPa]</source>
       <comment>Plot Y-Axis Label</comment>
       <translation>圧力 [MPa]</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1934"/>
+      <location filename="../../Command.cpp" line="2134"/>
       <source>Linearized Stresses</source>
       <comment>Plot title</comment>
       <translation>線形化圧力</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1938"/>
+      <location filename="../../Command.cpp" line="2140"/>
       <source>Membrane</source>
       <comment>Plot legend item label</comment>
       <translation>薄膜</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1942"/>
+      <location filename="../../Command.cpp" line="2146"/>
       <source>Membrane and Bending</source>
       <comment>Plot legend item label</comment>
       <translation>膜と曲げ</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1946"/>
+      <location filename="../../Command.cpp" line="2152"/>
       <source>Total</source>
       <comment>Plot legend item label</comment>
       <translation>合計</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2177"/>
+      <location filename="../../Command.cpp" line="2386"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2178"/>
+      <location filename="../../Command.cpp" line="2387"/>
       <source>Stress Linearization Plot</source>
       <translation>応力線形化プロット</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2179"/>
+      <location filename="../../Command.cpp" line="2388"/>
       <source>Defines a stress linearization plot</source>
       <translation>応力線形化プロットの定義</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2217"/>
-      <location filename="../../Command.cpp" line="2225"/>
+      <location filename="../../Command.cpp" line="2427"/>
+      <location filename="../../Command.cpp" line="2438"/>
       <source>Select a clip filter which clips a stress field along a line</source>
       <translation>直線に沿って応力場をクリップするクリップフィルターを選択</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2216"/>
-      <location filename="../../Command.cpp" line="2224"/>
+      <location filename="../../Command.cpp" line="2426"/>
+      <location filename="../../Command.cpp" line="2437"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
@@ -529,27 +529,27 @@
   <context>
     <name>CmdFemPostPipelineFromResult</name>
     <message>
-      <location filename="../../Command.cpp" line="2663"/>
+      <location filename="../../Command.cpp" line="2912"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2664"/>
+      <location filename="../../Command.cpp" line="2913"/>
       <source>Post Pipeline From Result</source>
       <translation>結果からポスト処理パイプラインを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2665"/>
+      <location filename="../../Command.cpp" line="2914"/>
       <source>Creates a post processing pipeline from a result object</source>
       <translation>結果オブジェクトからポスト処理パイプラインを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2743"/>
+      <location filename="../../Command.cpp" line="2998"/>
       <source>Wrong selection type</source>
       <translation>間違った選択タイプ</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2744"/>
+      <location filename="../../Command.cpp" line="2999"/>
       <source>Select a result object.</source>
       <translation>結果オブジェクトを選択してください。</translation>
     </message>
@@ -557,17 +557,17 @@
   <context>
     <name>CmdFemPostScalarClipFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2250"/>
+      <location filename="../../Command.cpp" line="2466"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2251"/>
+      <location filename="../../Command.cpp" line="2467"/>
       <source>Scalar Clip Filter</source>
       <translation>スカラークリップフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2252"/>
+      <location filename="../../Command.cpp" line="2468"/>
       <source>Defines a clip filter which clips a field with a scalar value</source>
       <translation>スカラー値の場をクリップするクリップフィルターを定義</translation>
     </message>
@@ -575,17 +575,17 @@
   <context>
     <name>CmdFemPostWarpVectorFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2287"/>
+      <location filename="../../Command.cpp" line="2503"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2288"/>
+      <location filename="../../Command.cpp" line="2504"/>
       <source>Warp Filter</source>
       <translation>たわみフィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2289"/>
+      <location filename="../../Command.cpp" line="2505"/>
       <source>Warps the geometry along a vector field by a certain factor</source>
       <translation>ベクトル場に従って一定の係数でジオメトリーをたわめる</translation>
     </message>
@@ -593,128 +593,128 @@
   <context>
     <name>Command</name>
     <message>
-      <location filename="../../Command.cpp" line="525"/>
+      <location filename="../../Command.cpp" line="553"/>
       <source>Create fluid boundary condition</source>
       <translation>流体境界条件を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="258"/>
+      <location filename="../../Command.cpp" line="261"/>
       <source>Make bearing constraint</source>
       <translation>ベアリング拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="306"/>
+      <location filename="../../Command.cpp" line="309"/>
       <source>Make contact constraint on a face</source>
       <translation>面に対する接触拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="372"/>
+      <location filename="../../Command.cpp" line="387"/>
       <source>Make displacement boundary condition on face</source>
       <translation>面に対する変位境界条件を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="422"/>
+      <location filename="../../Command.cpp" line="441"/>
       <source>Make fixed boundary condition for geometry</source>
       <translation>ジオメトリに対する固定境界条件を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="472"/>
+      <location filename="../../Command.cpp" line="491"/>
       <source>Make rigid body constraint</source>
       <translation>剛体拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="576"/>
+      <location filename="../../Command.cpp" line="610"/>
       <source>Make force load on geometry</source>
       <translation>ジオメトリーに対する荷重を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="632"/>
+      <location filename="../../Command.cpp" line="672"/>
       <source>Make gear constraint</source>
       <translation>ギア拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="681"/>
+      <location filename="../../Command.cpp" line="721"/>
       <source>Make heat flux load on face</source>
       <translation>面に対する熱流束負荷を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="742"/>
+      <location filename="../../Command.cpp" line="794"/>
       <source>Make initial temperature condition on body</source>
       <translation>ボディーに対する初期温度条件を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="793"/>
+      <location filename="../../Command.cpp" line="851"/>
       <source>Make plane multi-point constraint on face</source>
       <translation>面に対する平面多点拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="844"/>
+      <location filename="../../Command.cpp" line="908"/>
       <source>Make pressure load on face</source>
       <translation>面に対する圧力負荷を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="900"/>
+      <location filename="../../Command.cpp" line="972"/>
       <source>Make Spring Constraint</source>
       <translation>バネ拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="955"/>
+      <location filename="../../Command.cpp" line="1031"/>
       <source>Make pulley constraint</source>
       <translation>プーリー拘束を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1008"/>
+      <location filename="../../Command.cpp" line="1084"/>
       <source>Make temperature boundary condition on face</source>
       <translation>面に対する温度境界条件を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1059"/>
+      <location filename="../../Command.cpp" line="1141"/>
       <source>Make local coordinate system on face</source>
       <translation>面上にローカル座標系を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1109"/>
-      <location filename="../../Command.cpp" line="1260"/>
+      <location filename="../../Command.cpp" line="1195"/>
+      <location filename="../../Command.cpp" line="1355"/>
       <source>Place robot</source>
       <translation>ロボットを配置</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1203"/>
+      <location filename="../../Command.cpp" line="1296"/>
       <source>Edit nodes set</source>
       <translation>節点セットを編集</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1212"/>
+      <location filename="../../Command.cpp" line="1306"/>
       <source>Create nodes set</source>
       <translation>節点セットを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1351"/>
+      <location filename="../../Command.cpp" line="1450"/>
       <source>Edit Elements set</source>
       <translation>要素セットを編集</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1362"/>
+      <location filename="../../Command.cpp" line="1462"/>
       <source>Create Elements set</source>
       <translation>要素セットを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1875"/>
+      <location filename="../../Command.cpp" line="2061"/>
       <source>Create filter</source>
       <translation>フィルターを作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2431"/>
+      <location filename="../../Command.cpp" line="2647"/>
       <source>Create function</source>
       <translation>関数を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2715"/>
+      <location filename="../../Command.cpp" line="2967"/>
       <source>Create pipeline from result</source>
       <translation>結果からパイプラインを作成</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderFemPostFunction.cpp" line="282"/>
+      <location filename="../../ViewProviderFemPostFunction.cpp" line="269"/>
       <source>Edit Mirror</source>
       <translation>ミラーを編集</translation>
     </message>
@@ -794,22 +794,22 @@
   <context>
     <name>FEM_PostCreateFunctions</name>
     <message>
-      <location filename="../../Command.cpp" line="2578"/>
+      <location filename="../../Command.cpp" line="2815"/>
       <source>Create a plane function, defined by its origin and normal</source>
       <translation>原点と法線で定義された平面関数を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2585"/>
+      <location filename="../../Command.cpp" line="2825"/>
       <source>Create a sphere function, defined by its center and radius</source>
       <translation>中心点と半径で定義された球関数を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2591"/>
+      <location filename="../../Command.cpp" line="2835"/>
       <source>Create a cylinder function, defined by its center, axis and radius</source>
       <translation>中心点、軸、半径で定義された円筒関数を作成</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2598"/>
+      <location filename="../../Command.cpp" line="2845"/>
       <source>Create a box function, defined by its center, length, width and height</source>
       <translation>中心、奥行き、幅、高さで定義された直方体関数を作成</translation>
     </message>
@@ -819,7 +819,7 @@
     <message>
       <location filename="../../DlgSettingsFemCcx.ui" line="14"/>
       <location filename="../../DlgSettingsFemCcx.ui" line="29"/>
-      <location filename="../../DlgSettingsFemCcxImp.cpp" line="151"/>
+      <location filename="../../DlgSettingsFemCcxImp.cpp" line="155"/>
       <source>CalculiX</source>
       <translation>CalculiX</translation>
     </message>
@@ -1078,7 +1078,7 @@ Only takes effect if 'Pipeline only' is enabled</source>
       <translation>低周波数制限</translation>
     </message>
     <message>
-      <location filename="../../DlgSettingsFemCcxImp.cpp" line="151"/>
+      <location filename="../../DlgSettingsFemCcxImp.cpp" line="155"/>
       <source>Executable '%1' not found</source>
       <translation>実行可能な '%1' が見つかりません</translation>
     </message>
@@ -1087,7 +1087,7 @@ Only takes effect if 'Pipeline only' is enabled</source>
     <name>FemGui::DlgSettingsFemElmerImp</name>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="14"/>
-      <location filename="../../DlgSettingsFemElmerImp.cpp" line="92"/>
+      <location filename="../../DlgSettingsFemElmerImp.cpp" line="96"/>
       <source>Elmer</source>
       <translation>Elmer</translation>
     </message>
@@ -1109,7 +1109,7 @@ Only takes effect if 'Pipeline only' is enabled</source>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="149"/>
       <source>Number of tasks</source>
-      <translation type="unfinished">Number of tasks</translation>
+      <translation>タスク数</translation>
     </message>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="159"/>
@@ -1119,12 +1119,12 @@ Only takes effect if 'Pipeline only' is enabled</source>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="175"/>
       <source>Threads per task</source>
-      <translation type="unfinished">Threads per task</translation>
+      <translation>タスク毎のスレッド</translation>
     </message>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="185"/>
       <source>Number of threads per task. Take effect if Elmer uses OpenMP.</source>
-      <translation type="unfinished">Number of threads per task. Take effect if Elmer uses OpenMP.</translation>
+      <translation>タスク毎のスレッド数。ElmerがOpenMPを使用している場合に有効になります。</translation>
     </message>
     <message>
       <location filename="../../DlgSettingsFemElmer.ui" line="206"/>
@@ -1167,7 +1167,7 @@ Only takes effect if 'Pipeline only' is enabled</source>
       <translation>オプション</translation>
     </message>
     <message>
-      <location filename="../../DlgSettingsFemElmerImp.cpp" line="92"/>
+      <location filename="../../DlgSettingsFemElmerImp.cpp" line="96"/>
       <source>Executable '%1' not found</source>
       <translation>実行可能な '%1' が見つかりません</translation>
     </message>
@@ -1370,7 +1370,7 @@ adding an analysis container</source>
     <name>FemGui::DlgSettingsFemGmshImp</name>
     <message>
       <location filename="../../DlgSettingsFemGmsh.ui" line="14"/>
-      <location filename="../../DlgSettingsFemGmshImp.cpp" line="87"/>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="90"/>
       <source>Gmsh</source>
       <translation>Gmsh</translation>
     </message>
@@ -1415,9 +1415,44 @@ adding an analysis container</source>
       <translation>メッシュ作成に使用するスレッド数</translation>
     </message>
     <message>
-      <location filename="../../DlgSettingsFemGmshImp.cpp" line="87"/>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="90"/>
       <source>Executable '%1' not found</source>
       <translation>実行可能な '%1' が見つかりません</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="97"/>
+      <source>Silent</source>
+      <translation>サイレント</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="98"/>
+      <source>Errors</source>
+      <translation>エラー</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="99"/>
+      <source>Warnings</source>
+      <translation>警告</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="100"/>
+      <source>Direct</source>
+      <translation>ダイレクト</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="101"/>
+      <source>Information</source>
+      <translation>情報</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="102"/>
+      <source>Status</source>
+      <translation>ステータス</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemGmshImp.cpp" line="103"/>
+      <source>Debug</source>
+      <translation>デバッグ</translation>
     </message>
   </context>
   <context>
@@ -1495,7 +1530,7 @@ FreeCAD 結果オブジェクト: インポートされたデータは FreeCAD F
     <name>FemGui::DlgSettingsFemMystranImp</name>
     <message>
       <location filename="../../DlgSettingsFemMystran.ui" line="14"/>
-      <location filename="../../DlgSettingsFemMystranImp.cpp" line="76"/>
+      <location filename="../../DlgSettingsFemMystranImp.cpp" line="78"/>
       <source>Mystran</source>
       <translation>Mystran</translation>
     </message>
@@ -1525,7 +1560,7 @@ FreeCAD 結果オブジェクト: インポートされたデータは FreeCAD F
       <translation>入力ファイルにコメントを書く</translation>
     </message>
     <message>
-      <location filename="../../DlgSettingsFemMystranImp.cpp" line="76"/>
+      <location filename="../../DlgSettingsFemMystranImp.cpp" line="78"/>
       <source>Executable '%1' not found</source>
       <translation>実行可能な '%1' が見つかりません</translation>
     </message>
@@ -1534,7 +1569,7 @@ FreeCAD 結果オブジェクト: インポートされたデータは FreeCAD F
     <name>FemGui::DlgSettingsFemZ88Imp</name>
     <message>
       <location filename="../../DlgSettingsFemZ88.ui" line="14"/>
-      <location filename="../../DlgSettingsFemZ88Imp.cpp" line="102"/>
+      <location filename="../../DlgSettingsFemZ88Imp.cpp" line="106"/>
       <source>Z88</source>
       <translation>Z88</translation>
     </message>
@@ -1619,7 +1654,7 @@ that "MAXKOI" needs to be increased.</source>
 反復ソルバーを使用し、「MAXKOI」を増やす必要があるというエラーメッセージが表示される場合、この値を増やす必要があるかもしれません。</translation>
     </message>
     <message>
-      <location filename="../../DlgSettingsFemZ88Imp.cpp" line="102"/>
+      <location filename="../../DlgSettingsFemZ88Imp.cpp" line="106"/>
       <source>Executable '%1' not found</source>
       <translation>実行可能な '%1' が見つかりません</translation>
     </message>
@@ -1643,13 +1678,13 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraint</name>
     <message>
-      <location filename="../../TaskFemConstraint.cpp" line="234"/>
-      <location filename="../../TaskFemConstraint.cpp" line="252"/>
+      <location filename="../../TaskFemConstraint.cpp" line="237"/>
+      <location filename="../../TaskFemConstraint.cpp" line="258"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraint.cpp" line="235"/>
+      <location filename="../../TaskFemConstraint.cpp" line="238"/>
       <source>You must specify at least one reference</source>
       <translation>少なくとも 1 つの参照を指定する必要があります。</translation>
     </message>
@@ -1657,7 +1692,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintBearing</name>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="371"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="392"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1665,7 +1700,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintContact</name>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="564"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="599"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1673,7 +1708,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintDisplacement</name>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="610"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="650"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1681,7 +1716,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintFluidBoundary</name>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="1097"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="1159"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1689,7 +1724,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintForce</name>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="463"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="476"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1697,7 +1732,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintGear</name>
     <message>
-      <location filename="../../TaskFemConstraintGear.cpp" line="331"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="355"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1705,7 +1740,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintHeatflux</name>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="525"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="556"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1713,7 +1748,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintInitialTemperature</name>
     <message>
-      <location filename="../../TaskFemConstraintInitialTemperature.cpp" line="113"/>
+      <location filename="../../TaskFemConstraintInitialTemperature.cpp" line="117"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1721,7 +1756,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintPressure</name>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="315"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="321"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1729,7 +1764,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintPulley</name>
     <message>
-      <location filename="../../TaskFemConstraintPulley.cpp" line="216"/>
+      <location filename="../../TaskFemConstraintPulley.cpp" line="229"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1737,7 +1772,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintSpring</name>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="322"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="334"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1745,7 +1780,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintTemperature</name>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="390"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="406"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1753,7 +1788,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintTransform</name>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="602"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="637"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1774,7 +1809,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskDlgPost</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="375"/>
+      <location filename="../../TaskPostBoxes.cpp" line="391"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -1790,7 +1825,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraint</name>
     <message>
-      <location filename="../../TaskFemConstraint.cpp" line="55"/>
+      <location filename="../../TaskFemConstraint.cpp" line="56"/>
       <source>Analysis Feature Properties</source>
       <translation>解析フィーチャープロパティ</translation>
     </message>
@@ -1808,42 +1843,42 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintBearing</name>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="168"/>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="173"/>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="181"/>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="199"/>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="207"/>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="214"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="170"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="176"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="185"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="205"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="215"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="224"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="169"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="171"/>
       <source>Use only a single reference for bearing constraint</source>
       <translation>ベアリング拘束では参照を1つだけ使用してください</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="173"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="176"/>
       <source>Only faces can be picked</source>
       <translation>面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="182"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="186"/>
       <source>Only cylindrical faces can be picked</source>
       <translation>円筒面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="200"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="206"/>
       <source>Only planar faces can be picked</source>
       <translation>平らな面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="208"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="216"/>
       <source>Only linear edges can be picked</source>
       <translation>直線状のエッジのみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintBearing.cpp" line="215"/>
+      <location filename="../../TaskFemConstraintBearing.cpp" line="225"/>
       <source>Only faces and edges can be picked</source>
       <translation>面やエッジだけを選択できます。</translation>
     </message>
@@ -1851,108 +1886,108 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintContact</name>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="55"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="61"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="57"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="60"/>
       <source>Delete</source>
       <translation>削除</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="129"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="197"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="130"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="196"/>
       <location filename="../../TaskFemConstraintContact.cpp" line="203"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="208"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="219"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="226"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="234"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="243"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="278"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="209"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="221"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="229"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="239"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="250"/>
       <location filename="../../TaskFemConstraintContact.cpp" line="287"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="332"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="338"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="343"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="354"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="360"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="368"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="377"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="413"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="422"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="296"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="342"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="349"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="355"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="367"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="374"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="384"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="395"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="435"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="444"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="130"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="131"/>
       <source>Only one face in object! - moved to master face</source>
       <translation>オブジェクト内に1つの面しかありません! - マスター面に移動しました。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="139"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="142"/>
       <source>Select slave geometry of type: </source>
       <translation>以下の種類の従ジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="140"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="143"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="146"/>
       <source>Face</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="141"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="144"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="143"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="147"/>
       <source>click Add or Remove</source>
       <translation>追加または削除をクリック</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="146"/>
       <source>Select master geometry of type: </source>
       <translation>以下の種類の主ジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="198"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="333"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="197"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="343"/>
       <source>Only one master face and one slave face for a contact constraint!</source>
       <translation>接触拘束に使用できるのは1つのマスター面と1つのスレーブ面だけです!</translation>
     </message>
     <message>
       <location filename="../../TaskFemConstraintContact.cpp" line="203"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="278"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="338"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="413"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="287"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="349"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="435"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="209"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="235"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="210"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="240"/>
       <source>Only one slave face for a contact constraint!</source>
       <translation>接触拘束に使用できるのは1つのスレーブ面だけです!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="219"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="287"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="354"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="422"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="221"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="296"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="367"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="444"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="227"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="361"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="230"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="375"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="244"/>
-      <location filename="../../TaskFemConstraintContact.cpp" line="378"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="251"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="396"/>
       <source>Only faces can be picked (edges in 2D models)</source>
       <translation>選択できるのは面のみです（2Dモデルではエッジ）</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="344"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="356"/>
       <source>Only one master for a contact constraint!</source>
       <translation>接触拘束に使用できるのは1つのマスターだけです!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintContact.cpp" line="369"/>
+      <location filename="../../TaskFemConstraintContact.cpp" line="385"/>
       <source>Only one master face for a contact constraint!</source>
       <translation>接触拘束に使用できるのは1つのマスター面だけです!</translation>
     </message>
@@ -1960,44 +1995,44 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintDisplacement</name>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="164"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="158"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="165"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="158"/>
       <source>Vertex, Edge, Face</source>
       <translation>頂点、エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="243"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="253"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="260"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="298"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="321"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="331"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="237"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="247"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="255"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="299"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="322"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="332"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="243"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="321"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="237"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="322"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="253"/>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="331"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="247"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="332"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="261"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="256"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintDisplacement.cpp" line="296"/>
+      <location filename="../../TaskFemConstraintDisplacement.cpp" line="295"/>
       <source>Only one type of selection (vertex, face or edge) per analysis feature allowed!</source>
       <translation>解析フィーチャーごとに1種類の選択 (頂点、面、エッジ) しかできません!</translation>
     </message>
@@ -2005,44 +2040,44 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintFixed</name>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="85"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="87"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="86"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="87"/>
       <source>Vertex, Edge, Face</source>
       <translation>頂点、エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="111"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="120"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="127"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="164"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="187"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="196"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="113"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="122"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="130"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="171"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="194"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="203"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="111"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="187"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="113"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="194"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="120"/>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="196"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="122"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="203"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="128"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="131"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFixed.cpp" line="162"/>
+      <location filename="../../TaskFemConstraintFixed.cpp" line="167"/>
       <source>Only one type of selection (vertex, face or edge) per analysis feature allowed!</source>
       <translation>解析フィーチャーごとに1種類の選択 (頂点、面、エッジ) しかできません!</translation>
     </message>
@@ -2050,144 +2085,144 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintFluidBoundary</name>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="331"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="345"/>
       <source>Basic</source>
       <translation>基本</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="332"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="346"/>
       <source>Turbulence</source>
       <translation>乱流</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="333"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="347"/>
       <source>Thermal</source>
       <translation>熱</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="335"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="349"/>
       <source>select boundary type, faces and set value</source>
       <translation>境界タイプ、面を選択し、値を設定</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="373"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="390"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="374"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="390"/>
       <source>Face</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="509"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="526"/>
       <source>Intensity [0~1]</source>
       <translation>強度 [0~1]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="511"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="528"/>
       <source>Dissipation Rate [m2/s3]</source>
       <translation>散逸率 [m2/s3]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="514"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="531"/>
       <source>Length Scale [m]</source>
       <translation>長さスケール [m]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="517"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="534"/>
       <source>Viscosity Ratio [1]</source>
       <translation>粘性率 [1]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="520"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="537"/>
       <source>Hydraulic Diameter [m]</source>
       <translation>水力直径 [m]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="548"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="553"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="566"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="571"/>
       <source>Gradient [K/m]</source>
       <translation>熱勾配 [K/m]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="557"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="575"/>
       <source>Flux [W/m2]</source>
       <translation>熱流束 [W/m2]</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="634"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="655"/>
       <source>Empty selection</source>
       <translation>選択されていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="634"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="655"/>
       <source>Select an edge or a face.</source>
       <translation>エッジまたは面を選択してください。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="646"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="655"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="671"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="679"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="686"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="666"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="675"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="693"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="703"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="712"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="647"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="666"/>
       <source>Selected object is not a part object!</source>
       <translation>選択されたオブジェクトはパートオブジェクトではありません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="656"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="676"/>
       <source>Only one planar face or edge can be selected!</source>
       <translation>平らな面またはエッジを1つだけ選択できます!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="672"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="694"/>
       <source>Only planar faces can be picked for 3D</source>
       <translation>3D では平らな面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="680"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="704"/>
       <source>Only planar edges can be picked for 2D</source>
       <translation>2D では平面に乗るエッジのみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="687"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="713"/>
       <source>Only faces for 3D part or edges for 2D can be picked</source>
       <translation>3D では面、2D ではエッジのみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="822"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="832"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="839"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="877"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="900"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="910"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="849"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="859"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="867"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="909"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="932"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="942"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="822"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="900"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="849"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="932"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="832"/>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="910"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="859"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="942"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="840"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="868"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="875"/>
+      <location filename="../../TaskFemConstraintFluidBoundary.cpp" line="905"/>
       <source>Only one type of selection (vertex, face or edge) per analysis feature allowed!</source>
       <translation>解析フィーチャーごとに1種類の選択 (頂点、面、エッジ) しかできません!</translation>
     </message>
@@ -2195,39 +2230,39 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintForce</name>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="89"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="92"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="90"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="92"/>
       <source>Vertex, Edge, Face</source>
       <translation>頂点、エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="128"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="137"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="144"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="182"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="205"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="214"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="125"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="134"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="184"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="207"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="216"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="128"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="205"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="125"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="207"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="137"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="214"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="134"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="216"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="145"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="143"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
@@ -2237,13 +2272,13 @@ that "MAXKOI" needs to be increased.</source>
       <translation>解析フィーチャーごとに1種類の選択 (頂点、面、エッジ) しかできません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="320"/>
-      <location filename="../../TaskFemConstraintForce.cpp" line="335"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="324"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="339"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintForce.cpp" line="320"/>
+      <location filename="../../TaskFemConstraintForce.cpp" line="324"/>
       <source>Select an edge or a face.</source>
       <translation>エッジまたは面を選択してください。</translation>
     </message>
@@ -2251,24 +2286,24 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintGear</name>
     <message>
-      <location filename="../../TaskFemConstraintGear.cpp" line="147"/>
       <location filename="../../TaskFemConstraintGear.cpp" line="155"/>
-      <location filename="../../TaskFemConstraintGear.cpp" line="162"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="165"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="174"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintGear.cpp" line="148"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="156"/>
       <source>Only planar faces can be picked</source>
       <translation>平らな面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintGear.cpp" line="156"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="166"/>
       <source>Only linear edges can be picked</source>
       <translation>直線状のエッジのみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintGear.cpp" line="163"/>
+      <location filename="../../TaskFemConstraintGear.cpp" line="175"/>
       <source>Only faces and edges can be picked</source>
       <translation>面やエッジだけを選択できます。</translation>
     </message>
@@ -2276,46 +2311,46 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintHeatflux</name>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="148"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="156"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="149"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="156"/>
       <source>Edge, Face</source>
       <translation>エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="268"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="277"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="284"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="295"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="339"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="349"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="360"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="282"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="291"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="299"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="311"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="359"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="369"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="380"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="268"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="339"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="282"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="359"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="277"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="349"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="291"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="369"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="285"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="300"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="296"/>
-      <location filename="../../TaskFemConstraintHeatflux.cpp" line="361"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="312"/>
+      <location filename="../../TaskFemConstraintHeatflux.cpp" line="381"/>
       <source>Selection must only consist of faces! (edges in 2D models)</source>
       <translation>選択対象は面のみで構成されている必要があります！（2Dモデルではエッジ）</translation>
     </message>
@@ -2323,48 +2358,48 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintPlaneRotation</name>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="95"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="98"/>
       <source>Select single geometry of type: </source>
       <translation>以下の種類の単一ジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="96"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="98"/>
       <source>Face</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="128"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="138"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="149"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="157"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="168"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="177"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="207"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="224"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="234"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="130"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="140"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="150"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="158"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="169"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="178"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="209"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="227"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="237"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="129"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="208"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="131"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="210"/>
       <source>Only one face can be selected for a plane multi-point constraint!</source>
       <translation>平面多点拘束では面を1つだけ選択できます!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="138"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="224"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="140"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="227"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
       <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="150"/>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="234"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="237"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="158"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="159"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
@@ -2374,7 +2409,7 @@ that "MAXKOI" needs to be increased.</source>
       <translation>面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="178"/>
+      <location filename="../../TaskFemConstraintPlaneRotation.cpp" line="179"/>
       <source>Only planar faces can be picked</source>
       <translation>平らな面のみを選択できます。</translation>
     </message>
@@ -2382,44 +2417,44 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintPressure</name>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="73"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="75"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="74"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="75"/>
       <source>Edge, Face</source>
       <translation>エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="133"/>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="142"/>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="149"/>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="159"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="128"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="137"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="145"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="157"/>
       <location filename="../../TaskFemConstraintPressure.cpp" line="194"/>
       <location filename="../../TaskFemConstraintPressure.cpp" line="203"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="133"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="128"/>
       <location filename="../../TaskFemConstraintPressure.cpp" line="194"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="137"/>
       <location filename="../../TaskFemConstraintPressure.cpp" line="203"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="150"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="146"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPressure.cpp" line="160"/>
+      <location filename="../../TaskFemConstraintPressure.cpp" line="158"/>
       <source>Only faces (edges in 2D models) can be picked</source>
       <translation>選択できるのは面（2Dモデルではエッジ）のみです</translation>
     </message>
@@ -2427,12 +2462,12 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintPulley</name>
     <message>
-      <location filename="../../TaskFemConstraintPulley.cpp" line="92"/>
+      <location filename="../../TaskFemConstraintPulley.cpp" line="97"/>
       <source>Pulley diameter</source>
       <translation>プーリ径</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintPulley.cpp" line="93"/>
+      <location filename="../../TaskFemConstraintPulley.cpp" line="98"/>
       <source>Torque [Nm]</source>
       <translation>トルク [Nm]</translation>
     </message>
@@ -2440,44 +2475,44 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintSpring</name>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="102"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="104"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="103"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="104"/>
       <source>Face</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="131"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="140"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="147"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="156"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="190"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="199"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="133"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="150"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="160"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="195"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="204"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="131"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="190"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="133"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="195"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="140"/>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="199"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="142"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="204"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="148"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="151"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintSpring.cpp" line="156"/>
+      <location filename="../../TaskFemConstraintSpring.cpp" line="160"/>
       <source>Only faces can be picked</source>
       <translation>面のみを選択できます。</translation>
     </message>
@@ -2485,7 +2520,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintTemperature</name>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="100"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="101"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
@@ -2495,28 +2530,28 @@ that "MAXKOI" needs to be increased.</source>
       <translation>頂点、エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="191"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="201"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="208"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="247"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="257"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="198"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="207"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="215"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="256"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="265"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="191"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="247"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="198"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="256"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="201"/>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="257"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="207"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="265"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTemperature.cpp" line="209"/>
+      <location filename="../../TaskFemConstraintTemperature.cpp" line="216"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
@@ -2524,80 +2559,80 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskFemConstraintTransform</name>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="203"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="211"/>
       <source>Analysis feature update error</source>
       <translation>解析フィーチャーの更新エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="296"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="302"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="310"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="324"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="331"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="339"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="347"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="357"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="395"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="429"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="438"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="309"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="316"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="326"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="341"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="349"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="359"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="368"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="379"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="423"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="458"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="467"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="296"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="429"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="309"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="458"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="303"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="311"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="317"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="327"/>
       <source>Only one face for rectangular local coordinate system!</source>
       <translation>ローカルの直角座標系は1面のみです！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="332"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="350"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="340"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="360"/>
       <source>Only one face for local coordinate system!</source>
       <translation>ローカルの座標系は1面のみです！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="396"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="424"/>
       <source>Only transformable faces can be selected! Apply a displacement boundary condition or a force load to a face first then apply local coordinate system to the face.</source>
       <translation>変換可能な面のみを選択できます！　まず表面に変位境界条件または荷重負荷を適用し、その後、表面にローカル座標系を適用します。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="324"/>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="438"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="341"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="467"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="156"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="163"/>
       <source>Select single geometry of type: </source>
       <translation>以下の種類の単一ジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="157"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="163"/>
       <source>Face</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="204"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="212"/>
       <source>The transformable faces have changed. Add only the transformable faces and remove non-transformable faces!</source>
       <translation>変換可能な面が変更されました。変換可能な面だけを追加し、変換できない面は削除してください！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="347"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="368"/>
       <source>Only faces can be picked</source>
       <translation>面のみを選択できます。</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintTransform.cpp" line="358"/>
+      <location filename="../../TaskFemConstraintTransform.cpp" line="380"/>
       <source>Only cylindrical faces can be picked</source>
       <translation>円筒面のみを選択できます。</translation>
     </message>
@@ -2605,12 +2640,12 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskPostDataAlongLine</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="662"/>
+      <location filename="../../TaskPostBoxes.cpp" line="675"/>
       <source>Data Along a Line Options</source>
       <translation>直線に沿うデータのオプション</translation>
     </message>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1046"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1083"/>
       <source>Length</source>
       <comment>X-Axis plot label</comment>
       <translation>長さ</translation>
@@ -2619,12 +2654,12 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskPostDataAtPoint</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1083"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1117"/>
       <source>Data at Point Options</source>
       <translation>点位置データのオプション</translation>
     </message>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1402"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1443"/>
       <source>%1 at (%2; %3; %4) is: %5 %6</source>
       <translation>%1 (%2; %3; %4): %5 %6</translation>
     </message>
@@ -2632,7 +2667,7 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::TaskPostFunction</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="512"/>
+      <location filename="../../TaskPostBoxes.cpp" line="523"/>
       <source>Implicit function</source>
       <translation>陰関数</translation>
     </message>
@@ -2648,12 +2683,12 @@ that "MAXKOI" needs to be increased.</source>
   <context>
     <name>FemGui::ViewProviderFemMeshShapeNetgen</name>
     <message>
-      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="71"/>
+      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="69"/>
       <source>Meshing failure</source>
       <translation>メッシュ作成失敗</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="73"/>
+      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="70"/>
       <source>The FEM module is built without NETGEN support. Meshing will not work!!!</source>
       <translation>FEM モジュールは NETGEN サポート無しでビルドされています。メッシュ作成機能は動作しません!</translation>
     </message>
@@ -2807,9 +2842,9 @@ that "MAXKOI" needs to be increased.</source>
       <translation>流入圧力</translation>
     </message>
     <message>
+      <location filename="../ui/InitialPressure.ui" line="20"/>
       <location filename="../ui/ElementFluid1D.ui" line="235"/>
       <location filename="../ui/ElementFluid1D.ui" line="308"/>
-      <location filename="../ui/InitialPressure.ui" line="20"/>
       <source>Pressure</source>
       <translation>圧力</translation>
     </message>
@@ -2941,10 +2976,10 @@ that "MAXKOI" needs to be increased.</source>
     <message>
       <location filename="../ui/ConstraintCentrif.ui" line="26"/>
       <location filename="../ui/MeshBoundaryLayer.ui" line="26"/>
-      <location filename="../ui/ConstraintTie.ui" line="26"/>
-      <location filename="../ui/ConstraintSectionPrint.ui" line="26"/>
-      <location filename="../ui/MeshRegion.ui" line="26"/>
       <location filename="../ui/ElementGeometry2D.ui" line="26"/>
+      <location filename="../ui/ConstraintTie.ui" line="26"/>
+      <location filename="../ui/MeshRegion.ui" line="26"/>
+      <location filename="../ui/ConstraintSectionPrint.ui" line="26"/>
       <source>Parameter</source>
       <translation>パラメーター</translation>
     </message>
@@ -3109,16 +3144,16 @@ Note: has no effect if a solid was selected</source>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="61"/>
       <location filename="../ui/CurrentDensity.ui" line="246"/>
-      <location filename="../ui/Magnetization.ui" line="39"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="113"/>
+      <location filename="../ui/Magnetization.ui" line="39"/>
       <source>Real</source>
       <translation>実部</translation>
     </message>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="71"/>
       <location filename="../ui/CurrentDensity.ui" line="256"/>
-      <location filename="../ui/Magnetization.ui" line="49"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="123"/>
+      <location filename="../ui/Magnetization.ui" line="49"/>
       <source>Imaginary</source>
       <translation>虚部</translation>
     </message>
@@ -3211,8 +3246,8 @@ Note: has no effect if a solid was selected</source>
     </message>
     <message>
       <location filename="../ui/MeshBoundaryLayer.ui" line="58"/>
-      <location filename="../ui/MeshRegion.ui" line="44"/>
       <location filename="../ui/ElementGeometry2D.ui" line="44"/>
+      <location filename="../ui/MeshRegion.ui" line="44"/>
       <location filename="../ui/ElementGeometry1D.ui" line="48"/>
       <location filename="../ui/ElementGeometry1D.ui" line="74"/>
       <location filename="../ui/ElementGeometry1D.ui" line="111"/>
@@ -3318,13 +3353,13 @@ Note: has no effect if a solid was selected</source>
     </message>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="14"/>
-      <location filename="../ui/Magnetization.ui" line="14"/>
-      <location filename="../ui/InitialPressure.ui" line="14"/>
-      <location filename="../ui/ElectricChargeDensity.ui" line="14"/>
-      <location filename="../ui/InitialFlowVelocity.ui" line="14"/>
-      <location filename="../ui/FlowVelocity.ui" line="14"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="14"/>
+      <location filename="../ui/ElectricChargeDensity.ui" line="14"/>
+      <location filename="../ui/Magnetization.ui" line="14"/>
       <location filename="../ui/BodyHeatSource.ui" line="14"/>
+      <location filename="../ui/InitialFlowVelocity.ui" line="14"/>
+      <location filename="../ui/InitialPressure.ui" line="14"/>
+      <location filename="../ui/FlowVelocity.ui" line="14"/>
       <source>Analysis Feature Properties</source>
       <translation>解析フィーチャープロパティ</translation>
     </message>
@@ -3420,8 +3455,8 @@ with harmonic/oscillating driving current</source>
     </message>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="78"/>
-      <location filename="../ui/Magnetization.ui" line="56"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="194"/>
+      <location filename="../ui/Magnetization.ui" line="56"/>
       <source>X</source>
       <translation>X</translation>
     </message>
@@ -3437,8 +3472,8 @@ with harmonic/oscillating driving current</source>
     </message>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="129"/>
-      <location filename="../ui/Magnetization.ui" line="107"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="257"/>
+      <location filename="../ui/Magnetization.ui" line="107"/>
       <source>Y</source>
       <translation>Y</translation>
     </message>
@@ -3454,8 +3489,8 @@ with harmonic/oscillating driving current</source>
     </message>
     <message>
       <location filename="../ui/CurrentDensity.ui" line="180"/>
-      <location filename="../ui/Magnetization.ui" line="158"/>
       <location filename="../ui/ElectrostaticPotential.ui" line="320"/>
+      <location filename="../ui/Magnetization.ui" line="158"/>
       <source>Z</source>
       <translation>Z</translation>
     </message>
@@ -3495,10 +3530,10 @@ with harmonic/oscillating driving current</source>
       <translation>最大要素サイズ</translation>
     </message>
     <message>
-      <location filename="../ui/PostLineplotIndexAppEdit.ui" line="14"/>
-      <location filename="../ui/PostLineplotFieldAppEdit.ui" line="14"/>
       <location filename="../ui/PostHistogramFieldAppEdit.ui" line="14"/>
+      <location filename="../ui/PostLineplotIndexAppEdit.ui" line="14"/>
       <location filename="../ui/PostHistogramIndexAppEdit.ui" line="14"/>
+      <location filename="../ui/PostLineplotFieldAppEdit.ui" line="14"/>
       <source>Form</source>
       <translation>フォーム</translation>
     </message>
@@ -3509,8 +3544,8 @@ with harmonic/oscillating driving current</source>
       <translation>フィールド</translation>
     </message>
     <message>
-      <location filename="../ui/PostLineplotFieldAppEdit.ui" line="86"/>
       <location filename="../ui/PostHistogramFieldAppEdit.ui" line="61"/>
+      <location filename="../ui/PostLineplotFieldAppEdit.ui" line="86"/>
       <source>Frames</source>
       <translation>フレーム</translation>
     </message>
@@ -3630,29 +3665,29 @@ with harmonic/oscillating driving current</source>
   <context>
     <name>QObject</name>
     <message>
-      <location filename="../../Command.cpp" line="75"/>
+      <location filename="../../Command.cpp" line="76"/>
       <source>No active Analysis</source>
       <translation>実行中の解析はありません</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="76"/>
+      <location filename="../../Command.cpp" line="77"/>
       <source>You need to create or activate a Analysis</source>
       <translation>解析を作成または有効にする必要があります。</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderFemPostFunction.cpp" line="324"/>
-      <location filename="../../ViewProviderFemPostObject.cpp" line="891"/>
+      <location filename="../../ViewProviderFemPostFunction.cpp" line="312"/>
+      <location filename="../../ViewProviderFemPostObject.cpp" line="895"/>
       <source>A dialog is already open in the task panel</source>
       <translation>タスクパネルで既にダイアログが開かれています</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderFemPostFunction.cpp" line="325"/>
-      <location filename="../../ViewProviderFemPostObject.cpp" line="892"/>
+      <location filename="../../ViewProviderFemPostFunction.cpp" line="313"/>
+      <location filename="../../ViewProviderFemPostObject.cpp" line="896"/>
       <source>Do you want to close this dialog?</source>
       <translation>このダイアログを閉じますか？</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="56"/>
+      <location filename="../../ViewProviderFemMeshShapeNetgen.cpp" line="54"/>
       <source>Meshing</source>
       <translation>メッシュ作成</translation>
     </message>
@@ -3673,42 +3708,42 @@ with harmonic/oscillating driving current</source>
       <translation>インポート/エクスポート</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="108"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="115"/>
       <source>Nodes</source>
       <translation>ノード</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="109"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="116"/>
       <source>Edges</source>
       <translation>エッジ</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="110"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="117"/>
       <source>Faces</source>
       <translation>面</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="111"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="118"/>
       <source>Polygons</source>
       <translation>ポリゴン</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="112"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="119"/>
       <source>Volumes</source>
       <translation>体積</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="113"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="120"/>
       <source>Polyhedrons</source>
       <translation>多面体</translation>
     </message>
     <message>
-      <location filename="../../PropertyFemMeshItem.cpp" line="114"/>
+      <location filename="../../PropertyFemMeshItem.cpp" line="121"/>
       <source>Groups</source>
       <translation>グループ</translation>
     </message>
     <message>
-      <location filename="../../ViewProviderAnalysis.cpp" line="313"/>
+      <location filename="../../ViewProviderAnalysis.cpp" line="320"/>
       <source>Are you sure you want to continue?</source>
       <translation>本当に続行しますか？</translation>
     </message>
@@ -4079,7 +4114,7 @@ For possible variables, see the description box below.</source>
   <context>
     <name>Std_Delete</name>
     <message>
-      <location filename="../../ViewProviderAnalysis.cpp" line="317"/>
+      <location filename="../../ViewProviderAnalysis.cpp" line="324"/>
       <source>Object dependencies</source>
       <translation>オブジェクトの依存関係</translation>
     </message>
@@ -5356,28 +5391,28 @@ normal vector of the face is used as direction</source>
   <context>
     <name>setupFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="1836"/>
+      <location filename="../../Command.cpp" line="2019"/>
       <source>Error: A filter can only be applied to a single object.</source>
       <translation>エラー: フィルタは単一オブジェクトにのみ適用できます。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1838"/>
-      <location filename="../../Command.cpp" line="1849"/>
+      <location filename="../../Command.cpp" line="2020"/>
+      <location filename="../../Command.cpp" line="2032"/>
       <source>The filter could not be set up.</source>
       <translation>フィルタを設定できませんでした。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1848"/>
+      <location filename="../../Command.cpp" line="2031"/>
       <source>Error: no post processing object selected.</source>
       <translation>エラー: ポスト処理オブジェクトが選択されていません。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1866"/>
+      <location filename="../../Command.cpp" line="2050"/>
       <source>Error: Object not in a post processing group</source>
       <translation>エラー: オブジェクトが後処理グループにありません</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1867"/>
+      <location filename="../../Command.cpp" line="2051"/>
       <source>The filter could not be set up: Object not in a post processing group.</source>
       <translation>フィルタをセットアップできませんでした: オブジェクトが後処理グループにありません。</translation>
     </message>
@@ -5385,12 +5420,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_Analysis</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="61"/>
+      <location filename="../../../femcommands/commands.py" line="58"/>
       <source>New Analysis</source>
       <translation>新しい解析</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="65"/>
+      <location filename="../../../femcommands/commands.py" line="62"/>
       <source>Creates an analysis container with default solver</source>
       <translation>デフォルトのソルバーを使用して解析のコンテナーを作成</translation>
     </message>
@@ -5398,12 +5433,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_ClippingPlaneRemoveAll</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="161"/>
+      <location filename="../../../femcommands/commands.py" line="158"/>
       <source>Remove All Clipping Planes</source>
       <translation>すべてのクリッピング平面を削除</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="164"/>
+      <location filename="../../../femcommands/commands.py" line="161"/>
       <source>Removes all clipping planes</source>
       <translation>すべてのクリッピング平面を削除</translation>
     </message>
@@ -5411,12 +5446,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_Examples</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="551"/>
+      <location filename="../../../femcommands/commands.py" line="548"/>
       <source>FEM Examples</source>
       <translation>FEMの例</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="552"/>
+      <location filename="../../../femcommands/commands.py" line="549"/>
       <source>Opens the FEM examples</source>
       <translation>FEMサンプルを開く</translation>
     </message>
@@ -5424,12 +5459,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_MaterialEditor</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="566"/>
+      <location filename="../../../femcommands/commands.py" line="563"/>
       <source>Material Editor</source>
       <translation>材料エディター</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="569"/>
+      <location filename="../../../femcommands/commands.py" line="566"/>
       <source>Opens the FreeCAD material editor</source>
       <translation>FreeCAD 材料エディターを開く</translation>
     </message>
@@ -5437,12 +5472,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_MaterialReinforced</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="662"/>
+      <location filename="../../../femcommands/commands.py" line="659"/>
       <source>Reinforced Material (Concrete)</source>
       <translation>強化材料（コンクリート）</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="666"/>
+      <location filename="../../../femcommands/commands.py" line="663"/>
       <source>Creates a material for reinforced matrix material such as concrete</source>
       <translation>コンクリートなどの強化マトリックス材料のための材料を作成</translation>
     </message>
@@ -5450,12 +5485,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_FEMMesh2Mesh</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="688"/>
+      <location filename="../../../femcommands/commands.py" line="685"/>
       <source>FEM Mesh to Mesh</source>
       <translation>FEMメッシュからメッシュへ</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="691"/>
+      <location filename="../../../femcommands/commands.py" line="688"/>
       <source>Converts the surface of a FEM mesh to a mesh</source>
       <translation>FEMメッシュの表面をメッシュに変換</translation>
     </message>
@@ -5463,12 +5498,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_MeshDisplayInfo</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="763"/>
+      <location filename="../../../femcommands/commands.py" line="760"/>
       <source>Display Mesh Info</source>
       <translation>メッシュ情報を表示</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="764"/>
+      <location filename="../../../femcommands/commands.py" line="761"/>
       <source>Displays FEM mesh information</source>
       <translation>FEMメッシュ情報を表示</translation>
     </message>
@@ -5476,12 +5511,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_MeshGmshFromShape</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="787"/>
+      <location filename="../../../femcommands/commands.py" line="784"/>
       <source>Mesh From Shape by Gmsh</source>
       <translation>Gmshを使用して形状からFEMメッシュへ</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="790"/>
+      <location filename="../../../femcommands/commands.py" line="787"/>
       <source>Creates a FEM mesh from a shape by Gmsh mesher</source>
       <translation>Gmshメッシャーを使用して形状からFEMメッシュを作成</translation>
     </message>
@@ -5489,12 +5524,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_MeshNetgenFromShape</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="848"/>
+      <location filename="../../../femcommands/commands.py" line="845"/>
       <source>Mesh From Shape by Netgen</source>
       <translation>Netgenを使用して形状からFEMメッシュへ</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="852"/>
+      <location filename="../../../femcommands/commands.py" line="849"/>
       <source>Creates a FEM mesh from a solid or face shape by Netgen internal mesher</source>
       <translation>Netgen内部メッシャーを使用してソリッド、またはフェイス形状からFEMメッシュを作成</translation>
     </message>
@@ -5502,12 +5537,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverCalculiXCcxTools</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1045"/>
+      <location filename="../../../femcommands/commands.py" line="1042"/>
       <source>Solver CalculiX Standard</source>
       <translation>ソルバー CalculiX 標準</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1050"/>
+      <location filename="../../../femcommands/commands.py" line="1047"/>
       <source>Creates a standard FEM solver CalculiX with ccx tools</source>
       <translation>標準FEMソルバーであるccxツール付属CalculiXを作成</translation>
     </message>
@@ -5515,12 +5550,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverControl</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1101"/>
+      <location filename="../../../femcommands/commands.py" line="1098"/>
       <source>Solver Job Control</source>
       <translation>ソルバージョブ制御</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1106"/>
+      <location filename="../../../femcommands/commands.py" line="1103"/>
       <source>Changes solver attributes and runs the calculations for the selected solver</source>
       <translation>ソルバー属性を変更し、選択したソルバーのための計算を実行</translation>
     </message>
@@ -5528,12 +5563,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverElmer</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1118"/>
+      <location filename="../../../femcommands/commands.py" line="1115"/>
       <source>Solver Elmer</source>
       <translation>ソルバー Elmer</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1120"/>
+      <location filename="../../../femcommands/commands.py" line="1117"/>
       <source>Creates a FEM solver Elmer</source>
       <translation>FEMソルバーElmerを作成</translation>
     </message>
@@ -5541,12 +5576,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverMystran</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1157"/>
+      <location filename="../../../femcommands/commands.py" line="1154"/>
       <source>Solver Mystran</source>
       <translation>ソルバー Mystran</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1159"/>
+      <location filename="../../../femcommands/commands.py" line="1156"/>
       <source>Creates a FEM solver Mystran</source>
       <translation>FEMソルバーMystranを作成</translation>
     </message>
@@ -5554,12 +5589,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverRun</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1169"/>
+      <location filename="../../../femcommands/commands.py" line="1166"/>
       <source>Run Solver</source>
       <translation>ソルバーを実行</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1173"/>
+      <location filename="../../../femcommands/commands.py" line="1170"/>
       <source>Runs the calculations for the selected solver</source>
       <translation>選択したソルバーの計算を実行</translation>
     </message>
@@ -5567,12 +5602,12 @@ normal vector of the face is used as direction</source>
   <context>
     <name>FEM_SolverZ88</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1230"/>
+      <location filename="../../../femcommands/commands.py" line="1187"/>
       <source>Solver Z88</source>
       <translation>ソルバー Z88</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1232"/>
+      <location filename="../../../femcommands/commands.py" line="1189"/>
       <source>Creates a FEM solver Z88</source>
       <translation>FEMソルバーZ88を作成</translation>
     </message>
@@ -5963,8 +5998,8 @@ No matching module was found in the current Python path.</source>
       <translation>Y軸に使用するY場ベクトルの部分</translation>
     </message>
     <message>
-      <location filename="../../../femobjects/post_extract1D.py" line="64"/>
       <location filename="../../../femobjects/post_extract2D.py" line="64"/>
+      <location filename="../../../femobjects/post_extract1D.py" line="64"/>
       <source>Specify if the field shall be extracted for every available frame</source>
       <translation>利用可能なフレームごとにフィールドを抽出するかどうかを指定</translation>
     </message>
@@ -6149,17 +6184,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemCompEmConstraints</name>
     <message>
-      <location filename="../../Command.cpp" line="1397"/>
+      <location filename="../../Command.cpp" line="1503"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1398"/>
+      <location filename="../../Command.cpp" line="1504"/>
       <source>Electromagnetic Boundary Conditions</source>
       <translation>電磁気境界条件</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1399"/>
+      <location filename="../../Command.cpp" line="1505"/>
       <source>Electromagnetic boundary conditions</source>
       <translation>電磁気境界条件</translation>
     </message>
@@ -6205,17 +6240,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemCompEmEquations</name>
     <message>
-      <location filename="../../Command.cpp" line="1540"/>
+      <location filename="../../Command.cpp" line="1687"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1541"/>
+      <location filename="../../Command.cpp" line="1688"/>
       <source>Electromagnetic Equations</source>
       <translation>電磁方程式</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1542"/>
+      <location filename="../../Command.cpp" line="1689"/>
       <source>Electromagnetic equations for the Elmer solver</source>
       <translation>Elmer ソルバー用の電磁方程式</translation>
     </message>
@@ -6223,17 +6258,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemPostContoursFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2324"/>
+      <location filename="../../Command.cpp" line="2540"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2325"/>
+      <location filename="../../Command.cpp" line="2541"/>
       <source>Contours Filter</source>
       <translation>等高線フィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2326"/>
+      <location filename="../../Command.cpp" line="2542"/>
       <source>Define/create a contours filter which displays iso contours</source>
       <translation>ISO 等高線を表示する等高線フィルターを定義/作成</translation>
     </message>
@@ -6315,17 +6350,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemCompMechEquations</name>
     <message>
-      <location filename="../../Command.cpp" line="1708"/>
+      <location filename="../../Command.cpp" line="1883"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1709"/>
+      <location filename="../../Command.cpp" line="1884"/>
       <source>Mechanical Equations</source>
       <translation>力学方程式</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1710"/>
+      <location filename="../../Command.cpp" line="1885"/>
       <source>Mechanical equations for the Elmer solver</source>
       <translation>Elmer ソルバー用の力学方程式</translation>
     </message>
@@ -6333,12 +6368,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintBodyHeatSource</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="201"/>
+      <location filename="../../../femcommands/commands.py" line="198"/>
       <source>Body Heat Source</source>
       <translation>体積熱源</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="204"/>
+      <location filename="../../../femcommands/commands.py" line="201"/>
       <source>Creates a body heat source</source>
       <translation>体積熱源を作成</translation>
     </message>
@@ -6346,12 +6381,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintCentrif</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="214"/>
+      <location filename="../../../femcommands/commands.py" line="211"/>
       <source>Centrifugal Load</source>
       <translation>遠心荷重</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="215"/>
+      <location filename="../../../femcommands/commands.py" line="212"/>
       <source>Creates a centrifugal load</source>
       <translation>遠心荷重を作成</translation>
     </message>
@@ -6359,12 +6394,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintCurrentDensity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="228"/>
+      <location filename="../../../femcommands/commands.py" line="225"/>
       <source>Current Density Boundary Condition</source>
       <translation>電流密度境界条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="232"/>
+      <location filename="../../../femcommands/commands.py" line="229"/>
       <source>Creates a current density boundary condition</source>
       <translation>電流密度境界条件を作成</translation>
     </message>
@@ -6372,12 +6407,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintElectrostaticPotential</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="261"/>
+      <location filename="../../../femcommands/commands.py" line="258"/>
       <source>Electrostatic Potential Boundary Condition</source>
       <translation>静電ポテンシャル境界条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="265"/>
+      <location filename="../../../femcommands/commands.py" line="262"/>
       <source>Creates an electrostatic potential boundary condition</source>
       <translation>静電ポテンシャル境界条件を作成</translation>
     </message>
@@ -6385,12 +6420,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintFlowVelocity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="277"/>
+      <location filename="../../../femcommands/commands.py" line="274"/>
       <source>Flow Velocity Boundary Condition</source>
       <translation>流速境界条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="280"/>
+      <location filename="../../../femcommands/commands.py" line="277"/>
       <source>Creates a flow velocity boundary condition</source>
       <translation>流速境界条件を作成</translation>
     </message>
@@ -6398,12 +6433,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintInitialPressure</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="308"/>
+      <location filename="../../../femcommands/commands.py" line="305"/>
       <source>Initial Pressure Condition</source>
       <translation>初期圧力条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="311"/>
+      <location filename="../../../femcommands/commands.py" line="308"/>
       <source>Creates an initial pressure condition</source>
       <translation>初期圧力条件を作成</translation>
     </message>
@@ -6411,12 +6446,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintMagnetization</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="323"/>
+      <location filename="../../../femcommands/commands.py" line="320"/>
       <source>Magnetization Boundary Condition</source>
       <translation>磁化境界条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="326"/>
+      <location filename="../../../femcommands/commands.py" line="323"/>
       <source>Creates a magnetization boundary condition</source>
       <translation>磁化境界条件を作成</translation>
     </message>
@@ -6424,12 +6459,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintSectionPrint</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="336"/>
+      <location filename="../../../femcommands/commands.py" line="333"/>
       <source>Section Print Feature</source>
       <translation>断面表示フィーチャー</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="339"/>
+      <location filename="../../../femcommands/commands.py" line="336"/>
       <source>Creates a section print feature</source>
       <translation>断面表示フィーチャーを作成</translation>
     </message>
@@ -6437,12 +6472,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintSelfWeight</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="349"/>
+      <location filename="../../../femcommands/commands.py" line="346"/>
       <source>Gravity Load</source>
       <translation>重力負荷</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="350"/>
+      <location filename="../../../femcommands/commands.py" line="347"/>
       <source>Creates a gravity load</source>
       <translation>重力負荷を作成</translation>
     </message>
@@ -6450,12 +6485,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_ConstraintTie</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="360"/>
+      <location filename="../../../femcommands/commands.py" line="357"/>
       <source>Tie Constraint</source>
       <translation>結合拘束</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="361"/>
+      <location filename="../../../femcommands/commands.py" line="358"/>
       <source>Creates a tie constraint</source>
       <translation>結合拘束を作成</translation>
     </message>
@@ -6463,12 +6498,12 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FEM_MeshRegion</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="902"/>
+      <location filename="../../../femcommands/commands.py" line="899"/>
       <source>Mesh Refinement</source>
       <translation>メッシュ再分割</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="903"/>
+      <location filename="../../../femcommands/commands.py" line="900"/>
       <source>Creates a FEM mesh refinement</source>
       <translation>FEMメッシュ再分割を作成</translation>
     </message>
@@ -6572,17 +6607,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemConstraintRigidBody</name>
     <message>
-      <location filename="../../Command.cpp" line="454"/>
+      <location filename="../../Command.cpp" line="473"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="455"/>
+      <location filename="../../Command.cpp" line="474"/>
       <source>Rigid Body Constraint</source>
       <translation>剛体拘束</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="456"/>
+      <location filename="../../Command.cpp" line="475"/>
       <source>Creates a rigid body constraint for a geometric entity</source>
       <translation>幾何エンティティの剛体拘束を作成</translation>
     </message>
@@ -6590,44 +6625,44 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FemGui::TaskFemConstraintRigidBody</name>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="251"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="277"/>
       <source>Select geometry of type: </source>
       <translation>以下の種類のジオメトリーを選択: </translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="252"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="277"/>
       <source>Vertex, Edge, Face</source>
       <translation>頂点、エッジ、面</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="276"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="285"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="292"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="331"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="354"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="364"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="302"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="311"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="319"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="361"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="384"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="394"/>
       <source>Selection error</source>
       <translation>選択エラー</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="276"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="354"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="302"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="384"/>
       <source>Nothing selected!</source>
       <translation>何も選択されていません!</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="285"/>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="364"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="311"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="394"/>
       <source>Selected object is not a part!</source>
       <translation>選択されたオブジェクトはパーツではありません！</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="293"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="320"/>
       <source>External object selection is not supported</source>
       <translation>外部オブジェクトの選択はサポートされていません</translation>
     </message>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="329"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="357"/>
       <source>Only one type of selection (vertex, face or edge) per constraint allowed!</source>
       <translation>拘束ごとに1種類の選択 (頂点、面、エッジ) しかできません!</translation>
     </message>
@@ -6635,7 +6670,7 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FemGui::TaskDlgFemConstraintRigidBody</name>
     <message>
-      <location filename="../../TaskFemConstraintRigidBody.cpp" line="748"/>
+      <location filename="../../TaskFemConstraintRigidBody.cpp" line="809"/>
       <source>Input error</source>
       <translation>入力エラー</translation>
     </message>
@@ -6681,53 +6716,53 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemCreateElementsSet</name>
     <message>
-      <location filename="../../Command.cpp" line="1336"/>
+      <location filename="../../Command.cpp" line="1434"/>
       <source>Erase Elements</source>
       <translation>要素を削除</translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="228"/>
-      <location filename="../../TaskCreateElementSet.cpp" line="238"/>
-      <location filename="../../TaskCreateElementSet.cpp" line="469"/>
-      <location filename="../../TaskCreateElementSet.cpp" line="560"/>
-      <location filename="../../Command.cpp" line="1374"/>
+      <location filename="../../Command.cpp" line="1479"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="241"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="252"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="510"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="607"/>
       <source>Wrong selection</source>
       <translation>誤った選択</translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="229"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="242"/>
       <source>Cannot copy ResultMesh to ResultMesh</source>
       <translation>結果メッシュを結果メッシュにコピーできません。</translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="239"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="253"/>
       <source>Mesh must be a ResultMesh</source>
       <translation>メッシュは結果メッシュでなければなりません。</translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="561"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="608"/>
       <source>No Data To Restore
 </source>
       <translation>元に戻せるデータがありません。
 </translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="756"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="807"/>
       <source>Erased Elements</source>
       <translation>削除された要素</translation>
     </message>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="757"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="808"/>
       <source>All Elements Erased - no mesh generated.</source>
       <translation>すべての要素が削除されました - 生成されたメッシュはありません。</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1335"/>
+      <location filename="../../Command.cpp" line="1433"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1337"/>
+      <location filename="../../Command.cpp" line="1435"/>
       <source>Creates a FEM mesh elements set</source>
       <translation>FEMメッシュ要素セットを作成</translation>
     </message>
@@ -6735,7 +6770,7 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>FemGui::TaskCreateElementSet</name>
     <message>
-      <location filename="../../TaskCreateElementSet.cpp" line="438"/>
+      <location filename="../../TaskCreateElementSet.cpp" line="481"/>
       <source>Elements set</source>
       <translation>要素セット</translation>
     </message>
@@ -6743,17 +6778,17 @@ No matching module was found in the current Python path.</source>
   <context>
     <name>CmdFemDefineElementsSet</name>
     <message>
-      <location filename="../../Command.cpp" line="1280"/>
+      <location filename="../../Command.cpp" line="1379"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1281"/>
+      <location filename="../../Command.cpp" line="1380"/>
       <source>Element Set From Polygon</source>
       <translation>ポリゴンから要素セットへ</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="1282"/>
+      <location filename="../../Command.cpp" line="1381"/>
       <source>Creates a collection of elements selected by a polygon</source>
       <translation>ポリゴン選択された要素の集合を作成</translation>
     </message>
@@ -6880,12 +6915,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_SolverCalculiX</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1071"/>
+      <location filename="../../../femcommands/commands.py" line="1068"/>
       <source>Solver CalculiX</source>
       <translation>ソルバー CalculiX</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1076"/>
+      <location filename="../../../femcommands/commands.py" line="1073"/>
       <source>Creates a FEM solver CalculiX</source>
       <translation>FEMソルバーCalculiXを作成</translation>
     </message>
@@ -7079,10 +7114,10 @@ Leave blank to use default Python executable</source>
   <context>
     <name>TaskPostGlyph</name>
     <message>
+      <location filename="../ui/TaskPostLineplot.ui" line="37"/>
       <location filename="../ui/TaskPostGlyph.ui" line="22"/>
       <location filename="../ui/TaskPostGlyph.ui" line="38"/>
       <location filename="../ui/TaskPostHistogram.ui" line="37"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="37"/>
       <source>The form of the glyph</source>
       <translation>グリフの形</translation>
     </message>
@@ -7122,12 +7157,12 @@ Leave blank to use default Python executable</source>
       <translation>球体</translation>
     </message>
     <message>
+      <location filename="../ui/TaskPostLineplot.ui" line="81"/>
+      <location filename="../ui/TaskPostLineplot.ui" line="97"/>
       <location filename="../ui/TaskPostGlyph.ui" line="75"/>
       <location filename="../ui/TaskPostGlyph.ui" line="91"/>
       <location filename="../ui/TaskPostHistogram.ui" line="66"/>
       <location filename="../ui/TaskPostHistogram.ui" line="82"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="81"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="97"/>
       <source>Which vector field is used to orient the glyphs</source>
       <translation>どのベクトル場を使用してグリフの方向を設定しますか？</translation>
     </message>
@@ -7137,10 +7172,10 @@ Leave blank to use default Python executable</source>
       <translation>向き</translation>
     </message>
     <message>
+      <location filename="../ui/TaskPostLineplot.ui" line="101"/>
       <location filename="../ui/TaskPostGlyph.ui" line="95"/>
       <location filename="../ui/TaskPostGlyph.ui" line="148"/>
       <location filename="../ui/TaskPostHistogram.ui" line="86"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="101"/>
       <source>None</source>
       <translation>なし</translation>
     </message>
@@ -7161,10 +7196,10 @@ Leave blank to use default Python executable</source>
       <translation>データ</translation>
     </message>
     <message>
+      <location filename="../ui/TaskPostLineplot.ui" line="155"/>
       <location filename="../ui/TaskPostGlyph.ui" line="158"/>
       <location filename="../ui/TaskPostGlyph.ui" line="176"/>
       <location filename="../ui/TaskPostHistogram.ui" line="176"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="155"/>
       <source>A constant multiplier the glyphs are scaled with</source>
       <translation>グリフの拡大縮小に使用する定数乗数</translation>
     </message>
@@ -7179,9 +7214,9 @@ Leave blank to use default Python executable</source>
       <translation>スケール係数を +/- 50% ずつ変更</translation>
     </message>
     <message>
+      <location filename="../ui/TaskPostLineplot.ui" line="145"/>
       <location filename="../ui/TaskPostGlyph.ui" line="226"/>
       <location filename="../ui/TaskPostHistogram.ui" line="166"/>
-      <location filename="../ui/TaskPostLineplot.ui" line="145"/>
       <source>If the scale data is a vector this property decides if the glyph is scaled by vector magnitude or by the individual components</source>
       <translation>拡大縮小用データがベクトルの場合、このプロパティはグリフがベクトルの大きさで拡大縮小されるか、個々の成分で拡大縮小されるかを決定します。</translation>
     </message>
@@ -7273,27 +7308,27 @@ Leave blank to use default Python executable</source>
       <translation>累計</translation>
     </message>
     <message>
-      <location filename="../ui/TaskPostHistogram.ui" line="103"/>
       <location filename="../ui/TaskPostLineplot.ui" line="64"/>
+      <location filename="../ui/TaskPostHistogram.ui" line="103"/>
       <source>Legend</source>
       <translation>凡例</translation>
     </message>
     <message>
-      <location filename="../ui/TaskPostHistogram.ui" line="112"/>
       <location filename="../ui/TaskPostLineplot.ui" line="47"/>
       <location filename="../ui/TaskPostLineplot.ui" line="57"/>
+      <location filename="../ui/TaskPostHistogram.ui" line="112"/>
       <source>Show</source>
       <translation>表示</translation>
     </message>
     <message>
-      <location filename="../ui/TaskPostHistogram.ui" line="138"/>
       <location filename="../ui/TaskPostLineplot.ui" line="117"/>
+      <location filename="../ui/TaskPostHistogram.ui" line="138"/>
       <source>Labels</source>
       <translation>ラベル</translation>
     </message>
     <message>
-      <location filename="../ui/TaskPostHistogram.ui" line="156"/>
       <location filename="../ui/TaskPostLineplot.ui" line="135"/>
+      <location filename="../ui/TaskPostHistogram.ui" line="156"/>
       <source>Y-axis</source>
       <translation>Y軸</translation>
     </message>
@@ -7303,8 +7338,8 @@ Leave blank to use default Python executable</source>
       <translation>X軸</translation>
     </message>
     <message>
-      <location filename="../ui/TaskPostHistogram.ui" line="179"/>
       <location filename="../ui/TaskPostLineplot.ui" line="158"/>
+      <location filename="../ui/TaskPostHistogram.ui" line="179"/>
       <source>Title</source>
       <translation>タイトル</translation>
     </message>
@@ -7342,17 +7377,17 @@ Leave blank to use default Python executable</source>
   <context>
     <name>CmdFemPostCalculatorFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2361"/>
+      <location filename="../../Command.cpp" line="2577"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2362"/>
+      <location filename="../../Command.cpp" line="2578"/>
       <source>Calculator Filter</source>
       <translation>計算機フィルター</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2363"/>
+      <location filename="../../Command.cpp" line="2579"/>
       <source>Creates a new field from current data</source>
       <translation>現在のデータから新しいフィールドを作成</translation>
     </message>
@@ -7360,17 +7395,17 @@ Leave blank to use default Python executable</source>
   <context>
     <name>CmdFemPostBranchFilter</name>
     <message>
-      <location filename="../../Command.cpp" line="2763"/>
+      <location filename="../../Command.cpp" line="3019"/>
       <source>Fem</source>
       <translation>有限要素法</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2764"/>
+      <location filename="../../Command.cpp" line="3020"/>
       <source>Pipeline Branch</source>
       <translation>パイプライン分岐</translation>
     </message>
     <message>
-      <location filename="../../Command.cpp" line="2765"/>
+      <location filename="../../Command.cpp" line="3021"/>
       <source>Branches the pipeline into a new path</source>
       <translation>パイプラインを新しいパスに分岐</translation>
     </message>
@@ -7378,7 +7413,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostFrames</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="541"/>
+      <location filename="../../TaskPostBoxes.cpp" line="551"/>
       <source>Result Frames</source>
       <translation>結果フレーム</translation>
     </message>
@@ -7386,7 +7421,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostCalculator</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="2173"/>
+      <location filename="../../TaskPostBoxes.cpp" line="2230"/>
       <source>Calculator options</source>
       <translation>計算機オプション</translation>
     </message>
@@ -7394,12 +7429,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ClippingPlaneAdd</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="105"/>
+      <location filename="../../../femcommands/commands.py" line="102"/>
       <source>Clipping Plane on Face</source>
       <translation>面上のクリッピング平面</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="108"/>
+      <location filename="../../../femcommands/commands.py" line="105"/>
       <source>Adds a clipping plane on a selected face</source>
       <translation>選択した面にクリッピング平面を追加</translation>
     </message>
@@ -7407,12 +7442,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ConstantVacuumPermittivity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="185"/>
+      <location filename="../../../femcommands/commands.py" line="182"/>
       <source>Constant Vacuum Permittivity</source>
       <translation>一定の真空誘電率</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="189"/>
+      <location filename="../../../femcommands/commands.py" line="186"/>
       <source>Creates a constant vacuum permittivity to overwrite standard value</source>
       <translation>標準値を上書きする定数の真空誘電率を作成</translation>
     </message>
@@ -7420,12 +7455,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ConstraintElectricChargeDensity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="245"/>
+      <location filename="../../../femcommands/commands.py" line="242"/>
       <source>Electric Charge Density</source>
       <translation>電荷密度</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="248"/>
+      <location filename="../../../femcommands/commands.py" line="245"/>
       <source>Creates an electric charge density</source>
       <translation>電荷密度を作成</translation>
     </message>
@@ -7433,12 +7468,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ConstraintInitialFlowVelocity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="292"/>
+      <location filename="../../../femcommands/commands.py" line="289"/>
       <source>Initial Flow Velocity Condition</source>
       <translation>初期流速条件</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="296"/>
+      <location filename="../../../femcommands/commands.py" line="293"/>
       <source>Creates an initial flow velocity condition</source>
       <translation>初期流速条件を作成</translation>
     </message>
@@ -7446,12 +7481,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ElementFluid1D</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="371"/>
+      <location filename="../../../femcommands/commands.py" line="368"/>
       <source>Fluid Section for 1D Flow</source>
       <translation>1次元流れのための流体セクション</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="374"/>
+      <location filename="../../../femcommands/commands.py" line="371"/>
       <source>Creates a fluid section for 1D flow</source>
       <translation>1次元流れのための流体セクションを作成</translation>
     </message>
@@ -7459,12 +7494,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ElementGeometry1D</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="384"/>
+      <location filename="../../../femcommands/commands.py" line="381"/>
       <source>Beam Cross Section</source>
       <translation>ビーム断面</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="385"/>
+      <location filename="../../../femcommands/commands.py" line="382"/>
       <source>Creates a beam cross section</source>
       <translation>ビーム断面を作成</translation>
     </message>
@@ -7472,12 +7507,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ElementGeometry2D</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="395"/>
+      <location filename="../../../femcommands/commands.py" line="392"/>
       <source>Shell Plate Thickness</source>
       <translation>シェルの板厚</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="398"/>
+      <location filename="../../../femcommands/commands.py" line="395"/>
       <source>Creates a shell plate thickness</source>
       <translation>シェルの板厚を作成</translation>
     </message>
@@ -7485,12 +7520,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ElementRotation1D</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="408"/>
+      <location filename="../../../femcommands/commands.py" line="405"/>
       <source>Beam Rotation</source>
       <translation>ビーム回転</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="409"/>
+      <location filename="../../../femcommands/commands.py" line="406"/>
       <source>Creates a beam rotation</source>
       <translation>ビーム回転を作成</translation>
     </message>
@@ -7498,12 +7533,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationDeformation</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="419"/>
+      <location filename="../../../femcommands/commands.py" line="416"/>
       <source>Deformation Equation</source>
       <translation>変形方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="423"/>
+      <location filename="../../../femcommands/commands.py" line="420"/>
       <source>Creates an equation for deformation (nonlinear elasticity)</source>
       <translation>変形のための方程式を作成（非線形弾性）</translation>
     </message>
@@ -7511,12 +7546,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationElasticity</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="433"/>
+      <location filename="../../../femcommands/commands.py" line="430"/>
       <source>Elasticity Equation</source>
       <translation>弾性方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="436"/>
+      <location filename="../../../femcommands/commands.py" line="433"/>
       <source>Creates an equation for elasticity (stress)</source>
       <translation>弾性のための方程式を作成（応力）</translation>
     </message>
@@ -7524,12 +7559,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationElectricforce</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="446"/>
+      <location filename="../../../femcommands/commands.py" line="443"/>
       <source>Electricforce Equation</source>
       <translation>電気力方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="449"/>
+      <location filename="../../../femcommands/commands.py" line="446"/>
       <source>Creates an equation for electric forces</source>
       <translation>電気力のための方程式を作成</translation>
     </message>
@@ -7537,12 +7572,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationElectrostatic</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="459"/>
+      <location filename="../../../femcommands/commands.py" line="456"/>
       <source>Electrostatic Equation</source>
       <translation>静電方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="462"/>
+      <location filename="../../../femcommands/commands.py" line="459"/>
       <source>Creates an equation for electrostatic</source>
       <translation>静電のための方程式を作成</translation>
     </message>
@@ -7550,12 +7585,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationFlow</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="472"/>
+      <location filename="../../../femcommands/commands.py" line="469"/>
       <source>Flow Equation</source>
       <translation>流れ方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="473"/>
+      <location filename="../../../femcommands/commands.py" line="470"/>
       <source>Creates an equation for flow</source>
       <translation>流れのための方程式を作成</translation>
     </message>
@@ -7563,12 +7598,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationFlux</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="483"/>
+      <location filename="../../../femcommands/commands.py" line="480"/>
       <source>Flux Equation</source>
       <translation>流束方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="484"/>
+      <location filename="../../../femcommands/commands.py" line="481"/>
       <source>Creates an equation for flux</source>
       <translation>流束のための方程式を作成</translation>
     </message>
@@ -7576,12 +7611,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationHeat</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="494"/>
+      <location filename="../../../femcommands/commands.py" line="491"/>
       <source>Heat Equation</source>
       <translation>熱方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="495"/>
+      <location filename="../../../femcommands/commands.py" line="492"/>
       <source>Creates an equation for heat</source>
       <translation>熱のための方程式を作成</translation>
     </message>
@@ -7589,12 +7624,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationMagnetodynamic</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="507"/>
+      <location filename="../../../femcommands/commands.py" line="504"/>
       <source>Magnetodynamic Equation</source>
       <translation>磁気力学方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="511"/>
+      <location filename="../../../femcommands/commands.py" line="508"/>
       <source>Creates an equation for magnetodynamic forces</source>
       <translation>磁気力学的な力のための方程式を作成</translation>
     </message>
@@ -7602,12 +7637,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationMagnetodynamic2D</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="523"/>
+      <location filename="../../../femcommands/commands.py" line="520"/>
       <source>Magnetodynamic 2D Equation</source>
       <translation>2次元磁気力学方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="527"/>
+      <location filename="../../../femcommands/commands.py" line="524"/>
       <source>Creates an equation for 2D magnetodynamic forces</source>
       <translation>2次元の磁気力学的な力のための方程式を作成</translation>
     </message>
@@ -7615,12 +7650,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_EquationStaticCurrent</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="537"/>
+      <location filename="../../../femcommands/commands.py" line="534"/>
       <source>Static Current Equation</source>
       <translation>静電方程式</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="540"/>
+      <location filename="../../../femcommands/commands.py" line="537"/>
       <source>Creates an equation for static current</source>
       <translation>静電流のための方程式を作成</translation>
     </message>
@@ -7628,12 +7663,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MaterialFluid</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="582"/>
+      <location filename="../../../femcommands/commands.py" line="579"/>
       <source>Fluid Material</source>
       <translation>流体材料</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="583"/>
+      <location filename="../../../femcommands/commands.py" line="580"/>
       <source>Creates a fluid material</source>
       <translation>流体材料を作成</translation>
     </message>
@@ -7641,12 +7676,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MaterialMechanicalNonlinear</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="595"/>
+      <location filename="../../../femcommands/commands.py" line="592"/>
       <source>Non-Linear Mechanical Material</source>
       <translation>非線形機械材料</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="598"/>
+      <location filename="../../../femcommands/commands.py" line="595"/>
       <source>Creates a non-linear mechanical material</source>
       <translation>非線形機械材料を作成</translation>
     </message>
@@ -7654,12 +7689,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MaterialSolid</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="676"/>
+      <location filename="../../../femcommands/commands.py" line="673"/>
       <source>Solid Material</source>
       <translation>固体材料</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="678"/>
+      <location filename="../../../femcommands/commands.py" line="675"/>
       <source>Creates a solid material</source>
       <translation>固体材料を作成</translation>
     </message>
@@ -7667,12 +7702,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MeshBoundaryLayer</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="730"/>
+      <location filename="../../../femcommands/commands.py" line="727"/>
       <source>Mesh Boundary Layer</source>
       <translation>メッシュ境界レイヤー</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="733"/>
+      <location filename="../../../femcommands/commands.py" line="730"/>
       <source>Creates a mesh boundary layer</source>
       <translation>メッシュ境界レイヤーを作成</translation>
     </message>
@@ -7680,12 +7715,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MeshClear</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="743"/>
+      <location filename="../../../femcommands/commands.py" line="740"/>
       <source>Clear FEM Mesh</source>
       <translation>FEMメッシュを削除</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="744"/>
+      <location filename="../../../femcommands/commands.py" line="741"/>
       <source>Clears the mesh of a FEM mesh object</source>
       <translation>FEMメッシュオブジェクトのメッシュを削除</translation>
     </message>
@@ -7693,12 +7728,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_MeshGroup</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="837"/>
+      <location filename="../../../femcommands/commands.py" line="834"/>
       <source>Mesh Group</source>
       <translation>メッシュグループ</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="838"/>
+      <location filename="../../../femcommands/commands.py" line="835"/>
       <source>Creates a mesh group</source>
       <translation>メッシュグループを作成</translation>
     </message>
@@ -7706,12 +7741,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ResultShow</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="913"/>
+      <location filename="../../../femcommands/commands.py" line="910"/>
       <source>Show Result</source>
       <translation>結果を表示</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="917"/>
+      <location filename="../../../femcommands/commands.py" line="914"/>
       <source>Shows and visualizes the selected result data</source>
       <translation>選択した結果データを表示、可視化</translation>
     </message>
@@ -7719,12 +7754,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_ResultsPurge</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="929"/>
+      <location filename="../../../femcommands/commands.py" line="926"/>
       <source>Purge Results</source>
       <translation>結果を削除</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="933"/>
+      <location filename="../../../femcommands/commands.py" line="930"/>
       <source>Purges all results from the active analysis</source>
       <translation>アクティブな解析からすべての結果を削除</translation>
     </message>
@@ -7732,12 +7767,12 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FEM_PostFilterGlyph</name>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1242"/>
+      <location filename="../../../femcommands/commands.py" line="1199"/>
       <source>Glyph Filter</source>
       <translation>グリフ・フィルター</translation>
     </message>
     <message>
-      <location filename="../../../femcommands/commands.py" line="1247"/>
+      <location filename="../../../femcommands/commands.py" line="1204"/>
       <source>Adds a post-processing filter that adds glyphs to the mesh vertices for vertex data visualization</source>
       <translation>頂点データ可視化のためにメッシュ頂点にグリフを追加する後処理フィルターを追加</translation>
     </message>
@@ -7781,9 +7816,9 @@ Leave blank to use default Python executable</source>
   <context>
     <name>PostHistogramEdit</name>
     <message>
+      <location filename="../ui/PostTableFieldViewEdit.ui" line="14"/>
       <location filename="../ui/PostLineplotFieldViewEdit.ui" line="14"/>
       <location filename="../ui/PostHistogramFieldViewEdit.ui" line="14"/>
-      <location filename="../ui/PostTableFieldViewEdit.ui" line="14"/>
       <source>Form</source>
       <translation>フォーム</translation>
     </message>
@@ -7864,7 +7899,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostDisplay</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="435"/>
+      <location filename="../../TaskPostBoxes.cpp" line="450"/>
       <source>Result Display Options</source>
       <translation>結果表示オプション</translation>
     </message>
@@ -7872,7 +7907,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostBranch</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="607"/>
+      <location filename="../../TaskPostBoxes.cpp" line="620"/>
       <source>Branch Behaviour</source>
       <translation>ブランチの動作</translation>
     </message>
@@ -7880,7 +7915,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostClip</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1441"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1477"/>
       <source>Clip Region, Choose Implicit Function</source>
       <translation>クリップ領域、陰関数を選択</translation>
     </message>
@@ -7888,7 +7923,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostContours</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1592"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1628"/>
       <source>Contours Filter Options</source>
       <translation>等高線フィルターのオプション</translation>
     </message>
@@ -7896,7 +7931,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostCut</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1751"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1792"/>
       <source>Function Cut, Choose Implicit Function</source>
       <translation>関数による切り取り、陰関数を選択</translation>
     </message>
@@ -7904,7 +7939,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostScalarClip</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="1884"/>
+      <location filename="../../TaskPostBoxes.cpp" line="1925"/>
       <source>Scalar Clip Options</source>
       <translation>スカラークリップのオプション</translation>
     </message>
@@ -7912,7 +7947,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskPostWarpVector</name>
     <message>
-      <location filename="../../TaskPostBoxes.cpp" line="2005"/>
+      <location filename="../../TaskPostBoxes.cpp" line="2049"/>
       <source>Warp Options</source>
       <translation>たわみのオプション</translation>
     </message>
@@ -7928,7 +7963,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::ViewProviderFemAnalysis</name>
     <message>
-      <location filename="../../ViewProviderAnalysis.cpp" line="162"/>
+      <location filename="../../ViewProviderAnalysis.cpp" line="168"/>
       <source>Activate Analysis</source>
       <translation>解析をアクティブ化</translation>
     </message>
@@ -7936,7 +7971,7 @@ Leave blank to use default Python executable</source>
   <context>
     <name>FemGui::TaskObjectName</name>
     <message>
-      <location filename="../../TaskObjectName.cpp" line="40"/>
+      <location filename="../../TaskObjectName.cpp" line="39"/>
       <source>Name of the object</source>
       <translation>オブジェクト名</translation>
     </message>
@@ -7958,11 +7993,34 @@ Leave blank to use default Python executable</source>
     </message>
   </context>
   <context>
+    <name>FemToolsCcx</name>
+    <message>
+      <location filename="../../../femtools/ccxtools.py" line="405"/>
+      <source>No or wrong CalculiX binary ccx</source>
+      <translation>CalculiXバイナリーccxが存在しないか、間違っています。</translation>
+    </message>
+    <message>
+      <location filename="../../../femtools/ccxtools.py" line="439"/>
+      <source>FEM: wrong ccx binary</source>
+      <translation>FEM: ccxバイナリーが間違っています</translation>
+    </message>
+    <message>
+      <location filename="../../../femtools/ccxtools.py" line="452"/>
+      <source>FEM: CalculiX binary ccx '{}' not found. Please set the CalculiX binary ccx path in FEM preferences tab CalculiX.</source>
+      <translation>FEM: CalculiXバイナリーccx '{}' が見つかりません。FEM環境設定タブのCalculiXでCalculiXバイナリーccxのパスを設定してください。</translation>
+    </message>
+    <message>
+      <location filename="../../../femtools/ccxtools.py" line="464"/>
+      <source>FEM: CalculiX ccx '{}' output '{}' doesn't contain expected phrase '{}'. There are some problems when running the ccx binary. Check if ccx runs standalone without FreeCAD.</source>
+      <translation>FEM: CalculiX ccx '{}' 出力 '{}' に予測される語句 '{}' 含まれていません。 ccxバイナリーを実行する際に何か問題がありました。FreeCAD無しでccxがスタンドアローンで実行できるか確認してください。</translation>
+    </message>
+  </context>
+  <context>
     <name>SolverElmer</name>
     <message>
       <location filename="../ui/SolverElmer.ui" line="14"/>
       <source>Solver Elmer Control</source>
-      <translation type="unfinished">Solver Elmer Control</translation>
+      <translation>ソルバー Elmer 制御</translation>
     </message>
     <message>
       <location filename="../ui/SolverElmer.ui" line="20"/>
@@ -7992,7 +8050,7 @@ Leave blank to use default Python executable</source>
     <message>
       <location filename="../ui/SolverElmer.ui" line="82"/>
       <source>Simulation type</source>
-      <translation type="unfinished">Simulation type</translation>
+      <translation>シミュレーションの種類</translation>
     </message>
     <message>
       <location filename="../ui/SolverElmer.ui" line="122"/>
@@ -8003,6 +8061,19 @@ Leave blank to use default Python executable</source>
       <location filename="../ui/SolverElmer.ui" line="129"/>
       <source>Solver Version</source>
       <translation>ソルバーのバージョン</translation>
+    </message>
+  </context>
+  <context>
+    <name>FemGui::DlgSettingsFemInOutVtkImp</name>
+    <message>
+      <location filename="../../DlgSettingsFemInOutVtkImp.cpp" line="78"/>
+      <source>All</source>
+      <translation>すべて</translation>
+    </message>
+    <message>
+      <location filename="../../DlgSettingsFemInOutVtkImp.cpp" line="78"/>
+      <source>Highest</source>
+      <translation>最高次</translation>
     </message>
   </context>
 </TS>

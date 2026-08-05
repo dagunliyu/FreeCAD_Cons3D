@@ -1892,43 +1892,75 @@ void MainWindow::loadWindowSettings()
     QString qtver = QStringLiteral("Qt%1.%2").arg(major).arg(minor);
     QSettings config(vendor, application);
 
+    // Put window in center of screen position by default (e.g. first run and safe-mode)
+    // Note that pos refers to frameGeometry(), while size refers to geometry()
+    QSize frameSizeDiff = frameSize() - size();
     QRect rect = QApplication::primaryScreen()->availableGeometry();
-    int maxHeight = rect.height();
-    int maxWidth = rect.width();
+    QSize winSize
+        = (QSize(1800, 1000).boundedTo(rect.size()) - frameSizeDiff).expandedTo(minimumSize());
+    QPoint winPos = rect.center() - QRect({}, (winSize + frameSizeDiff) / 2).bottomRight();
 
+    // Read stored values from config (deprecated, not written since 1.0rc1)
     config.beginGroup(qtver);
-    QPoint pos = config.value(QStringLiteral("Position"), this->pos()).toPoint();
-    maxWidth -= pos.x();
-    maxHeight -= pos.y();
-    QSize size = config.value(QStringLiteral("Size"), QSize(maxWidth, maxHeight)).toSize();
+    winPos = config.value(QStringLiteral("Position"), winPos).toPoint();
+    winSize = config.value(QStringLiteral("Size"), winSize).toSize();
     bool max = config.value(QStringLiteral("Maximized"), false).toBool();
     bool showStatusBar = config.value(QStringLiteral("StatusBar"), true).toBool();
     QByteArray windowState = config.value(QStringLiteral("MainWindowState")).toByteArray();
     config.endGroup();
 
-
-    std::string geometry = d->hGrp->GetASCII("Geometry");
-    std::istringstream iss(geometry);
-    int x, y, w, h;
-    if (iss >> x >> y >> w >> h) {
-        pos = QPoint(x, y);
-        size = QSize(w, h);
+    // Read stored values from user parameters
+    std::istringstream iss(d->hGrp->GetASCII("Geometry"));
+    if (int x, y, w, h; iss >> x >> y >> w >> h) {
+        winPos = QPoint(x, y);
+        winSize = QSize(w, h);
     }
-
     max = d->hGrp->GetBool("Maximized", max);
     showStatusBar = d->hGrp->GetBool("StatusBar", showStatusBar);
-    std::string wstate = d->hGrp->GetASCII("MainWindowState");
-    if (!wstate.empty()) {
+    if (auto wstate = d->hGrp->GetASCII("MainWindowState"); !wstate.empty()) {
         windowState = QByteArray::fromBase64(wstate.c_str());
     }
 
-    resize(size);
-    int x1 {}, x2 {}, y1 {}, y2 {};
-    // make sure that the main window is not totally out of the visible rectangle
-    rect.getCoords(&x1, &y1, &x2, &y2);
-    pos.setX(qMin(qMax(pos.x(), x1 - this->width() + 30), x2 - 30));
-    pos.setY(qMin(qMax(pos.y(), y1 - 10), y2 - 10));
-    this->move(pos);
+    winSize = winSize.expandedTo(minimumSize());
+
+    // Check that no part of window outside all screens
+    QRect winGeometry = QRect(winPos, winSize + frameSizeDiff);
+    const auto screens = QApplication::screens();
+    auto invisible = QPolygon(winGeometry);
+    for (auto s : screens) {
+        invisible = invisible.subtracted(s->geometry().adjusted(-10, -10, 10, 10));
+    }
+    if (!invisible.empty()) {
+        // If not, move it inside the most overlapped or closest screen
+        // Union of screens are not considered, as it e.g. may have holes in general case
+        QRect screen {};
+        for (int screenArea = 0; auto s : screens) {
+            auto overlap = s->availableGeometry().intersected(winGeometry);
+            int overlapArea = overlap.width() * overlap.height();
+            if (overlapArea > screenArea) {
+                screen = s->availableGeometry();
+                screenArea = overlapArea;
+            }
+        }
+        if (screen.isEmpty()) {
+            for (int screenDist = -1; auto s : screens) {
+                auto dist = (winGeometry.center() - s->availableGeometry().center()).manhattanLength();
+                if (screenDist == -1 || dist < screenDist) {
+                    screen = s->availableGeometry();
+                    screenDist = dist;
+                }
+            }
+        }
+        winSize = winSize.boundedTo(screen.size() - frameSizeDiff).expandedTo(minimumSize());
+        winGeometry = QRect(winPos, winSize + frameSizeDiff);
+        winPos.setX(qMax(qMin(winPos.x(), screen.right() - winGeometry.width()), screen.x()));
+        winPos.setY(qMax(qMin(winPos.y(), screen.bottom() - winGeometry.height()), screen.y()));
+    }
+
+    // Scale before move reducing, or vice versa, so a dpi change wont make window to be moved
+    resize(winSize.boundedTo(size()));
+    move(winPos);
+    resize(winSize);
 
     Base::StateLocker guard(d->_restoring);
 
@@ -1999,13 +2031,6 @@ void MainWindow::saveWindowSettings(bool canDelay)
         d->saveStateTimer.start(100);
         return;
     }
-
-    QString vendor = QString::fromUtf8(App::Application::Config()["ExeVendor"].c_str());
-    QString application = QString::fromUtf8(App::Application::Config()["ExeName"].c_str());
-    int major = (QT_VERSION >> 0x10) & 0xff;
-    int minor = (QT_VERSION >> 0x08) & 0xff;
-    QString qtver = QStringLiteral("Qt%1.%2").arg(major).arg(minor);
-    QSettings config(vendor, application);
 
     Base::ConnectionBlocker block(d->connParam);
     d->hGrp->SetBool("Maximized", this->isMaximized());
@@ -2349,10 +2374,10 @@ void MainWindow::loadUrls(App::Document* doc, const QList<QUrl>& urls)
                 info.setFile(info.symLinkTarget());
             }
             std::vector<std::string> module = App::GetApplication().getImportModules(
-                info.completeSuffix().toLatin1()
+                info.completeSuffix().toStdString()
             );
             if (module.empty()) {
-                module = App::GetApplication().getImportModules(info.suffix().toLatin1());
+                module = App::GetApplication().getImportModules(info.suffix().toStdString());
             }
             if (!module.empty()) {
                 // ok, we support files with this extension

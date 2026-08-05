@@ -295,7 +295,7 @@ class BIM_Preflight_TaskPanel:
                         "BIM",
                         "ifcopenshell is not installed on the system or not available to FreeCAD. This library is responsible for IFC support in FreeCAD, and therefore IFC support is currently disabled. Check %1 to obtain more information.",
                     ).replace(
-                        "%1", "https://www.freecadweb.org/wiki/Extra_python_modules#IfcOpenShell"
+                        "%1", "https://www.freecad.org/wiki/Extra_python_modules#IfcOpenShell"
                     )
                     + " "
                 )
@@ -716,7 +716,7 @@ class BIM_Preflight_TaskPanel:
             psetspath = os.path.join(
                 FreeCAD.getResourceDir(),
                 "Mod",
-                "Arch",
+                "BIM",
                 "Presets",
                 "pset_definitions.csv",
             )
@@ -788,7 +788,7 @@ class BIM_Preflight_TaskPanel:
             psetspath = os.path.join(
                 FreeCAD.getResourceDir(),
                 "Mod",
-                "Arch",
+                "BIM",
                 "Presets",
                 "pset_definitions.csv",
             )

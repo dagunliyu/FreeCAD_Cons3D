@@ -55,6 +55,16 @@ class ToolBitPropertiesWidget(QtGui.QWidget):
         self._show_shape = icon
         self._tool_no = tool_no
 
+        # Set schema to user preference if no document is open
+        # TODO: Add a preference for toolbit unit schema.
+        # We probably want to look at making it possible to have a toolbit be metric
+        # or imperial regardless of document settings / or user preferences, but for now this is sufficient.
+        if FreeCAD.ActiveDocument is None:
+            pref_schema = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Units").GetInt(
+                "UserSchema", 0
+            )
+            FreeCAD.Units.setSchema(pref_schema)
+
         # UI Elements
         self._label_edit = QtGui.QLineEdit()
         self._id_label = QtGui.QLabel()  # Read-only ID
@@ -97,8 +107,6 @@ class ToolBitPropertiesWidget(QtGui.QWidget):
         properties_layout.setStretchFactor(self._property_editor, 1)
 
         main_layout.addWidget(properties_group_box)
-
-        # Add stretch before shape widget to push it towards the bottom
         main_layout.addStretch(1)
 
         # Layout for centering the shape widget (created later)
@@ -256,16 +264,35 @@ class ToolBitEditor(QtGui.QWidget):
         self.tool_no = tool_no
         self.default_title = self.form.windowTitle()
 
-        # Get first tab from the form, add the shape widget at the top.
+        # Get first tab from the form, add the shape widget to the right.
         tool_tab_layout = self.form.toolTabLayout
-        widget = ShapeWidget(toolbit._tool_bit_shape)
-        tool_tab_layout.addWidget(widget)
 
-        # Add tool properties editor to the same tab.
+        # Create a horizontal layout for the tab content
+        tab_content_layout = QtGui.QHBoxLayout()
+
+        # Add tool properties editor to the left with stretch
         props = ToolBitPropertiesWidget(toolbit, tool_no, self, icon=icon)
+
+        # Wrap properties in a scroll area for vertical scrolling
+        scroll_area = QtGui.QScrollArea()
+        scroll_area.setWidget(props)
+        scroll_area.setWidgetResizable(True)
+        scroll_area.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        scroll_area.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        scroll_area.setMinimumHeight(550)  # Set minimum height for the scroll area
+        scroll_area.setMaximumHeight(600)  # Set maximum height to prevent excessive growth
+
+        tab_content_layout.addWidget(scroll_area, 1)
+
+        # Add shape widget to the right without stretch
+        widget = ShapeWidget(toolbit._tool_bit_shape)
+        tab_content_layout.addWidget(widget, 0)
+
+        # Add the horizontal layout to the tab layout
+        tool_tab_layout.addLayout(tab_content_layout)
+
         props.toolBitChanged.connect(self._update)
         props.toolNoChanged.connect(self._on_tool_no_changed)
-        tool_tab_layout.addWidget(props)
 
         self.form.tabWidget.setCurrentIndex(0)
         self.form.tabWidget.currentChanged.connect(self._on_tab_switched)

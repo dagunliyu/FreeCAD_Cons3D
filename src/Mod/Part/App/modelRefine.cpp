@@ -32,6 +32,7 @@
 #include <BRepAdaptor_Curve.hxx>
 #include <BRepBndLib.hxx>
 #include <BRepGProp.hxx>
+#include <BRepLib.hxx>
 #include <BRepLib_FuseEdges.hxx>
 #include <BRepLib_MakeWire.hxx>
 #include <BRepBuilderAPI_MakeFace.hxx>
@@ -569,7 +570,15 @@ bool wireEncirclesAxis(const TopoDS_Wire& wire, const Handle(Geom_CylindricalSur
         else {
             // Linearize the edge. Idea taken from ShapeAnalysis.cxx ShapeAnalysis::TotCross2D()
             TColgp_SequenceOfPnt SeqPnt;
-            ShapeAnalysis_Curve::GetSamplePoints(adapt.Curve().Curve(), fp, lp, SeqPnt);
+            // If the edge has no 3d curve try to create it
+            if (adapt.IsCurveOnSurface()) {
+                if (BRepLib::BuildCurves3d(segment)) {
+                    adapt.Initialize(segment);
+                }
+            }
+            if (adapt.Is3DCurve()) {
+                ShapeAnalysis_Curve::GetSamplePoints(adapt.Curve().Curve(), fp, lp, SeqPnt);
+            }
 
             // Calculate the oriented length of the edge
             gp_Pnt begin;
@@ -1292,6 +1301,13 @@ bool FaceUniter::process()
     return true;
 }
 
+void FaceUniter::fixOrientation(const TopoDS_Shell& shell)
+{
+    if (shell.Orientation() != workShell.Orientation()) {
+        workShell.Reverse();
+    }
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // BRepBuilderAPI_RefineModel implement a way to log all modifications on the faces
@@ -1358,11 +1374,16 @@ void Part::BRepBuilderAPI_RefineModel::Build()
             const TopoDS_Solid& solid = TopoDS::Solid(xp.Current());
             BRepTools_ReShape reshape;
             TopExp_Explorer it;
+            int countShells = 0;
             for (it.Init(solid, TopAbs_SHELL); it.More(); it.Next()) {
+                countShells++;
                 const TopoDS_Shell& currentShell = TopoDS::Shell(it.Current());
                 ModelRefine::FaceUniter uniter(currentShell);
                 if (uniter.process()) {
                     if (uniter.isModified()) {
+                        if (countShells > 1) {
+                            uniter.fixOrientation(currentShell);
+                        }
                         const TopoDS_Shell& newShell = uniter.getShell();
                         reshape.Replace(currentShell, newShell);
                         LogModifications(uniter);

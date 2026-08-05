@@ -43,6 +43,8 @@
 #include <Mod/TechDraw/App/DrawViewSection.h>
 #include <Mod/TechDraw/App/Geometry.h>
 #include <Mod/TechDraw/App/DrawBrokenView.h>
+#include <Mod/TechDraw/App/DrawProjGroup.h>
+#include <Mod/TechDraw/App/DrawProjGroupItem.h>
 
 #include "DrawGuiUtil.h"
 #include "MDIViewPage.h"
@@ -63,6 +65,8 @@
 #include "ZVALUE.h"
 #include "PathBuilder.h"
 #include "QGIBreakLine.h"
+#include "QGSPage.h"
+#include "QGIProjGroup.h"
 
 using namespace TechDraw;
 using namespace TechDrawGui;
@@ -101,32 +105,53 @@ QVariant QGIViewPart::itemChange(GraphicsItemChange change, const QVariant& valu
         bool selectState = value.toBool();
         if (!selectState && !isUnderMouse()) {
             // hide everything
+            bool hideCenters = hideCenterMarks();
             for (auto& child : childItems()) {
-                if (child->type() == UserType::QGIVertex || child->type() == UserType::QGICMark) {
+                if (child->type() == UserType::QGIVertex) {
+                    child->hide();
+                    continue;
+                }
+
+                if (child->type() == UserType::QGICMark &&
+                    hideCenters) {
                     child->hide();
                 }
             }
             return QGIView::itemChange(change, value);
         }
-        // we are selected
+        // we are selected, don't change anything?
     }
     else if (change == ItemSceneChange && scene()) {
+        // Disconnect the signal to prevent callbacks during teardown
+        if (m_selectionChangedConnection) {
+            QObject::disconnect(m_selectionChangedConnection);
+            // Reset the connection handle so it's not holding a stale reference
+            m_selectionChangedConnection = QMetaObject::Connection();
+        }
         // This means we are finished?
         tidy();
     }
     else if (change == QGraphicsItem::ItemSceneHasChanged) {
         if (scene()) {
+            // added to scene
             m_selectionChangedConnection = connect(scene(), &QGraphicsScene::selectionChanged, this, [this]() {
+                if (!scene()) {
+                    return;
+                }
                 // When selection changes, if the mouse is not over the view,
                 // hide any non-selected vertices.
                 if (!isUnderMouse()) {
+                    bool hideCenters = hideCenterMarks();
                     for (auto* child : childItems()) {
-                        if ((child->type() == UserType::QGIVertex || child->type() == UserType::QGICMark) &&
+                        if (child->type() == UserType::QGIVertex &&
                             !child->isSelected()) {
                             child->hide();
                         }
+                        if (child->type() == UserType::QGICMark &&
+                            hideCenters) {
+                            child->hide();
+                        }
                     }
-                    update();
                 }
             });
         }
@@ -159,7 +184,6 @@ bool QGIViewPart::sceneEventFilter(QGraphicsItem *watched, QEvent *event)
 //! selected, remove it from the view.
 bool QGIViewPart::removeSelectedCosmetic() const
 {
-    // Base::Console().message("QGIVP::removeSelectedCosmetic()\n");
     auto dvp(dynamic_cast<TechDraw::DrawViewPart*>(getViewObject()));
     if (!dvp) {
         throw Base::RuntimeError("Graphic has no feature!");
@@ -207,18 +231,23 @@ QPainterPath QGIViewPart::drawPainterPath(TechDraw::BaseGeomPtr baseGeom) const
     double rot = getViewObject()->Rotation.getValue();
     return m_pathBuilder->geomToPainterPath(baseGeom, rot);
 }
+
 void QGIViewPart::updateView(bool update)
 {
-    // Base::Console().message("QGIVP::updateView() - %s\n", getViewObject()->getNameInDocument());
     auto viewPart(dynamic_cast<TechDraw::DrawViewPart*>(getViewObject()));
-    if (!viewPart)
+    if (!viewPart) {
         return;
-    auto vp = static_cast<ViewProviderViewPart*>(getViewProvider(getViewObject()));
-    if (!vp)
-        return;
+    }
 
-    if (update)
+    auto vp = static_cast<ViewProviderViewPart*>(getViewProvider(getViewObject()));
+    if (!vp) {
+        return;
+    }
+
+    if (update) {
         draw();
+    }
+
     QGIView::updateView(update);
 }
 
@@ -247,6 +276,8 @@ void QGIViewPart::draw()
     //this is old C/L
     drawCenterLines(true);//have to draw centerlines after border to get size correct.
     drawAllSectionLines();//same for section lines
+
+    prepareGeometryChange();
 }
 
 void QGIViewPart::drawViewPart()
@@ -455,22 +486,25 @@ void QGIViewPart::drawAllVertexes()
     // dvp and vp already validated
     auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));
     auto vp(static_cast<ViewProviderViewPart*>(getViewProvider(getViewObject())));
+    ViewProviderPage* vpPage = vp->getViewProviderPage();
     QColor vertexColor = PreferencesGui::getAccessibleQColor(PreferencesGui::vertexQColor());
 
     const std::vector<TechDraw::VertexPtr>& verts = dvp->getVertexGeometry();
-    std::vector<TechDraw::VertexPtr>::const_iterator vert = verts.begin();
+    auto vert = verts.begin();
     for (int i = 0; vert != verts.end(); ++vert, i++) {
         if ((*vert)->isCenter()) {
-            if (showCenterMarks()) {
-                auto* cmItem = new QGICMark(i);
-                addToGroup(cmItem);
-                cmItem->setPos(Rez::guiX((*vert)->x()), Rez::guiX((*vert)->y()));
-                cmItem->setThick(0.5F * getLineWidth());//need minimum?
-                cmItem->setSize(getVertexSize() * vp->CenterScale.getValue());
-                cmItem->setPrettyNormal();
-                cmItem->setZValue(ZVALUE::VERTEX);
-                cmItem->setVisible(m_isHovered);
-            }
+            auto* cmItem = new QGICMark(i);
+            addToGroup(cmItem);
+            cmItem->setPos(Rez::guiX((*vert)->x()), Rez::guiX((*vert)->y()));
+            cmItem->setThick(0.5F * getLineWidth());    //need minimum?
+            cmItem->setSize(getVertexSize() * vp->CenterScale.getValue());
+            cmItem->setPrettyNormal();
+            cmItem->setZValue(ZVALUE::VERTEX);
+            bool showMark =
+                ( (!isExporting() && vp->ArcCenterMarks.getValue()) ||
+                  (isExporting() && Preferences::printCenterMarks()) ||
+                  (vpPage->getFrameState() && PreferencesGui::getViewFrameMode() == ViewFrameMode::Manual));
+            cmItem->setVisible(showMark);
         } else {
             //regular Vertex
             if (showVertices()) {
@@ -482,7 +516,7 @@ void QGIViewPart::drawAllVertexes()
                 item->setRadius(getVertexSize());
                 item->setPrettyNormal();
                 item->setZValue(ZVALUE::VERTEX);
-                item->setVisible(m_isHovered);
+                item->setVisible(shouldShowFrame());
             }
         }
     }
@@ -511,39 +545,6 @@ bool QGIViewPart::showThisEdge(BaseGeomPtr geom)
     }
 
     return false;
-}
-
-// returns true if vertex dots should be shown
-bool QGIViewPart::showVertices()
-{
-    // dvp and vp already validated
-    auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));
-
-    if (dvp->CoarseView.getValue()) {
-        // never show vertices in CoarseView
-        return false;
-    }
-    return true;
-}
-
-
-// returns true if arc center marks should be shown
-bool QGIViewPart::showCenterMarks()
-{
-    // dvp and vp already validated
-    auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));
-    auto vp(static_cast<ViewProviderViewPart*>(getViewProvider(dvp)));
-
-    if (!vp->ArcCenterMarks.getValue()) {
-        // no center marks if view property is false
-        return false;
-    }
-    if (prefPrintCenters()) {
-        // frames are off, view property is true and Print Center Marks is true
-        return true;
-    }
-
-    return true;
 }
 
 
@@ -1202,11 +1203,6 @@ bool QGIViewPart::prefFaceEdges()
     return result;
 }
 
-bool QGIViewPart::prefPrintCenters()
-{
-    bool printCenters = Preferences::getPreferenceGroup("Decorations")->GetBool("PrintCenterMarks", false);//true matches v0.18 behaviour
-    return printCenters;
-}
 
 Base::Color QGIViewPart::prefBreaklineColor()
 {
@@ -1313,16 +1309,36 @@ double QGIViewPart::getVertexSize() {
     return getLineWidth() * Preferences::vertexScale();
 }
 
+void QGIViewPart::updateFrameVisibility()
+{
+    QGIView::updateFrameVisibility();
+
+    bool showDecorations = shouldShowFrame();
+    
+    for (auto& child : childItems()) {
+        if (child->type() == UserType::QGIVertex) {
+            child->setVisible(showDecorations || child->isSelected());
+        }
+        if (child->type() == UserType::QGICMark) {
+            child->setVisible(showDecorations || child->isSelected() || !hideCenterMarks());
+        }
+    }
+}
 void QGIViewPart::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QGIView::hoverEnterEvent(event);
 
+    bool showDecorations = shouldShowFrame();
+
     for (auto& child : childItems()) {
-        if (child->type() == UserType::QGIVertex || child->type() == UserType::QGICMark) {
+        if (child->type() == UserType::QGIVertex) {
+            child->setVisible(showDecorations);
+            continue;
+        }
+        if (child->type() == UserType::QGICMark && !hideCenterMarks()) {
             child->show();
         }
     }
-
     update();
 }
 
@@ -1330,11 +1346,109 @@ void QGIViewPart::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QGIView::hoverLeaveEvent(event);
 
+    bool showDecorations = shouldShowFrame();
+
     for (auto& child : childItems()) {
-        if ((child->type() == UserType::QGIVertex || child->type() == UserType::QGICMark) &&
-            !child->isSelected()) {
-            child->hide();
+        if (child->type() == UserType::QGIVertex) {
+            if (child->isSelected()) continue;
+            child->setVisible(showDecorations);
+            continue;
+        }
+
+        if (child->type() == UserType::QGICMark) {
+            if (child->isSelected()) continue;
+            if (hideCenterMarks() || !showDecorations) {
+                child->hide();
+            }
         }
     }
     update();
 }
+
+bool QGIViewPart::isExporting() const
+{
+    // dvp already validated
+    auto viewPart {freecad_cast<TechDraw::DrawViewPart*>(getViewObject())};
+    auto vpPage = getViewProviderPage(viewPart);
+
+    QGSPage* scenePage = vpPage->getQGSPage();
+    if (!scenePage) {
+        return false;
+    }
+
+    return scenePage->getExportingAny();
+}
+
+// returns true if vertex dots should be shown
+// note this is only one of the "rules" around showing or hiding vertices.
+bool QGIViewPart::showVertices() const
+{
+    // dvp already validated
+    auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));
+    return !dvp->CoarseView.getValue();
+}
+
+
+// returns true if arc center marks should be shown
+bool QGIViewPart::showCenterMarks() const
+{
+    // dvp and vp already validated
+    auto dvp(static_cast<TechDraw::DrawViewPart*>(getViewObject()));
+    auto vp(static_cast<ViewProviderViewPart*>(getViewProvider(dvp)));
+
+    if (isExporting() && Preferences::printCenterMarks()) {
+        return true;
+    }
+
+    return vp->ArcCenterMarks.getValue();
+}
+
+//! true if center marks (type of vertex) should be hidden
+bool QGIViewPart::hideCenterMarks() const
+{
+    // printing
+    if (isExporting() &&
+        Preferences::printCenterMarks()) {
+        return false;
+    }
+
+    // on screen
+    if (showCenterMarks()) {
+        return false;
+    }
+
+    return true;
+}
+
+void QGIViewPart::setMovableFlag()
+{
+    auto* dvp(dynamic_cast<TechDraw::DrawViewPart*>(getViewObject()));
+    if (TechDraw::DrawView::isProjGroupItem(dvp)) {
+        setMovableFlagProjGroupItem();
+        return;
+    }
+    QGIView::setMovableFlag();
+}
+
+void QGIViewPart::setMovableFlagProjGroupItem()
+{
+    auto* dpgi(dynamic_cast<TechDraw::DrawProjGroupItem*>(getViewObject()));
+    if (!dpgi) {
+        return;
+    }
+
+    if (dpgi->isLocked()) {
+        setFlag(QGraphicsItem::ItemIsMovable, false);
+        return;
+    }
+
+    bool isAutoDist{dpgi->getPGroup()->AutoDistribute.getValue()};
+    if (isAutoDist) {
+        setFlag(QGraphicsItem::ItemIsMovable, false);
+        return;
+    }
+
+    // not locked, not autoDistribute
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+}
+

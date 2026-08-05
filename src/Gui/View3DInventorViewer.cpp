@@ -173,6 +173,13 @@ public:
 private:
     void triggerClarifySelection()
     {
+        // reset navigation state so button1down doesn't stay stuck ie. gh issue #29090
+        // (the blocking QMenu::exec in ClarifySelection steals the LMB release)
+        if (currentViewer) {
+            if (auto* nav = currentViewer->navigationStyle()) {
+                nav->resetButtonState();
+            }
+        }
         Gui::Command::runCommand(Gui::Command::Gui, "Gui.runCommand('Std_ClarifySelection')");
     }
 
@@ -547,6 +554,23 @@ void View3DInventorViewer::init()
     pcViewProviderRoot = selectionRoot;
     pcViewProviderRoot->addChild(threePointLightingSeparator);
     pcViewProviderRoot->addChild(environment);
+
+    // add a global hidden anchor object to ensure transparent objects work correctly
+    // in empty scenes - OpenInventor's two-pass transparency rendering requires at least
+    // one opaque object to properly initialize the depth buffer. so this fixes transparency
+    // issues for image planes, planes, and other transparent geometry.
+    // wrap in SoSkipBoundingGroup to exclude from bounding box calculations
+    // check #15192 #24003
+    auto hiddenAnchor = new SoSkipBoundingGroup();
+    hiddenAnchor->mode = SoSkipBoundingGroup::EXCLUDE_BBOX;
+    auto hiddenSep = new SoSeparator();
+    auto hiddenScale = new SoScale();
+    hiddenScale->scaleFactor = SbVec3f(0, 0, 0);
+    auto hiddenCube = new SoCube();
+    hiddenSep->addChild(hiddenScale);
+    hiddenSep->addChild(hiddenCube);
+    hiddenAnchor->addChild(hiddenSep);
+    pcViewProviderRoot->addChild(hiddenAnchor);
 
     // increase refcount before passing it to setScenegraph(), to avoid
     // premature destruction
@@ -982,6 +1006,11 @@ void View3DInventorViewer::setEditingTransform(const Base::Matrix4D& mat)
     // NOLINTEND
 }
 
+SoNode* View3DInventorViewer::getEditingRoot() const
+{
+    return pcEditingRoot;
+}
+
 void View3DInventorViewer::setupEditingRoot(SoNode* node, const Base::Matrix4D* mat)
 {
     if (!editViewProvider) {
@@ -1379,6 +1408,69 @@ void View3DInventorViewer::setGradientBackgroundColor(
 void View3DInventorViewer::setEnabledFPSCounter(bool on)
 {
     fpsEnabled = on;
+    if (on) {
+        if (!fpsCounter) {
+            fpsCounter = new QLabel(this);
+            fpsCounter->setAttribute(Qt::WA_TransparentForMouseEvents);
+        }
+        if (!fpsUpdateTimer) {
+            fpsUpdateTimer = new QTimer(this);
+            fpsUpdateTimer->setInterval(250);  // 4 Hz
+            connect(fpsUpdateTimer, &QTimer::timeout, this, &View3DInventorViewer::updateFPSLabel);
+        }
+        fpsCounter->show();
+        fpsUpdateTimer->start();
+    }
+    else {
+        if (fpsUpdateTimer) {
+            fpsUpdateTimer->stop();
+        }
+        if (fpsCounter) {
+            fpsCounter->hide();
+        }
+    }
+}
+
+void View3DInventorViewer::updateFPSLabel()
+{
+    if (!fpsEnabled || !fpsCounter) {
+        return;
+    }
+
+    fpsCounter->setText(
+        QString::fromStdString(
+            fmt::format("{:.1f} ms / {:.1f} fps", framesPerSecond[0], framesPerSecond[1])
+        )
+    );
+
+    // update color from user preference (only when it changes)
+    ParameterGrp::handle hGrpView = App::GetApplication().GetParameterGroupByPath(
+        "User parameter:BaseApp/Preferences/View"
+    );
+
+    unsigned long axisLetterColor = hGrpView->GetUnsigned("AxisLetterColor", 4294902015);  // default
+                                                                                           // yellow
+
+    if (axisLetterColor != previousAxisLetterColor) {
+        previousAxisLetterColor = axisLetterColor;
+        Base::Color c(static_cast<uint32_t>(axisLetterColor));
+        fpsCounter->setStyleSheet(
+            QString::fromLatin1("color: rgb(%1,%2,%3); background: transparent;")
+                .arg(int(c.r * 255))
+                .arg(int(c.g * 255))
+                .arg(int(c.b * 255))
+        );
+    }
+
+    // size must be current before we use width()/height() for positioning
+    fpsCounter->adjustSize();
+
+    // position, bottom left, accounting for left-side overlay widgets
+    ParameterGrp::handle hGrpOverlayL = App::GetApplication().GetParameterGroupByPath(
+        "User parameter:BaseApp/MainWindow/DockWindows/OverlayLeft"
+    );
+    int xOffset = hGrpOverlayL->GetASCII("Widgets", "").empty() ? 10 : fpsCounter->width() + 20;
+    fpsCounter->move(xOffset, height() - fpsCounter->height() - 5);
 }
 
 void View3DInventorViewer::setEnabledVBO(bool on)
@@ -1530,15 +1622,6 @@ void View3DInventorViewer::showRotationCenter(bool show)
             rotationCenterGroup = new SoSkipBoundingGroup();
 
             auto sphere = new SoSphere();
-
-            // There needs to be a non-transparent object to ensure the transparent sphere works
-            // when opening an new empty document
-            auto hidden = new SoSeparator();
-            auto hiddenScale = new SoScale();
-            hiddenScale->scaleFactor = SbVec3f(0, 0, 0);
-            hidden->addChild(hiddenScale);
-            hidden->addChild(sphere);
-
             auto complexity = new SoComplexity();
             complexity->value = 1;
 
@@ -1561,7 +1644,6 @@ void View3DInventorViewer::showRotationCenter(bool show)
             scaledSphere->scaleFactor = size;
 
             rotationCenterGroup->addChild(translation);
-            rotationCenterGroup->addChild(hidden);
             rotationCenterGroup->addChild(scaledSphere);
 
             sep->addChild(rotationCenterGroup);
@@ -1776,6 +1858,8 @@ void View3DInventorViewer::savePicture(int width, int height, int sample, const 
     }
 
     root->addChild(getHeadlight());
+    root->addChild(getBacklight());
+    root->addChild(getFillLight());
     root->addChild(camera);
     auto gl = new SoCallback;
     gl->setCallback(setGLWidgetCB, this->getGLWidget());
@@ -2591,29 +2675,6 @@ void View3DInventorViewer::renderScene()
         for (auto it : this->graphicsItems) {
             it->paintGL();
         }
-    }
-
-    // fps rendering
-    if (fpsEnabled) {
-        std::stringstream stream;
-        stream.precision(1);
-        stream.setf(std::ios::fixed | std::ios::showpoint);
-        stream << framesPerSecond[0] << " ms / " << framesPerSecond[1] << " fps";
-        ParameterGrp::handle hGrpOverlayL = App::GetApplication().GetParameterGroupByPath(
-            "User parameter:BaseApp/MainWindow/DockWindows/OverlayLeft"
-        );
-        std::string overlayLeftWidgets = hGrpOverlayL->GetASCII("Widgets", "");
-        ParameterGrp::handle hGrpView = App::GetApplication().GetParameterGroupByPath(
-            "User parameter:BaseApp/Preferences/View"
-        );
-        unsigned long axisLetterColor
-            = hGrpView->GetUnsigned("AxisLetterColor", 4294902015);  // default FPS color (yellow)
-        draw2DString(
-            stream.str().c_str(),
-            SbVec2s(10, 10),
-            SbVec2f((overlayLeftWidgets.empty() ? 0.1f : 1.1f), 0.1f),
-            Base::Color(static_cast<uint32_t>(axisLetterColor))
-        );  // NOLINT
     }
 
     if (naviCubeEnabled) {
